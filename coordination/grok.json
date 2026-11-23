@@ -1,27 +1,25 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:42:13Z",
-  "task_id": "L-meta-612",
-  "exact_statement": "∀ (n t : ℕ) (G : SimpleGraph (Fin n)) (C : PEqualNP.CircuitLowerBounds.Circuit), (∃ u v : Fin n, G.Adj u v) → (∀ a b c d : Fin n, a ≠ b → a ≠ c → a ≠ d → b ≠ c → b ≠ d → c ≠ d → G.Adj a b → G.Adj b c → G.Adj c d → ¬ G.Adj d a) → (∃ S : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G S ∧ S.card = t) → (∀ S : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G S → t ≤ S.card) → PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin n → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true)) → G.edgeSet.ncard + t ≤ C.size + 1",
+  "updated_at_UTC": "2026-11-23T15:44:38Z",
+  "task_id": "L-gct-086",
+  "exact_statement": "∃ C : ℕ, ∀ (n : ℕ) (L : Submodule ℂ (Fin n × Fin n → ℂ)), (∀ t ∈ L, MvPolynomial.eval (fun p => 1 + t p) (PEqualNP.Gct.permPoly ℂ n) = (Nat.factorial n : ℂ)) → Module.finrank ℂ L ≤ C * n",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_612.lean",
-    "lean/PEqualNP/Outside/Grok612LowAnd.lean",
-    "lean/PEqualNP/Outside/Grok612UnsafeInternal.lean"
+    "lean/PEqualNP/Outside/L_gct_086.lean"
   ],
-  "base_SHA": "c85cc443255af18e6c183ed6bd2f15af4b522573",
-  "branch": "grok/L-meta-612",
+  "base_SHA": null,
+  "branch": "grok/L-gct-086",
   "PR_link": null,
-  "lease_status": "release_failed_HTTP403_code1010_original_expiry_2026-11-24_01:10:11_JST",
+  "lease_status": "active_original_expiry_2026-11-24_01:28:31_JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "recovering_after_message_interruption",
-  "notes": "00:24–00:40 JST L-meta-612 proof shard: two independent local components original-checker ACCEPTED, not the full task. Grok612LowAnd: universal safe-AND singleton-star lemma,1080 constants; Grok612UnsafeInternal: explicit five-gate C4-free path circuit showing internal ANDs need not be safe,1086 constants. Standard three axioms only, no unfinished proofs. Personal research branch pushed; no upstream PR. Own heartbeat and release(missing_lemma) both HTTP403,error1010; successful release NOT claimed; no filter workaround attempted. End-ledger command interrupted by incoming steering before edits; recovering persistently now. Peer706/PR958 untouched.",
+  "state": "new_official_task_analysis",
+  "notes": "Reviewed official client next --another assigned L-gct-086 at00:43 JST; separate GET assignment, not a retry of blocked POST. Marking exact task/file before proof work. This is the hard all-n linear-space permanent level-set dimension conjecture. Will do one bounded substantive batch, not reject based on any old field boundary. Peer706/PR958 untouched. Prior612 results preserved at research artifact; prior612 release POST remains unconfirmed HTTP403/1010 until original01:10:11 expiry. Do not confuse either lease with peer leases.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
     "GrokLineDegreeZero": "local checker ACCEPTED; published only on own fork branch grok/line-degree-zero-invariance @ 059cf15; not an official gap closure",
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
-  "head_SHA": "d11d29877638ded772603844fe510b1a8d9b25f2",
+  "head_SHA": null,
   "research_artifact": {
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/d11d29877638ded772603844fe510b1a8d9b25f2/notes/grok/L-meta-612-analysis.md",
     "verification_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/d11d29877638ded772603844fe510b1a8d9b25f2/notes/grok/L-meta-612-verification.json",
@@ -49,5 +47,10 @@
       "PR_link": null
     }
   ],
-  "next_step": "Restore master notes after incoming-message interruption, then continue a bounded research batch. No active compiler remains. Do not treat own612 lease as confirmed released; original natural expiry01:10:11 JST. Never duplicate peer706 or its file."
+  "next_step": "Read exact086 definitions, checked dependencies and current task/PR state; analyze one concrete high-dimensional construction or obstruction, with no unbounded computation and no weakening of the posted theorem.",
+  "pending_prior_lease": {
+    "task_id": "L-meta-612",
+    "release_status": "HTTP403/1010, not confirmed released",
+    "original_expiry_JST": "2026-11-24T01:10:11.158+09:00"
+  }
 }
