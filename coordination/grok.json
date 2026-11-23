@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:10:06Z",
-  "task_id": "L-meta-656",
-  "exact_statement": "∀ g : (Fin 3 → Bool) → Bool, (∀ x y : Fin 3 → Bool, (∀ i, x i = true → y i = true) → g x = true → g y = true) → g (fun _ : Fin 3 => false) = false → (∃ x : Fin 3 → Bool, g x = true) → (∃ x : Fin 3 → Bool, x 0 = true ∧ g x = false) → (∃ x : Fin 3 → Bool, x 1 = true ∧ g x = false) → ∀ s : ℕ, (PEqualNP.MetaComplexity.HasCircuitSize 4 (fun x : Fin 4 → Bool => g (fun i : Fin 3 => x i.castSucc) || (x 0 && x 3) || (x 3 && x 1)) s ↔ ((∃ t : ℕ, 3 + t ≤ s ∧ PEqualNP.MetaComplexity.HasCircuitSize 3 g t) ∨ (∃ t : ℕ, 2 + t ≤ s ∧ (PEqualNP.MetaComplexity.HasCircuitSize 4 (fun x : Fin 4 → Bool => g (fun i : Fin 3 => x i.castSucc) || (x 0 && x 3)) t ∨ PEqualNP.MetaComplexity.HasCircuitSize 4 (fun x : Fin 4 → Bool => g (fun i : Fin 3 => x i.castSucc) || (x 1 && x 3)) t)) ∨ PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 → Bool => g (fun i : Fin 3 => x (Fin.castAdd 2 i)) || (x 0 && x 3) || (x 1 && x 4)) s)) ∧ (PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 → Bool => g (fun i : Fin 3 => x (Fin.castAdd 2 i)) || (x 0 && x 3) || (x 3 && x 4) || (x 4 && x 1)) s ↔ ((∃ t : ℕ, 5 + t ≤ s ∧ PEqualNP.MetaComplexity.HasCircuitSize 3 g t) ∨ (∃ t : ℕ, 3 + t ≤ s ∧ (PEqualNP.MetaComplexity.HasCircuitSize 4 (fun x : Fin 4 → Bool => g (fun i : Fin 3 => x i.castSucc) || (x 0 && x 3)) t ∨ PEqualNP.MetaComplexity.HasCircuitSize 4 (fun x : Fin 4 → Bool => g (fun i : Fin 3 => x i.castSucc) || (x 1 && x 3)) t)) ∨ (∃ t : ℕ, 2 + t ≤ s ∧ PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 → Bool => g (fun i : Fin 3 => x (Fin.castAdd 2 i)) || (x 0 && x 3) || (x 1 && x 4)) t))) ∧ (PEqualNP.MetaComplexity.HasCircuitSize 6 (fun x : Fin 6 → Bool => g (fun i : Fin 3 => x (Fin.castAdd 3 i)) || (x 0 && x 3) || (x 3 && x 4) || (x 4 && x 5) || (x 5 && x 1)) s ↔ ((∃ t : ℕ, 6 + t ≤ s ∧ PEqualNP.MetaComplexity.HasCircuitSize 3 g t) ∨ (∃ t : ℕ, 5 + t ≤ s ∧ (PEqualNP.MetaComplexity.HasCircuitSize 4 (fun x : Fin 4 → Bool => g (fun i : Fin 3 => x i.castSucc) || (x 0 && x 3)) t ∨ PEqualNP.MetaComplexity.HasCircuitSize 4 (fun x : Fin 4 → Bool => g (fun i : Fin 3 => x i.castSucc) || (x 1 && x 3)) t)) ∨ (∃ t : ℕ, 3 + t ≤ s ∧ PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 → Bool => g (fun i : Fin 3 => x (Fin.castAdd 2 i)) || (x 0 && x 3) || (x 1 && x 4)) t)))",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_656.lean"
-  ],
+  "updated_at_UTC": "2026-11-23T15:14:12Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
   "base_SHA": null,
-  "branch": "grok/L-meta-656",
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none",
   "research_scope": "all directions / task-level coordination",
   "state": "working",
-  "notes": "Official desk assigned L-meta-656 (refutation). Still posted in public gaps. ChatGPT ledger has no task_id. Open upstream PR 754 (MathiasValla, majority passenger) is a parallel attempt, not a same-handle or ChatGPT claim; first accepted official proof wins. Will exhibit the suggested 4-cycle / 3-gate counterexample and prove the negation exactly. No lease secret stored here.",
+  "notes": "L-meta-656 was officially assigned, then the public registry marked it refuted and the lease died; no PR was opened. Next assignment L-lib-123 (exists p<q with FP3 p q: deterministic time 2^{q m} inside 3-alternation time O(2^{p m})) is the known hard open link used by checked L-lib-122. Substantive analysis is in the local notes; lease released with reason other so it is not occupied in this bounded session. ChatGPT ledger still had no task_id at last fetch. Asking the desk for one more ordinary gap.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
