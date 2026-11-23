@@ -1,26 +1,25 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:59:22Z",
-  "task_id": "L-gct-086",
-  "exact_statement": "∃ C : ℕ, ∀ (n : ℕ) (L : Submodule ℂ (Fin n × Fin n → ℂ)), (∀ t ∈ L, MvPolynomial.eval (fun p => 1 + t p) (PEqualNP.Gct.permPoly ℂ n) = (Nat.factorial n : ℂ)) → Module.finrank ℂ L ≤ C * n",
+  "updated_at_UTC": "2026-11-23T16:00:10Z",
+  "task_id": "L-meta-519",
+  "exact_statement": "∀ (n k s : ℕ) (G : SimpleGraph (Fin n)), (∀ v : Fin n, (G.neighborSet v).ncard ≤ 3) → (∀ (v : Fin n) (c : G.Walk v v), c.IsCycle → 7 ≤ c.length) → (∃ i j : Fin n, G.Adj i j) → (∀ T : Finset (Fin n), (∀ i j : Fin n, G.Adj i j → i ∈ T ∨ j ∈ T) → k ≤ T.card) → PEqualNP.MetaComplexity.HasCircuitSize n (fun x : Fin n → Bool => @decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true) (Classical.propDecidable _)) s → G.edgeSet.ncard + k ≤ s + 1",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_gct_086.lean",
-    "lean/PEqualNP/Outside/Grok086SquareZeroObstruction.lean"
+    "lean/PEqualNP/Outside/L_meta_519.lean"
   ],
-  "base_SHA": "d2128f2ccece9b4d2df0c1be0755d162db96599d",
-  "branch": "grok/L-gct-086",
+  "base_SHA": null,
+  "branch": "grok/L-meta-519",
   "PR_link": null,
-  "lease_status": "active_about_to_release_out_of_time_via_official_client",
+  "lease_status": "active_original_expiry_2026-11-24_01:44:54_JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "releasing_hard_all_n_conjecture_after_checked_obstruction",
-  "notes": "L-gct-086 is the hard all-n permanent level-space dimension conjecture. Bounded work produced a local original-checker ACCEPTED obstruction (Grok086SquareZeroObstruction, 1092 constants, standard 3 axioms): an explicit 6x6 skew doubly-centred square-zero T has perm(J+T)=4944≠720, so nilpotent enlargements need not stay on the level set. Two-row bound already checked as STwoRow.main/L101, not duplicated. Posted statement not proved or refuted; no upstream PR. Research commit a3ddbf7 on personal fork. Releasing own official lease out_of_time under the new short-batch rule, then requesting a smaller official task. Peer 523/706 untouched. Prior 612 release remains unconfirmed HTTP403/1010 until original 01:10:11 JST expiry.",
+  "state": "new_official_task_ triage",
+  "notes": "Official client confirmed release of L-gct-086 (out_of_time) and of the previously blocked L-meta-612 (missing_lemma). Desk then assigned L-meta-519 proof shard 2 (two adjacent degree-3 vertices) of the hard open AND/OR/NOT girth-7 cubic lower bound. Marking exact task/file immediately. Will quickly decide whether the shard is a short completable special case or another main-line bound requiring a new paying step; if the latter, record why and release rather than occupy the lease. Peer 523 already released; still avoid L-meta-706 / L_meta_706.lean.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
     "GrokLineDegreeZero": "local checker ACCEPTED; published only on own fork branch grok/line-degree-zero-invariance @ 059cf15; not an official gap closure",
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
-  "head_SHA": "a3ddbf764cbcfb92d84406660f23e7115c15ae75",
+  "head_SHA": null,
   "research_artifact": {
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/a3ddbf764cbcfb92d84406660f23e7115c15ae75/notes/grok/L-gct-086-analysis.md",
     "verification_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/a3ddbf764cbcfb92d84406660f23e7115c15ae75/notes/grok/L-gct-086-verification.json",
@@ -47,12 +46,14 @@
       "task_id": "L-meta-651",
       "outcome": "released_missing_lemma_after_substantive_proof_shard_analysis",
       "PR_link": null
+    },
+    {
+      "task_id": "L-gct-086",
+      "outcome": "hard all-n conjecture; local square-zero obstruction original-checker ACCEPTED 1092 constants; official client released out_of_time; no upstream PR",
+      "PR_link": null,
+      "research_commit": "a3ddbf764cbcfb92d84406660f23e7115c15ae75"
     }
   ],
-  "next_step": "Release L-gct-086 via official client with out_of_time, then claim a smaller official task. Avoid peer L-meta-523 and L-meta-706.",
-  "pending_prior_lease": {
-    "task_id": "L-meta-612",
-    "release_status": "HTTP403/1010, not confirmed released",
-    "original_expiry_JST": "2026-11-24T01:10:11.158+09:00"
-  }
+  "next_step": "Triage 519 against the short-batch rule. Do not redo 612/086. Avoid peer 706.",
+  "pending_prior_lease": null
 }
