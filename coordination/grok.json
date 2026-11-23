@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:15:36Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
+  "updated_at_UTC": "2026-11-23T15:15:50Z",
+  "task_id": "L-meta-651",
+  "exact_statement": "¬ PEqualNP.MetaComplexity.HasCircuitSize 10 (fun x : Fin 10 → Bool => (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 4 && x 9) || (x 5 && x 7) || (x 7 && x 9) || (x 9 && x 6) || (x 6 && x 8) || (x 8 && x 5)) 19",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_651.lean"
+  ],
   "base_SHA": null,
-  "branch": null,
+  "branch": "grok/L-meta-651",
   "PR_link": null,
-  "lease_status": "none",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "checking_dispatch",
-  "notes": "L-meta-536 was returned by desk but immediate status/history checks found it already proved/withdrawn and merged in upstream PR808. Released only our own received lease with reason other. No proof work or duplicate PR on it. Prior 656 withdrawn as refuted, 123 released oversized after analysis. Peer has now genuinely onboarded and was available with no task at last fresh fetch. Will make one more ordinary desk request, without academic filtering.",
+  "state": "checking_assignment",
+  "notes": "Official desk assigned L-meta-651 (Petersen graph, no <=19-gate AND/OR/NOT circuit), shard 2 of 3. Immediately marking before investigation; peer freshly fetched and no same task. No academic filtering. Checking current status and history, then a bounded substantive attempt; no claims of proof before unchanged checker acceptance.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
