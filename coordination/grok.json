@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:38:49Z",
+  "updated_at_UTC": "2026-11-23T15:42:13Z",
   "task_id": "L-meta-612",
   "exact_statement": "∀ (n t : ℕ) (G : SimpleGraph (Fin n)) (C : PEqualNP.CircuitLowerBounds.Circuit), (∃ u v : Fin n, G.Adj u v) → (∀ a b c d : Fin n, a ≠ b → a ≠ c → a ≠ d → b ≠ c → b ≠ d → c ≠ d → G.Adj a b → G.Adj b c → G.Adj c d → ¬ G.Adj d a) → (∃ S : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G S ∧ S.card = t) → (∀ S : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G S → t ≤ S.card) → PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin n → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true)) → G.edgeSet.ncard + t ≤ C.size + 1",
   "file_paths": [
@@ -11,35 +11,21 @@
   "base_SHA": "c85cc443255af18e6c183ed6bd2f15af4b522573",
   "branch": "grok/L-meta-612",
   "PR_link": null,
-  "lease_status": "original_lease_unexpired_renewal_failed_http_403",
+  "lease_status": "release_failed_HTTP403_code1010_original_expiry_2026-11-24_01:10:11_JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "checking_second_local_component",
-  "notes": "L-meta-612 proof shard 0: universal safe-AND singleton-support star lemma received original checker ACCEPTED, standard three axioms only. Checking a 5-gate C4-free path witness showing an internal AND need not be safe even when the full circuit computes the graph edge function. Neither component is the full task, so no upstream PR. Documented own heartbeat POST returned HTTP 403; no successful renewal claimed, original public expiry 2026-11-24 01:10:11 JST. Will attempt normal documented release when this bounded batch ends.",
+  "state": "recovering_after_message_interruption",
+  "notes": "00:24–00:40 JST L-meta-612 proof shard: two independent local components original-checker ACCEPTED, not the full task. Grok612LowAnd: universal safe-AND singleton-star lemma,1080 constants; Grok612UnsafeInternal: explicit five-gate C4-free path circuit showing internal ANDs need not be safe,1086 constants. Standard three axioms only, no unfinished proofs. Personal research branch pushed; no upstream PR. Own heartbeat and release(missing_lemma) both HTTP403,error1010; successful release NOT claimed; no filter workaround attempted. End-ledger command interrupted by incoming steering before edits; recovering persistently now. Peer706/PR958 untouched.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
     "GrokLineDegreeZero": "local checker ACCEPTED; published only on own fork branch grok/line-degree-zero-invariance @ 059cf15; not an official gap closure",
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
-  "head_SHA": null,
+  "head_SHA": "d11d29877638ded772603844fe510b1a8d9b25f2",
   "research_artifact": {
-    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/431cc39d3434a0a0678f901dfadb72fd139c121c/notes/grok/L-meta-651-analysis.md",
-    "kind": "computational proof-template analysis, NOT a Lean proof",
-    "task": "L-meta-651",
-    "shard": 2,
-    "facts": {
-      "vertices": 10,
-      "edges": 15,
-      "minimum_vertex_cover": 6,
-      "independence_number": 4,
-      "automorphisms": 120,
-      "restriction_states": 4678,
-      "restriction_identities_checked": 49840,
-      "upper_20_gate_circuit_inputs_checked": 1024,
-      "one_gate_elimination_plus_forest_support_template_bound": 11,
-      "target_lower_bound": 20
-    },
-    "exact_missing_ingredient": "A stronger multi-gate charging/elimination rule or certified lower bounds for nonforest restrictions; symmetry plus the existing one-gate/forest/support recurrence alone reaches only 11. NOT gates must also be covered."
+    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/d11d29877638ded772603844fe510b1a8d9b25f2/notes/grok/L-meta-612-analysis.md",
+    "verification_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/d11d29877638ded772603844fe510b1a8d9b25f2/notes/grok/L-meta-612-verification.json",
+    "kind": "two original-checker-accepted local components; exact posted task NOT solved"
   },
   "task_history": [
     {
@@ -63,5 +49,5 @@
       "PR_link": null
     }
   ],
-  "next_step": "Finish exact checks, preserve the checked components and the precise missing global lossless charging/normalization step, then release own task with missing_lemma. No claim on peer tasks."
+  "next_step": "Restore master notes after incoming-message interruption, then continue a bounded research batch. No active compiler remains. Do not treat own612 lease as confirmed released; original natural expiry01:10:11 JST. Never duplicate peer706 or its file."
 }
