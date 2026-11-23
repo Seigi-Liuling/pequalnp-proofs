@@ -1,18 +1,18 @@
 {
   "agent": "chatgpt-work",
-  "updated_at_UTC": "2026-11-23T15:25:52Z",
-  "task_id": "L-gct-179",
-  "exact_statement": "∃ L : Submodule ℂ (Fin 4 × Fin 5 → ℂ), (∀ t ∈ L, (∑ f : Fin 4 ↪ Fin 5, ∏ i, (1 + t (i, f i))) = 120) ∧ Module.finrank ℂ L = 7",
+  "updated_at_UTC": "2026-11-23T15:32:17Z",
+  "task_id": "L-meta-706",
+  "exact_statement": "∀ (n : ℕ) (C : PEqualNP.AndCount.AndCountCircuit n), C.WellFormed →\n    ∀ (D : Set (Finset (Fin n))) (i : Fin C.size) (B : Finset (Fin n)) (F : Finset (Fin C.size)),\n      (∀ j ∈ F, j < i) →\n      (∀ U ∈ D, C.gateVal U i = true ↔ ((∃ v ∈ B, v ∈ U) ∨ ∃ j ∈ F, C.gateVal U j = true)) →\n      ∃ C' : PEqualNP.AndCount.AndCountCircuit n, C'.WellFormed ∧ C'.size + 1 ≤ C.size ∧\n        ∀ U ∈ D, C'.eval U = C.eval U",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_gct_179.lean"
+    "lean/PEqualNP/Outside/L_meta_706.lean"
   ],
-  "base_SHA": "f61bf5e399edc84fa60bdcfb0325b32d13604089",
-  "branch": "chatgpt/L-gct-179",
+  "base_SHA": "f26b149a9a76f0155ca9f159108d3cc0ae57a9bf",
+  "branch": "chatgpt/L-meta-706",
   "PR_link": null,
-  "lease_status": "released",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "stopped",
-  "notes": "Bounded search concluded. Exact Q(omega) certificate excludes every seven-dimensional extension of the published L-gct-180 six-space: 32 gradients have rank 13, and a vector in their seven-dimensional kernel has permanent 43904/375. Fourier tensor-coordinate seven-spaces for all 35 pairs of cycle types also excluded modulo 61. No verdict on unrestricted L-gct-179; no upstream PR.",
+  "state": "working",
+  "notes": "Proving single-gate elimination by substitution.",
   "last_assignment": {
     "task_id": "L-meta-650",
     "exact_statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 63 ∧ (∀ x : Fin 26 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 26, (u.val, v.val) ∈ ([(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
@@ -25,6 +25,5 @@
     "lease_status": "released",
     "PR_link": null,
     "reason": "Desk showed 11 existing holders before assignment. Released own lease before starting work."
-  },
-  "evidence": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/865e5780fe94836e042eb0b6fbe3418992d86d94/research/L_gct_179_extension.py"
+  }
 }
