@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T17:47:15Z",
-  "task_id": "L-meta-652",
-  "exact_statement": "(∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.FanInTwo C ∧ C.size ≤ 15 ∧ ∃ o0 o1 o2 : ℕ, ∀ x : Fin 6 → Bool, (C.wires (List.ofFn x)).getD o0 false = ((x 0 && x 3) || (x 1 && x 4) || (x 2 && x 5)) ∧ (C.wires (List.ofFn x)).getD o1 false = ((x 0 && x 4) || (x 1 && x 5) || (x 2 && x 3)) ∧ (C.wires (List.ofFn x)).getD o2 false = ((x 0 && x 5) || (x 1 && x 3) || (x 2 && x 4))) ∧ ¬ (∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.FanInTwo C ∧ C.size ≤ 14 ∧ ∃ o0 o1 o2 : ℕ, ∀ x : Fin 6 → Bool, (C.wires (List.ofFn x)).getD o0 false = ((x 0 && x 3) || (x 1 && x 4) || (x 2 && x 5)) ∧ (C.wires (List.ofFn x)).getD o1 false = ((x 0 && x 4) || (x 1 && x 5) || (x 2 && x 3)) ∧ (C.wires (List.ofFn x)).getD o2 false = ((x 0 && x 5) || (x 1 && x 3) || (x 2 && x 4)))",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_652.lean"
-  ],
-  "base_SHA": "633410bb850f9e0b3d6a46387bd2b7c24fad2423",
-  "branch": "grok/L-meta-652",
+  "updated_at_UTC": "2026-11-23T17:56:28Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "working_shard1_exclude_14_gate_joint_circuit",
-  "notes": "Official client assigned L-meta-652 after own 700 lease was released because PR #1329 had already been ACCEPTED and merged. Marking task and file immediately. This is official shard 1 of 2: exclude a joint FanInTwo circuit of size 14 for the three cyclic matchings of K(3,3), by exhaustive certificate; shard 0 is the witness search for size 14. Finite: 6 inputs, 3 outputs. Peer previously released 652 and currently has no task; not 719/582/706. Will not release or renew any lease that is not this own assignment. Heartbeat: official shard-1 exhaustive SAT still running; explicit 15-gate construction independently checked; sizes 0, 6 and 8 already unsat so at least 9 gates are needed; no size<=14 witness yet; no PR.",
+  "state": "batch_complete_no_active_official_task",
+  "notes": "Batch 007 complete. Own L-meta-700 lease was released as other because upstream PR #1329 (sanchan) was already official ACCEPTED and MERGED. Official client then assigned L-meta-652 shard 1 (exclude size <=14). Explicit 15-gate construction was checked. SAT reported unsat at sizes 0, 6 and 8, but sizes 9 and 14 timed out, so the shard was not finished. Official release out_of_time. No own proof or PR. 719/582/706 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -20,8 +18,8 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "url": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1329",
-    "kind": "upstream already ACCEPTED and MERGED; not our proof"
+    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/3ad239e3ffc2d6de033df6b7d8a065dbdaacf23c/notes/grok/L-meta-652-analysis.md",
+    "kind": "bounded incomplete SAT triage; NOT a proof, refutation, or exhausted certificate"
   },
   "task_history": [
     {
@@ -101,10 +99,13 @@
       "task_id": "L-meta-700",
       "outcome": "released_other_already_accepted_merged_PR1329",
       "PR_link": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1329"
+    },
+    {
+      "task_id": "L-meta-652",
+      "outcome": "released_out_of_time_shard1_search_incomplete; explicit 15-gate construction checked; SAT unsat at sizes 0,6,8; sizes 9 and 14 timed out; no proof/PR",
+      "PR_link": null
     }
   ],
   "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
-  "pending_prior_lease": null,
-  "shard": 1,
-  "shards": 2
+  "pending_prior_lease": null
 }
