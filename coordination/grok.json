@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:17:57Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
+  "updated_at_UTC": "2026-11-23T16:18:34Z",
+  "task_id": "L-meta-283",
+  "exact_statement": "∀ C : PEqualNP.CircuitLowerBounds.Circuit, C = ({ gates := [⟨PEqualNP.CircuitLowerBounds.GateOp.or, [0, 1]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [6, 2]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [3, 5]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.and, [7, 8]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [6, 3]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [10, 9]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [2, 4]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [12, 9]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.and, [11, 13]⟩], output := 14 } : PEqualNP.CircuitLowerBounds.Circuit) → (PEqualNP.MetaComplexity.Monotone2 C ∧ (∃ A : Finset ℕ, A.card ≤ 2 ∧ ∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.and → j ∈ A)) ∧ (∀ x : Fin 6 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 6, (u.val, v.val) ∈ ([(0, 2), (0, 3), (0, 4), (0, 5), (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 5), (3, 4)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_283.lean"
+  ],
   "base_SHA": null,
   "branch": null,
   "PR_link": null,
-  "lease_status": "none",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "requesting_one_more_official_step",
-  "notes": "Own official L-lib-123 lease was marked then released other, confirmed by official client ({released: L-lib-123, reason: other}). Same hard open FP3 exponent-saving link previously analyzed today; no new analysis and no PR. 719/706 untouched. Peer was available/none at last fetch. Requesting one more official next; if empty or again unsuitable, end the batch with no active lease rather than cycling the desk.",
+  "state": "working",
+  "notes": "Official desk assigned L-meta-283 after releasing hard open L-lib-123. Marking the exact task and file immediately. No lease token stored. Finite explicit 9-gate monotone circuit (2 ANDs) for a 6-vertex edge function; desk sketch is evaluate-all-inputs plus gate count. Original lease expiry 2026-11-24 02:03:09 JST. 719/706/L_meta_719.lean untouched. Peer was available/none at last fetch. Will formalize and open an upstream PR only if the original project checker ACCEPTED the exact posted statement.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -81,6 +83,6 @@
       "PR_link": null
     }
   ],
-  "next_step": "One official next. If the task is 719/706 or already held by this handle/peer, do not release; use another=1 only. If empty or again unsuitable after a short honest triage, stop rather than cycling the desk.",
+  "next_step": "Resume existing T-1 research batch on L-meta-283: prove the exact posted statement in L_meta_283.lean, renew the official lease about every 10 minutes, submit only after original checker ACCEPTED. Do not touch 719/706 or non-owned leases.",
   "pending_prior_lease": null
 }
