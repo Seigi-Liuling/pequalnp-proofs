@@ -1,0 +1,34 @@
+{
+  "task": "L-meta-612",
+  "batch_result": "local components checked; posted task NOT solved; NO upstream PR",
+  "base_commit": "c85cc443255af18e6c183ed6bd2f15af4b522573",
+  "checked_at_JST": "2026-11-24T00:39:39.323384+09:00",
+  "components": [
+    {
+      "module": "PEqualNP.Outside.Grok612LowAnd",
+      "statement_file": "notes/grok/L-meta-612-low-and.statement.txt",
+      "source_sha256": "9fb6fe79f0d78b45cf9bd7472739e361f719af7cbb4bf2fb5a2835db814046d3",
+      "statement_sha256": "4c85a490dd3fe5a0c63d4e4c2cad90fa5d5c392424c3b795dd5031dec9b4a8bb",
+      "verdict": "ACCEPTED (check)",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ],
+      "kernel_constants": 1080
+    },
+    {
+      "module": "PEqualNP.Outside.Grok612UnsafeInternal",
+      "statement_file": "notes/grok/L-meta-612-unsafe-internal.statement.txt",
+      "source_sha256": "e83b4e8dacf0171ee1b88ca9578492bdde5e61b3e88fb3ab0e49c846cb1b822c",
+      "statement_sha256": "854b4d76327fda1eb2db1905bf10213663e209cbb901525cdb3669aaba929fc6",
+      "verdict": "ACCEPTED (check)",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ],
+      "kernel_constants": 1086
+    }
+  ]
+}

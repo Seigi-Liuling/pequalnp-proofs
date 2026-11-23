@@ -1,0 +1,10 @@
+∃ (G : SimpleGraph (Fin 4)) (C : PEqualNP.CircuitLowerBounds.Circuit),
+    (∀ u v w z : Fin 4, u ≠ v → u ≠ w → u ≠ z →
+      v ≠ w → v ≠ z → w ≠ z →
+      G.Adj u v → G.Adj v w → G.Adj w z → ¬ G.Adj z u) ∧
+    PEqualNP.MetaComplexity.Monotone2 C ∧ C.size = 5 ∧
+    (∀ x : Fin 4 → Bool, C.eval (List.ofFn x) = true ↔
+      ∃ u v : Fin 4, G.Adj u v ∧ x u = true ∧ x v = true) ∧
+    C.gates[2]? = some ⟨PEqualNP.CircuitLowerBounds.GateOp.and, [4, 5]⟩ ∧
+    ∃ x : Fin 4 → Bool, (C.wires (List.ofFn x)).getD 6 false = true ∧
+      ¬ ∃ u v : Fin 4, G.Adj u v ∧ x u = true ∧ x v = true

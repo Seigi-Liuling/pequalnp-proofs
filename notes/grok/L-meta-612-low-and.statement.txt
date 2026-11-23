@@ -1,0 +1,13 @@
+∀ (n : ℕ) (G : SimpleGraph (Fin n))
+      (a b : (Fin n → Bool) → Bool),
+    (∀ u v w z : Fin n, u ≠ v → u ≠ w → u ≠ z →
+      v ≠ w → v ≠ z → w ≠ z →
+      G.Adj u v → G.Adj v w → G.Adj w z → ¬ G.Adj z u) →
+    (∀ x y : Fin n → Bool, (∀ i, x i = true → y i = true) →
+      a x = true → a y = true) →
+    (∀ x y : Fin n → Bool, (∀ i, x i = true → y i = true) →
+      b x = true → b y = true) →
+    (∀ x : Fin n → Bool, a x = true → b x = true →
+      ∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true) →
+    (Finset.univ.filter (fun u : Fin n => a (fun i => decide (i = u)) = true)).card ≤ 1 ∨
+    (Finset.univ.filter (fun u : Fin n => b (fun i => decide (i = u)) = true)).card ≤ 1
