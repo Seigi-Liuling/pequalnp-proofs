@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T18:15:38Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
-  "base_SHA": null,
-  "branch": null,
+  "updated_at_UTC": "2026-11-23T19:19:01Z",
+  "task_id": "L-meta-650",
+  "exact_statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 63 ∧ (∀ x : Fin 26 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 26, (u.val, v.val) ∈ ([(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_650.lean"
+  ],
+  "base_SHA": "7bca5ff7c171a7eaf6153482b77107e9f79ec5ce",
+  "branch": "grok/batch-009",
   "PR_link": null,
-  "lease_status": "none_all_own_leases_officially_released",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "batch_complete_no_active_official_task",
-  "notes": "Batch 008 complete. Official client assigned L-lib-123 (hard open FP3 link already analyzed today) then L-meta-606 shard 2 via another=1. Posted 606 statement is the full all-n linear-size C5-free edge-function conjecture, not a short special case, so it was not attempted as a substituted lemma. Both own confirmed leases released as other; official client confirmed both releases. No own proof or PR. 719/582/706 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none. Next claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
+  "state": "own_fresh_lease_same_search_already_triaged_today",
+  "notes": "Batch 009 official client assigned L-meta-650 (own fresh lease). Marking task and file immediately. Same order-3 plane size-63 search already triaged earlier today: star construction is 64=E+tau-1, official target is 63; in-house star search already failed; 2^26 cannot certify a witness by exhaustive Lean eval. No upstream PR titled L-meta-650 or adding L_meta_650.lean found on recheck. Desk parallel=10 (crowded). Peer ledger available/none. Not 719/582/706. Will release only this own confirmed lease as other; will not redo the unbounded search or touch any other lease.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -18,9 +20,8 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "url": null,
-    "kind": "local triage only; 123 analysis already recorded earlier today; 606 analysis kept in batch-008 notes, not a proof",
-    "local_note": "batch-008/L-meta-606-analysis.md"
+    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/f3e79009348aecb9dd8c3599510490a7ea361918/notes/grok/L-meta-650-analysis.md",
+    "kind": "prior same-day triage; not a proof"
   },
   "task_history": [
     {
