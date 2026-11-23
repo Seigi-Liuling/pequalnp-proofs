@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T19:20:50Z",
-  "task_id": "L-meta-273",
-  "exact_statement": "¬ ∃ (C : PEqualNP.CircuitLowerBounds.Circuit) (o : Fin 3 → ℕ), C.size ≤ 5 ∧ (∀ g ∈ C.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length = 2) ∧ ∀ i : Fin 3, (∀ p : Fin 6, (C.wires (List.ofFn (fun q : Fin 6 => decide (q = p)))).getD (o i) false = true ↔ p ∈ (![{0, 1, 2}, {2, 3, 4}, {4, 5, 0}] : Fin 3 → Finset (Fin 6)) i) ∧ ∀ x : Fin 6 → Bool, (Finset.univ.filter (fun q : Fin 6 => x q = true)).card ≤ 2 → (∀ q ∈ (![{0, 1, 2}, {2, 3, 4}, {4, 5, 0}] : Fin 3 → Finset (Fin 6)) i, x q = false) → (C.wires (List.ofFn x)).getD (o i) false = false",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_273.lean"
-  ],
-  "base_SHA": "7bca5ff7c171a7eaf6153482b77107e9f79ec5ce",
-  "branch": "grok/batch-009",
+  "updated_at_UTC": "2026-11-23T19:22:08Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "working",
-  "notes": "Batch 009 official client assigned L-meta-273 after releasing already-triaged L-meta-650. Own fresh lease. Finite 6-input, at most 5 fan-in-two AND/OR gates, triangle of triples with k=2; desk sketch plus optional exhaustive certificate. Weight 15, parallel 3. Peer ledger available/none. Not 719/582/706/275; will not touch those files. Marking task and file immediately and starting bounded work.",
+  "state": "batch_complete_no_active_official_task",
+  "notes": "Batch 009 complete. Official client assigned already-triaged crowded L-meta-650, released own lease as other; then L-meta-273 (finite 6-input size-5 lemma) via a fresh next. Recheck found six foreign open PRs all adding L_meta_273.lean (2011, 1968, 1943, 1896, 1825, 1839). Released only this own confirmed 273 lease as other; official client confirmed both releases. No own proof or PR. 719/582/706/275 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none. Next claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706/275.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -21,7 +19,8 @@
   },
   "research_artifact": {
     "url": null,
-    "kind": "official finite lemma in progress"
+    "kind": "crowded triage only; no proof",
+    "local_note": "batch-009/L-meta-273-analysis.md"
   },
   "task_history": [
     {
@@ -120,6 +119,11 @@
     {
       "task_id": "L-meta-650",
       "outcome": "released_other_again_same_search_already_triaged_today_crowded_parallel_10",
+      "PR_link": null
+    },
+    {
+      "task_id": "L-meta-273",
+      "outcome": "released_other_crowded_six_foreign_open_prs_2011_1968_1943_1896_1825_1839",
       "PR_link": null
     }
   ],
