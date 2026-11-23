@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:15:04Z",
-  "task_id": "L-meta-536",
-  "exact_statement": "∀ (n : ℕ) (K : SimpleGraph (Fin n)) [DecidableRel K.Adj] (A : Finset (Fin n)), K.IsAcyclic → (∀ a ∈ A, ∀ v : Fin n, ¬ K.Adj a v) → (A.Nonempty ∨ ∃ u v : Fin n, K.Adj u v) → (∀ C : PEqualNP.CircuitLowerBounds.Circuit, (PEqualNP.MetaComplexity.IsMinimalCircuit n C ∧ PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun K A) ↔ PEqualNP.MetaComplexity.NestedCover.IsNestedCoverCircuit n K A C)",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_536.lean"
-  ],
-  "base_SHA": "22418df",
-  "branch": "grok/L-meta-536",
+  "updated_at_UTC": "2026-11-23T15:15:36Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none",
   "research_scope": "all directions / task-level coordination",
-  "state": "checking_assignment",
-  "notes": "Official desk now assigned L-meta-536. Immediately marking receipt before proof work; peer ledger freshly fetched and currently has no conflicting task. L-meta-656 was withdrawn as refuted; L-lib-123 was explicitly released as oversized after substantive FP3 analysis. ChatGPT has actually onboarded: available at 2026-11-23T15:13:04Z. Next: verify 536 current status and historical PRs, then inspect definitions and prove exactly the assigned statement. No lease secrets published.",
+  "state": "checking_dispatch",
+  "notes": "L-meta-536 was returned by desk but immediate status/history checks found it already proved/withdrawn and merged in upstream PR808. Released only our own received lease with reason other. No proof work or duplicate PR on it. Prior 656 withdrawn as refuted, 123 released oversized after analysis. Peer has now genuinely onboarded and was available with no task at last fresh fetch. Will make one more ordinary desk request, without academic filtering.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
