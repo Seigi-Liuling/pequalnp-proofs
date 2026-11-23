@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T22:12:02Z",
-  "task_id": "L-meta-1393",
-  "exact_statement": "∀ (N Jn : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (Ckt : PEqualNP.CircuitLowerBounds.Circuit) (fa fb : Fin Jn → ℕ) (fr : ℕ), (∀ p p' l l' : Fin N, p ≠ p' → l ≠ l' → ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l')) → PEqualNP.MetaComplexity.Monotone2 Ckt → (∀ jd : Fin Jn, (Ckt.lineDegrees (N + N) (Finset.Ico N (N + N))).getD (fa jd) 0 ≤ 2 ∧ (Ckt.lineDegrees (N + N) (Finset.Ico N (N + N))).getD (fb jd) 0 ≤ 2) → (∀ (jb : Fin Jn) (zz : Fin (N + N) → Bool), (Ckt.wires (List.ofFn zz)).getD (fa jb) false = true → (Ckt.wires (List.ofFn zz)).getD (fb jb) false = true → ∃ (pa lb : Fin N), I pa lb ∧ zz (Fin.castAdd N pa) = true ∧ zz (Fin.natAdd N lb) = true) → (Finset.univ.filter (fun e2 : Fin N × Fin N => I e2.1 e2.2 ∧ (Ckt.wires (List.ofFn (fun vq : Fin (N + N) => if vq = Fin.castAdd N e2.1 then true else if vq = Fin.natAdd N e2.2 then true else false))).getD fr false = false ∧ (∃ jc : Fin Jn, (Ckt.wires (List.ofFn (fun vq : Fin (N + N) => if vq = Fin.castAdd N e2.1 then true else if vq = Fin.natAdd N e2.2 then true else false))).getD (fa jc) false = true ∧ (Ckt.wires (List.ofFn (fun vq : Fin (N + N) => if vq = Fin.castAdd N e2.1 then true else if vq = Fin.natAdd N e2.2 then true else false))).getD (fb jc) false = true) ∧ ∀ jk : Fin Jn, (Ckt.wires (List.ofFn (fun vq : Fin (N + N) => if vq = Fin.castAdd N e2.1 then true else if vq = Fin.natAdd N e2.2 then true else false))).getD (fa jk) false = true → (Ckt.wires (List.ofFn (fun vq : Fin (N + N) => if vq = Fin.castAdd N e2.1 then true else if vq = Fin.natAdd N e2.2 then true else false))).getD (fb jk) false = true → (Ckt.wires (List.ofFn (fun vp : Fin (N + N) => decide (vp = Fin.castAdd N e2.1)))).getD (fa jk) false = false ∧ (Ckt.wires (List.ofFn (fun vp : Fin (N + N) => decide (vp = Fin.castAdd N e2.1)))).getD (fb jk) false = false)).card ≤ 400 * (Ckt.size + Jn) + 16 * N",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_1393.lean"
-  ],
-  "base_SHA": "4f12265",
-  "branch": "grok/batch-012",
+  "updated_at_UTC": "2026-11-23T22:14:15Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "working",
-  "notes": "Batch 012: official client assigned L-meta-1393 (diagonal count at line-degree 4; pairs that every firing product of two degree-2 factors needs its own line, bound 400*(size+J)+16N). Marking task and file immediately. Not 719/582/706/275. Official unlocks say DIAG-4, size open, hours; weight 90, parallel 8. Peer ledger last written 2026-11-23T16:05:41Z with state available and no current task; stale, not a live handshake. Bounded triage then work only if short-term completable; otherwise record analysis and release only this own confirmed lease. Will formalize and PR only an original-checker ACCEPTED exact proof.",
+  "state": "batch_complete_no_active_official_task",
+  "notes": "Batch 012 complete. Official client assigned L-meta-1393 (diagonal count at line-degree 4: two-factor degree-2 x degree-2 firing products that need their own line, bound 400*(size+Jn)+16N). No upstream PR for this lemma (search hit only closed PR 1393, which is L-meta-805). Weight 90, parallel 8. Checked L-meta-1382 is the single-factor degree-2 count 48*(size+Jn)+2N; official 'contains LD3 by padding' means 1393 generalizes it, not that 1382 pads forward into 1393. Checked L-meta-1384 assumes a 1393-style bound and only weakens degree-2 x degree-1 with doubled cA. Closing the step needs a new product-counting argument; desk marks size open and hours-scale; not short-term completable in this batch. Released only this own confirmed 1393 lease as missing_lemma; official client confirmed the release. No own proof or PR. 719/582/706/275 and their files were not claimed, renewed, released, or modified. Peer ledger last updated 2026-11-23T16:05:41Z, state available, no current task; stale, not a live handshake. Next claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706/275.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -21,8 +19,8 @@
   },
   "research_artifact": {
     "url": null,
-    "kind": null,
-    "local_note": null
+    "kind": "analysis only; no proof",
+    "local_note": "batch-012/L-meta-1393-analysis.md"
   },
   "task_history": [
     {
@@ -138,8 +136,13 @@
       "task_id": "L-meta-1024",
       "outcome": "released_missing_lemma_band_separators_of_1022_and_low_weight_667_do_not_apply; need_band_specific_charging_or_verified_38_gate_search",
       "PR_link": null
+    },
+    {
+      "task_id": "L-meta-1393",
+      "outcome": "released_missing_lemma_two_factor_DIAG-4_bound_not_a_short_padding_of_checked_L-meta-1382; L-meta-1384 assumes a 1393-style bound; official size open hours; parallel 8",
+      "PR_link": null
     }
   ],
-  "next_step": "Triage upstream PRs, occupancy, and whether the all-N DIAG-4 bound is short-term completable.",
+  "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
   "pending_prior_lease": null
 }
