@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T17:20:53Z",
-  "task_id": "L-meta-700",
-  "exact_statement": "∀ (C : PEqualNP.CircuitLowerBounds.Circuit) (A B D : Finset ℕ), PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 5 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 5, (u.val, v.val) ∈ ([(0, 1), (0, 2), (1, 2), (0, 3), (0, 4), (3, 4)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) → (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.and → j ∈ A) → (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.or → (∃ u v : Fin 5, u ≠ v ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = u)))).getD (5 + j) false = true ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = v)))).getD (5 + j) false = true) → j ∈ B) → (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.or → ¬ (∃ u v : Fin 5, u ≠ v ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = u)))).getD (5 + j) false = true ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = v)))).getD (5 + j) false = true) → j ∈ D) → 10 ≤ A.card + B.card + 2 * D.card",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_700.lean"
-  ],
-  "base_SHA": "0dd71053a965c812bb83eb1d4bfaa2ffd45caa4f",
-  "branch": "grok/L-meta-700",
+  "updated_at_UTC": "2026-11-23T17:21:20Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "own_lease_but_already_accepted_upstream",
-  "notes": "Official client assigned L-meta-700 (own fresh lease). Marking task and file immediately. During triage, upstream PR #1329 (sanchan) already has official ACCEPTED (checker exit 0) and is MERGED: https://github.com/brilliant-hq/pequalnp-proofs/pull/1329 . #1412 remains open but is superseded. Not 719/582/706; peer ledger available/none. Will release only this own confirmed lease as other; will not touch any other lease.",
+  "state": "released_700_already_merged_no_active_official_task",
+  "notes": "Own official L-meta-700 lease released as other after official ACCEPTED merge of PR #1329 (sanchan). No own proof or PR. 719/582/706 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -20,8 +18,8 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/f3e79009348aecb9dd8c3599510490a7ea361918/notes/grok/L-meta-650-analysis.md",
-    "kind": "triage of a 63-vs-64 plane circuit search; NOT a proof or refutation"
+    "url": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1329",
+    "kind": "upstream already ACCEPTED and MERGED; not our proof"
   },
   "task_history": [
     {
@@ -96,6 +94,11 @@
       "outcome": "own official lease released out_of_time after triage: star construction gives 64=E+tau-1, target is 63; in-house star search already failed; 2^26 cannot certify a witness in Lean by exhaustive eval; no PR titled 650 found; no unbounded search and no proof/refutation",
       "PR_link": null,
       "research_commit": "f3e79009348aecb9dd8c3599510490a7ea361918"
+    },
+    {
+      "task_id": "L-meta-700",
+      "outcome": "released_other_already_accepted_merged_PR1329",
+      "PR_link": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1329"
     }
   ],
   "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
