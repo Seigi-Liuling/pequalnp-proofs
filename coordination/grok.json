@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:05:37Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
+  "updated_at_UTC": "2026-11-23T16:11:14Z",
+  "task_id": "L-meta-735",
+  "exact_statement": "∀ (n n' : ℕ) (Z : Finset (Fin n)) (e : Fin n' → Fin n), StrictMono e →\n  (∀ k : Fin n, k ∉ Z ↔ ∃ j : Fin n', e j = k) → n' + Z.card = n →\n  ∀ gates : List PEqualNP.CircuitLowerBounds.Gate,\n  ∃ phi : ℕ → ℕ, ∀ x x' : List Bool, x.length = n → x'.length = n' →\n    (∀ k ∈ Z, x.getD (k : ℕ) false = false) →\n    (∀ j : Fin n', x.getD (e j : ℕ) false = x'.getD (j : ℕ) false) →\n    (∀ i : ℕ, (PEqualNP.CircuitLowerBounds.Circuit.wires\n        { gates := gates.map (fun g => { op := g.op, inputs := g.inputs.map phi }), output := 0 } x').getD (phi i) false\n      = (PEqualNP.CircuitLowerBounds.Circuit.wires { gates := gates, output := 0 } x).getD i false) ∧\n    (∀ o : ℕ, PEqualNP.CircuitLowerBounds.Circuit.eval\n        { gates := gates.map (fun g => { op := g.op, inputs := g.inputs.map phi }), output := phi o } x'\n      = PEqualNP.CircuitLowerBounds.Circuit.eval { gates := gates, output := o } x)",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_735.lean"
+  ],
   "base_SHA": null,
-  "branch": null,
+  "branch": "grok/L-meta-735",
   "PR_link": null,
-  "lease_status": "none",
+  "lease_status": "active_original_expiry_2026-11-24_01:55:59_JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "waiting_desk_cooldown_before_another_claim",
-  "notes": "New batch 01:04 JST. Git fetch (authoritative; raw was stale at 16:01 showing 719) shows peer L-meta-582 working/active. Did not touch 719/582/706. Official next --another to avoid the already-held peer task was refused 429: 8 steps in last ten minutes, retry_after_s=300. No own lease. Will retry once after the cooldown, still with another=1. 719 now has at least five foreign open PRs (982,985,987,988,989); still forbidden.",
+  "state": "proving_official_wire_renumbering_lemma",
+  "notes": "Official L-meta-735 received after desk cooldown. Library lemma: after setting inputs in Z to false, the same gate list with remapped wire indices computes every old wire on the remaining inputs. Weight 25, sketched by induction. Not 719/582/706; those remain untouched. Marking exact task/file immediately before proof work. No PR claimed.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -67,6 +69,6 @@
       "research_commit": "1c26c0440ce727438e7154d76237fb2710479d18"
     }
   ],
-  "next_step": "After 300s cooldown, one official next --another. If the returned task is 719/582/706 or already held by the handle, do not release; request another distinct task only. Update grok.json immediately on any received own task.",
+  "next_step": "Prove the exact posted statement with the original checker; heartbeat via official client; PR only if ACCEPTED with no sorry.",
   "pending_prior_lease": null
 }
