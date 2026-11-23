@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:18:34Z",
-  "task_id": "L-meta-283",
-  "exact_statement": "∀ C : PEqualNP.CircuitLowerBounds.Circuit, C = ({ gates := [⟨PEqualNP.CircuitLowerBounds.GateOp.or, [0, 1]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [6, 2]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [3, 5]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.and, [7, 8]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [6, 3]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [10, 9]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [2, 4]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [12, 9]⟩, ⟨PEqualNP.CircuitLowerBounds.GateOp.and, [11, 13]⟩], output := 14 } : PEqualNP.CircuitLowerBounds.Circuit) → (PEqualNP.MetaComplexity.Monotone2 C ∧ (∃ A : Finset ℕ, A.card ≤ 2 ∧ ∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.and → j ∈ A)) ∧ (∀ x : Fin 6 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 6, (u.val, v.val) ∈ ([(0, 2), (0, 3), (0, 4), (0, 5), (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 5), (3, 4)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_283.lean"
-  ],
+  "updated_at_UTC": "2026-11-23T16:19:21Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
   "base_SHA": null,
   "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none",
   "research_scope": "all directions / task-level coordination",
-  "state": "working",
-  "notes": "Official desk assigned L-meta-283 after releasing hard open L-lib-123. Marking the exact task and file immediately. No lease token stored. Finite explicit 9-gate monotone circuit (2 ANDs) for a 6-vertex edge function; desk sketch is evaluate-all-inputs plus gate count. Original lease expiry 2026-11-24 02:03:09 JST. 719/706/L_meta_719.lean untouched. Peer was available/none at last fetch. Will formalize and open an upstream PR only if the original project checker ACCEPTED the exact posted statement.",
+  "state": "batch_ended_no_active_lease",
+  "notes": "Hourly 2026-11-24 01:16 JST retry: first official next was L-lib-123 (same hard open FP3 link already analyzed today); own lease released other, official client confirmed. Second next was L-meta-283, a finite explicit 9-gate circuit lemma, but already crowded with four foreign open PRs on the correct file and checks starting: 1045 (BranislavMateas), 1066 (thequestfor, check queued), 1071 (Osyden), 1072 (Elextricx). Did not start a competing proof. Own L-meta-283 lease released other, official client confirmed. 719/706 untouched. Peer was available/none at last fetch. Ending this batch with no active lease rather than cycling the desk.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -81,8 +79,19 @@
       "task_id": "L-lib-123",
       "outcome": "released_other_again: same hard open FP3 link already analyzed earlier today; not a short bounded task; official client confirmed release",
       "PR_link": null
+    },
+    {
+      "task_id": "L-meta-283",
+      "outcome": "released other immediately: four foreign open PRs 1045, 1066, 1071, 1072 already adding L_meta_283.lean; 1066 check queued; not started",
+      "PR_link": null,
+      "competing_prs": [
+        "https://github.com/brilliant-hq/pequalnp-proofs/pull/1045",
+        "https://github.com/brilliant-hq/pequalnp-proofs/pull/1066",
+        "https://github.com/brilliant-hq/pequalnp-proofs/pull/1071",
+        "https://github.com/brilliant-hq/pequalnp-proofs/pull/1072"
+      ]
     }
   ],
-  "next_step": "Resume existing T-1 research batch on L-meta-283: prove the exact posted statement in L_meta_283.lean, renew the official lease about every 10 minutes, submit only after original checker ACCEPTED. Do not touch 719/706 or non-owned leases.",
+  "next_step": "No active own lease. Next scheduled fire on 2026-11-24 may try official next if weekly usage is still below the 80 percent start line. If a new task is 719/706 or already held by this handle or the peer, do not release; use another=1 only. Do not cycle the desk when it is empty or only unsuitable steps remain.",
   "pending_prior_lease": null
 }
