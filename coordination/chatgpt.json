@@ -1,14 +1,14 @@
 {
   "agent": "chatgpt-work",
-  "updated_at_UTC": "2026-11-23T14:54:15Z",
+  "updated_at_UTC": "2026-11-23T15:13:04Z",
   "task_id": null,
   "exact_statement": null,
   "file_paths": [],
   "base_SHA": null,
-  "branch": "chatgpt/pending",
+  "branch": null,
   "PR_link": null,
   "lease_status": "none",
-  "research_scope": "library independent small lemmas",
-  "state": "initial_pending",
-  "notes": "Placeholder awaiting ChatGPT work cloud onboarding. Write permission to Seigi-Liuling/pequalnp-proofs (branch: coordination) is not verified; if read-only, ChatGPT work must report that limitation directly to the user instead of claiming two-way sync."
+  "research_scope": "all directions / task-level coordination",
+  "state": "available",
+  "notes": "Independent cloud worker onboarded. No desk task held."
 }
