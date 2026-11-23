@@ -1,18 +1,18 @@
 {
   "agent": "chatgpt-work",
-  "updated_at_UTC": "2026-11-23T15:57:31Z",
+  "updated_at_UTC": "2026-11-23T16:00:11Z",
   "task_id": "L-meta-523",
   "exact_statement": "∀ F : (Fin 8 → Bool) → Bool, F = (fun x : Fin 8 → Bool => (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 5) || (x 0 && x 5) || (x 0 && x 6) || (x 1 && x 7)) → ∃ C : PEqualNP.CircuitLowerBounds.Circuit, C.gates.length = 11 ∧ C.output = 18 ∧ (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length = 2 ∧ ∀ i ∈ g.inputs, i < 8 + j) ∧ (∀ x : Fin 8 → Bool, C.eval (List.ofFn x) = F x) ∧ (∃ a b : ℕ, a ≠ b ∧ (∃ g : PEqualNP.CircuitLowerBounds.Gate, C.gates[a]? = some g ∧ g.op = PEqualNP.CircuitLowerBounds.GateOp.and) ∧ (∃ g : PEqualNP.CircuitLowerBounds.Gate, C.gates[b]? = some g ∧ g.op = PEqualNP.CircuitLowerBounds.GateOp.and) ∧ Relation.TransGen (fun u v : ℕ => ∃ g : PEqualNP.CircuitLowerBounds.Gate, C.gates[u]? = some g ∧ 8 + v ∈ g.inputs) a b) ∧ ∀ (j p h : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate) (D : PEqualNP.CircuitLowerBounds.Circuit), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.or → (g.inputs = [p, h] ∨ g.inputs = [h, p]) → j ≠ 10 → (∀ x : Fin 8 → Bool, (C.wires (List.ofFn x)).getD h false = true → F x = true) → D = ⟨C.gates.set j ⟨PEqualNP.CircuitLowerBounds.GateOp.or, [p, p]⟩ ++ [⟨PEqualNP.CircuitLowerBounds.GateOp.or, [18, h]⟩], 19⟩ → (∃ x : Fin 8 → Bool, D.eval (List.ofFn x) ≠ F x) ∨ Set.ncard {q : ℕ × ℕ | q.1 ≠ q.2 ∧ (∃ g : PEqualNP.CircuitLowerBounds.Gate, C.gates[q.1]? = some g ∧ g.op = PEqualNP.CircuitLowerBounds.GateOp.and) ∧ (∃ g : PEqualNP.CircuitLowerBounds.Gate, C.gates[q.2]? = some g ∧ g.op = PEqualNP.CircuitLowerBounds.GateOp.and) ∧ Relation.TransGen (fun u v : ℕ => ∃ g : PEqualNP.CircuitLowerBounds.Gate, C.gates[u]? = some g ∧ 8 + v ∈ g.inputs) q.1 q.2} ≤ Set.ncard {q : ℕ × ℕ | q.1 ≠ q.2 ∧ (∃ g : PEqualNP.CircuitLowerBounds.Gate, D.gates[q.1]? = some g ∧ g.op = PEqualNP.CircuitLowerBounds.GateOp.and) ∧ (∃ g : PEqualNP.CircuitLowerBounds.Gate, D.gates[q.2]? = some g ∧ g.op = PEqualNP.CircuitLowerBounds.GateOp.and) ∧ Relation.TransGen (fun u v : ℕ => ∃ g : PEqualNP.CircuitLowerBounds.Gate, D.gates[u]? = some g ∧ 8 + v ∈ g.inputs) q.1 q.2}",
   "file_paths": [
     "lean/PEqualNP/Outside/L_meta_523.lean"
   ],
-  "base_SHA": "16bf302f85159025c95dad7f29971916e283b137",
+  "base_SHA": "03ba9a38bed4458bdb81ce6bdd0559cc64df0b6f",
   "branch": "chatgpt/L-meta-523",
   "PR_link": null,
-  "lease_status": "released",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "stopped",
-  "notes": "Bounded search from 193 cover seeds tested 7891480311 edits; reached 13211 circuits with exact target, including 1370 nested AND candidates, each with a reducing lift audited on all 256 inputs. Original checker ACCEPTED the 15-input characterization lemma. General existence remains open. Evidence: https://github.com/Seigi-Liuling/pequalnp-proofs/commit/16bf302f85159025c95dad7f29971916e283b137",
+  "state": "working",
+  "notes": "Assigned low occupancy finite search for the 6-vertex wheel edge function.",
   "last_assignment": {
     "task_id": "L-meta-650",
     "exact_statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 63 ∧ (∀ x : Fin 26 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 26, (u.val, v.val) ∈ ([(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
