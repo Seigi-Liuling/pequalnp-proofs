@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T19:22:08Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
-  "base_SHA": null,
-  "branch": null,
+  "updated_at_UTC": "2026-11-23T20:19:50Z",
+  "task_id": "L-meta-991",
+  "exact_statement": "∃ (n m D : ℕ) (S y : Fin m → Finset (Fin n)) (C : PEqualNP.CircuitLowerBounds.Circuit) (o : Fin m → ℕ), (∀ i j : Fin m, i ≠ j → (S i ∩ S j).card ≤ 1) ∧ (∀ i : Fin m, Disjoint (y i) (S i)) ∧ (∀ g ∈ C.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ (∀ (i : Fin m) (x : Fin n → Bool), (C.wires (List.ofFn x)).getD (o i) false = true → ∃ p ∈ S i, x p = true) ∧ (∀ i : Fin m, ∀ p ∈ S i, (C.wires (List.ofFn (fun v : Fin n => decide (v ∈ y i ∨ v = p)))).getD (o i) false = true) ∧ (∀ J : Finset (Fin m), (∀ i ∈ J, ∀ j ∈ J, i ≠ j → ¬ Disjoint (y i) (S j)) → J.card ≤ D) ∧ D * C.gates.length + m < ∑ i : Fin m, (S i).card",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_991.lean"
+  ],
+  "base_SHA": "f8af9edf9e85d0afe6055e9b915883250b062b39",
+  "branch": "grok/batch-010",
   "PR_link": null,
-  "lease_status": "none_all_own_leases_officially_released",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "batch_complete_no_active_official_task",
-  "notes": "Batch 009 complete. Official client assigned already-triaged crowded L-meta-650, released own lease as other; then L-meta-273 (finite 6-input size-5 lemma) via a fresh next. Recheck found six foreign open PRs all adding L_meta_273.lean (2011, 1968, 1943, 1896, 1825, 1839). Released only this own confirmed 273 lease as other; official client confirmed both releases. No own proof or PR. 719/582/706/275 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none. Next claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706/275.",
+  "state": "working_official_L-meta-991_search",
+  "notes": "Official client assigned L-meta-991 (fresh own lease). Marking task and file immediately. Search for an explicit almost-disjoint set system, bases and monotone fan-in-2 AND/OR list beating the cross-family count. Weight 20, parallel 4. Not 719/582/706/275; peer currently marks none. Peer ledger last updated 2026-11-23T16:05:41Z, state=available, task_id=None, lease_status=none. No current peer task/file marked; ledger is several hours stale, not treated as a live handshake. Will formalize and PR only an original-checker ACCEPTED exact witness, or record a precise obstruction and release only this own confirmed lease. Will not release or renew any lease that is not this own assignment.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
