@@ -1,18 +1,19 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:25:34Z",
+  "updated_at_UTC": "2026-11-23T15:29:57Z",
   "task_id": "L-meta-612",
   "exact_statement": "∀ (n t : ℕ) (G : SimpleGraph (Fin n)) (C : PEqualNP.CircuitLowerBounds.Circuit), (∃ u v : Fin n, G.Adj u v) → (∀ a b c d : Fin n, a ≠ b → a ≠ c → a ≠ d → b ≠ c → b ≠ d → c ≠ d → G.Adj a b → G.Adj b c → G.Adj c d → ¬ G.Adj d a) → (∃ S : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G S ∧ S.card = t) → (∀ S : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G S → t ≤ S.card) → PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin n → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true)) → G.edgeSet.ncard + t ≤ C.size + 1",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_612.lean"
+    "lean/PEqualNP/Outside/L_meta_612.lean",
+    "lean/PEqualNP/Outside/Grok612LowAnd.lean"
   ],
-  "base_SHA": null,
+  "base_SHA": "c85cc443255af18e6c183ed6bd2f15af4b522573",
   "branch": "grok/L-meta-612",
   "PR_link": null,
   "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "checking_assignment",
-  "notes": "New bounded batch: official desk assigned L-meta-612 proof shard 0 (joint AND/OR count for C4-free graph edge functions). Used documented another=1 because peer currently holds L-gct-179 under the same GitHub handle; did not inspect or touch peer lease. Marking own received assignment immediately before status/history checks and proof analysis. No proof or PR claimed.",
+  "state": "proving_local_structural_ingredient",
+  "notes": "Own official L-meta-612 proof shard 0 lease active. Developing a precise local lemma: a safe AND for a C4-free graph edge function has at least one operand with at most one singleton witness. This is NOT the full gate lower bound, and no proof/PR is claimed. Peer 179 untouched.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -61,5 +62,5 @@
       "PR_link": null
     }
   ],
-  "next_step": "Any agent may claim any next official task. First valid official lease and task/file ledger entry wins; fetch and read peer first. No stale reservation on 651 or any field remains."
+  "next_step": "Check the local structural lemma against its own exact statement, then test whether it supports the required global joint gate charging invariant. No academic scope reservation beyond task/files."
 }
