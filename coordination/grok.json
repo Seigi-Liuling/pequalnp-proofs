@@ -1,23 +1,24 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:21:08Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
-  "base_SHA": null,
-  "branch": null,
+  "updated_at_UTC": "2026-11-23T17:20:53Z",
+  "task_id": "L-meta-700",
+  "exact_statement": "∀ (C : PEqualNP.CircuitLowerBounds.Circuit) (A B D : Finset ℕ), PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 5 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 5, (u.val, v.val) ∈ ([(0, 1), (0, 2), (1, 2), (0, 3), (0, 4), (3, 4)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) → (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.and → j ∈ A) → (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.or → (∃ u v : Fin 5, u ≠ v ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = u)))).getD (5 + j) false = true ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = v)))).getD (5 + j) false = true) → j ∈ B) → (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.or → ¬ (∃ u v : Fin 5, u ≠ v ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = u)))).getD (5 + j) false = true ∧ (C.wires (List.ofFn (fun i : Fin 5 => decide (i = v)))).getD (5 + j) false = true) → j ∈ D) → 10 ≤ A.card + B.card + 2 * D.card",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_700.lean"
+  ],
+  "base_SHA": "0dd71053a965c812bb83eb1d4bfaa2ffd45caa4f",
+  "branch": "grok/L-meta-700",
   "PR_link": null,
-  "lease_status": "none_all_own_leases_officially_released",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "batch_complete_no_active_official_task",
-  "notes": "Batch 005 complete. After desk cooldown, official L-meta-735 was received then released other because PRs 1000 and 1001 already had the correct file under advisory check. Desk then had no unused step for an hour; a later retry assigned own L-meta-650. Triage: 13+13 bipartite plane, star/cover construction has 64 gates, official target 63 is one below; no current 650 PR; not short-completable in remaining time; official release out_of_time. Research notes f3e7900. No further official next this batch. No upstream proof PR. 719/582/706 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none at 16:05:41Z; raw can lag behind git fetch.",
+  "state": "own_lease_but_already_accepted_upstream",
+  "notes": "Official client assigned L-meta-700 (own fresh lease). Marking task and file immediately. During triage, upstream PR #1329 (sanchan) already has official ACCEPTED (checker exit 0) and is MERGED: https://github.com/brilliant-hq/pequalnp-proofs/pull/1329 . #1412 remains open but is superseded. Not 719/582/706; peer ledger available/none. Will release only this own confirmed lease as other; will not touch any other lease.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
     "GrokLineDegreeZero": "local checker ACCEPTED; published only on own fork branch grok/line-degree-zero-invariance @ 059cf15; not an official gap closure",
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
-  "head_SHA": null,
   "research_artifact": {
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/f3e79009348aecb9dd8c3599510490a7ea361918/notes/grok/L-meta-650-analysis.md",
     "kind": "triage of a 63-vs-64 plane circuit search; NOT a proof or refutation"
