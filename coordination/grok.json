@@ -1,18 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:00:49Z",
-  "task_id": "L-meta-719",
-  "exact_statement": "∀ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 6 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 6, (u.val, v.val) ∈ ([(0, 1), (1, 2), (2, 3), (3, 4), (0, 4), (0, 5), (1, 5), (2, 5), (3, 5), (4, 5)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) → 9 ≤ C.size",
+  "updated_at_UTC": "2026-11-23T16:01:24Z",
+  "task_id": "L-gct-190",
+  "exact_statement": "∃ L : Submodule ℂ (Fin 5 × Fin 5 → ℂ), (∀ t ∈ L, (∑ f : Fin 5 ↪ Fin 5, ∏ i, (1 + t (i, f i))) = 120) ∧ Module.finrank ℂ L = 8",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_719.lean"
+    "lean/PEqualNP/Outside/L_gct_190.lean"
   ],
   "base_SHA": null,
-  "branch": "grok/L-meta-719",
+  "branch": "grok/L-gct-190",
   "PR_link": null,
-  "lease_status": "active_original_expiry_2026-11-24_01:45:01_JST",
+  "lease_status": "active_original_expiry_2026-11-24_01:46:08_JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "proving_finite_wheel_lower_bound",
-  "notes": "Official client assigned L-meta-719 after 519 was released. Exact finite statement: every Monotone2 circuit for the 5-spoke wheel edge function has size at least 9. Sketch is an exhaustive certificate on at most 8 binary AND/OR gates over 6 inputs. In-house searches found none (computed, not checked). Marking task/file immediately and attempting a formal proof of the exact posted statement. Peer 523 released; still avoid 706.",
+  "state": "searching_5x5_dimension_8_level_space",
+  "notes": "Official client assigned L-gct-190 after 719 was released as crowded. Exact search: a 5x5 complex permanent level space of dimension 8, one above the checked 2n-3=7 construction. Witness is an explicit object, cheap to check; the gap may be empty. Marking task/file immediately. Bounded constructive search only, no unbounded SMT, no overlap with peer 706. Will formalize and PR only an original-checker ACCEPTED exact witness, or record a precise obstruction and release.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -57,8 +57,13 @@
       "task_id": "L-meta-519",
       "outcome": "hard main-line AND/OR/NOT girth-7 cubic bound; posted statement is the full general theorem, not a short adjacent-deg-3 special case; nearby L522 already has the distant-deg-3 hypothesis; official client released missing_lemma; no PR",
       "PR_link": null
+    },
+    {
+      "task_id": "L-meta-719",
+      "outcome": "released other immediately: two already-open upstream PRs 982 (lisn0, advisory check in progress) and 985 (sigls1411); crowded, not started",
+      "PR_link": null
     }
   ],
-  "next_step": "Prove L-meta-719 exactly; original checker; official client heartbeat; PR only if ACCEPTED with no sorry.",
+  "next_step": "Check for existing 190 PRs, then attempt a bounded explicit construction above the dim-7 last-row/column space.",
   "pending_prior_lease": null
 }
