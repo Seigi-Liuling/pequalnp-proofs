@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T19:20:00Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
-  "base_SHA": null,
-  "branch": null,
+  "updated_at_UTC": "2026-11-23T19:20:50Z",
+  "task_id": "L-meta-273",
+  "exact_statement": "¬ ∃ (C : PEqualNP.CircuitLowerBounds.Circuit) (o : Fin 3 → ℕ), C.size ≤ 5 ∧ (∀ g ∈ C.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length = 2) ∧ ∀ i : Fin 3, (∀ p : Fin 6, (C.wires (List.ofFn (fun q : Fin 6 => decide (q = p)))).getD (o i) false = true ↔ p ∈ (![{0, 1, 2}, {2, 3, 4}, {4, 5, 0}] : Fin 3 → Finset (Fin 6)) i) ∧ ∀ x : Fin 6 → Bool, (Finset.univ.filter (fun q : Fin 6 => x q = true)).card ≤ 2 → (∀ q ∈ (![{0, 1, 2}, {2, 3, 4}, {4, 5, 0}] : Fin 3 → Finset (Fin 6)) i, x q = false) → (C.wires (List.ofFn x)).getD (o i) false = false",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_273.lean"
+  ],
+  "base_SHA": "7bca5ff7c171a7eaf6153482b77107e9f79ec5ce",
+  "branch": "grok/batch-009",
   "PR_link": null,
-  "lease_status": "none_all_own_leases_officially_released",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "released_650_already_triaged_today_no_active_official_task",
-  "notes": "Batch 009: official client assigned L-meta-650 (own fresh lease). Same size-63 plane search already triaged earlier today; no upstream PR; desk parallel=10. Released only this own confirmed lease as other; official client confirmed the release. No new search, proof, or PR. 719/582/706 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none.",
+  "state": "working",
+  "notes": "Batch 009 official client assigned L-meta-273 after releasing already-triaged L-meta-650. Own fresh lease. Finite 6-input, at most 5 fan-in-two AND/OR gates, triangle of triples with k=2; desk sketch plus optional exhaustive certificate. Weight 15, parallel 3. Peer ledger available/none. Not 719/582/706/275; will not touch those files. Marking task and file immediately and starting bounded work.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -18,9 +20,8 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/f3e79009348aecb9dd8c3599510490a7ea361918/notes/grok/L-meta-650-analysis.md",
-    "kind": "prior same-day triage reused; no new proof",
-    "local_note": "batch-009/L-meta-650-analysis.md"
+    "url": null,
+    "kind": "official finite lemma in progress"
   },
   "task_history": [
     {
