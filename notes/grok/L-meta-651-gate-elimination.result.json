@@ -1,0 +1,323 @@
+{
+  "task": "L-meta-651",
+  "shard": 2,
+  "n": 10,
+  "edges": 15,
+  "minimum_vertex_cover": 6,
+  "independence_number": 4,
+  "number_minimum_vertex_covers": 5,
+  "known_upper_size": 20,
+  "upper_checked_inputs": 1024,
+  "upper_cover": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "upper_gates": [
+    [
+      "or",
+      [
+        0,
+        2
+      ]
+    ],
+    [
+      "or",
+      [
+        10,
+        6
+      ]
+    ],
+    [
+      "and",
+      [
+        1,
+        11
+      ]
+    ],
+    [
+      "or",
+      [
+        2,
+        4
+      ]
+    ],
+    [
+      "or",
+      [
+        13,
+        8
+      ]
+    ],
+    [
+      "and",
+      [
+        3,
+        14
+      ]
+    ],
+    [
+      "or",
+      [
+        0,
+        9
+      ]
+    ],
+    [
+      "and",
+      [
+        4,
+        16
+      ]
+    ],
+    [
+      "or",
+      [
+        0,
+        7
+      ]
+    ],
+    [
+      "or",
+      [
+        18,
+        8
+      ]
+    ],
+    [
+      "and",
+      [
+        5,
+        19
+      ]
+    ],
+    [
+      "or",
+      [
+        9,
+        8
+      ]
+    ],
+    [
+      "and",
+      [
+        6,
+        21
+      ]
+    ],
+    [
+      "or",
+      [
+        2,
+        9
+      ]
+    ],
+    [
+      "and",
+      [
+        7,
+        23
+      ]
+    ],
+    [
+      "or",
+      [
+        12,
+        15
+      ]
+    ],
+    [
+      "or",
+      [
+        25,
+        17
+      ]
+    ],
+    [
+      "or",
+      [
+        26,
+        20
+      ]
+    ],
+    [
+      "or",
+      [
+        27,
+        22
+      ]
+    ],
+    [
+      "or",
+      [
+        28,
+        24
+      ]
+    ]
+  ],
+  "upper_output": 29,
+  "one_gate_elimination_plus_forest_support_bound": 11,
+  "remaining_gap_to_task_lower_bound": 9,
+  "memoized_states": 4678,
+  "best_template_chain": [
+    {
+      "A": [],
+      "R": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "rule": "one_gate_elimination",
+      "vertex": 0,
+      "fixed": false,
+      "child": [
+        0,
+        1022
+      ],
+      "bound": 11
+    },
+    {
+      "A": [],
+      "R": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "rule": "one_gate_elimination",
+      "vertex": 1,
+      "fixed": false,
+      "child": [
+        0,
+        1020
+      ],
+      "bound": 10
+    },
+    {
+      "A": [],
+      "R": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "rule": "one_gate_elimination",
+      "vertex": 2,
+      "fixed": false,
+      "child": [
+        0,
+        1016
+      ],
+      "bound": 9
+    },
+    {
+      "A": [],
+      "R": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "rule": "one_gate_elimination",
+      "vertex": 8,
+      "fixed": false,
+      "child": [
+        0,
+        760
+      ],
+      "bound": 8
+    },
+    {
+      "A": [],
+      "R": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+      ],
+      "rule": "forest_formula",
+      "bound": 7
+    }
+  ],
+  "elapsed_seconds": 0.165,
+  "formal_proof_of_task": false,
+  "truth_table_restriction_identities_checked": 49840,
+  "automorphisms": 120,
+  "vertex_transitive": true,
+  "first_restriction_bounds": [
+    {
+      "vertex": 0,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    },
+    {
+      "vertex": 1,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    },
+    {
+      "vertex": 2,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    },
+    {
+      "vertex": 3,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    },
+    {
+      "vertex": 4,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    },
+    {
+      "vertex": 5,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    },
+    {
+      "vertex": 6,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    },
+    {
+      "vertex": 7,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    },
+    {
+      "vertex": 8,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    },
+    {
+      "vertex": 9,
+      "fix_false_child_bound": 10,
+      "fix_true_child_bound": 9
+    }
+  ]
+}
