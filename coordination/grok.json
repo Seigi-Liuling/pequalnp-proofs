@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T20:19:50Z",
-  "task_id": "L-meta-991",
-  "exact_statement": "∃ (n m D : ℕ) (S y : Fin m → Finset (Fin n)) (C : PEqualNP.CircuitLowerBounds.Circuit) (o : Fin m → ℕ), (∀ i j : Fin m, i ≠ j → (S i ∩ S j).card ≤ 1) ∧ (∀ i : Fin m, Disjoint (y i) (S i)) ∧ (∀ g ∈ C.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ (∀ (i : Fin m) (x : Fin n → Bool), (C.wires (List.ofFn x)).getD (o i) false = true → ∃ p ∈ S i, x p = true) ∧ (∀ i : Fin m, ∀ p ∈ S i, (C.wires (List.ofFn (fun v : Fin n => decide (v ∈ y i ∨ v = p)))).getD (o i) false = true) ∧ (∀ J : Finset (Fin m), (∀ i ∈ J, ∀ j ∈ J, i ≠ j → ¬ Disjoint (y i) (S j)) → J.card ≤ D) ∧ D * C.gates.length + m < ∑ i : Fin m, (S i).card",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_991.lean"
-  ],
-  "base_SHA": "f8af9edf9e85d0afe6055e9b915883250b062b39",
-  "branch": "grok/batch-010",
+  "updated_at_UTC": "2026-11-23T20:22:57Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "working_official_L-meta-991_search",
-  "notes": "Official client assigned L-meta-991 (fresh own lease). Marking task and file immediately. Search for an explicit almost-disjoint set system, bases and monotone fan-in-2 AND/OR list beating the cross-family count. Weight 20, parallel 4. Not 719/582/706/275; peer currently marks none. Peer ledger last updated 2026-11-23T16:05:41Z, state=available, task_id=None, lease_status=none. No current peer task/file marked; ledger is several hours stale, not treated as a live handshake. Will formalize and PR only an original-checker ACCEPTED exact witness, or record a precise obstruction and release only this own confirmed lease. Will not release or renew any lease that is not this own assignment.",
+  "state": "batch_complete_no_active_official_task",
+  "notes": "Batch 010 complete. Official client assigned L-meta-991 (existential search for a strict counterexample to the cross-family count). Complementary lemma L-meta-988, proving the opposite inequality under the same hypotheses, is already merged on origin/main as PR 2015 (48a1a46). No witness can exist; did not submit a negation (wrong statement; foreign PR 2097 was already REJECTED (statement)). Released only this own confirmed 991 lease as statement_seems_false; official client confirmed the release. No own proof or PR. 719/582/706/275 and their files were not claimed, renewed, released, or modified. Peer ledger last updated 2026-11-23T16:05:41Z, state available, no current task; stale, not a live handshake. Next claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706/275.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -21,8 +19,8 @@
   },
   "research_artifact": {
     "url": null,
-    "kind": "crowded triage only; no proof",
-    "local_note": "batch-009/L-meta-273-analysis.md"
+    "kind": "complementary bound already merged; no proof",
+    "local_note": "batch-010/L-meta-991-analysis.md"
   },
   "task_history": [
     {
@@ -127,6 +125,12 @@
       "task_id": "L-meta-273",
       "outcome": "released_other_crowded_six_foreign_open_prs_2011_1968_1943_1896_1825_1839",
       "PR_link": null
+    },
+    {
+      "task_id": "L-meta-991",
+      "outcome": "released_statement_seems_false_complementary_L-meta-988_already_merged_PR2015",
+      "PR_link": null,
+      "complementary": "https://github.com/brilliant-hq/pequalnp-proofs/pull/2015"
     }
   ],
   "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
