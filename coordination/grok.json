@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T17:21:20Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
-  "base_SHA": null,
-  "branch": null,
+  "updated_at_UTC": "2026-11-23T17:22:01Z",
+  "task_id": "L-meta-652",
+  "exact_statement": "(∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.FanInTwo C ∧ C.size ≤ 15 ∧ ∃ o0 o1 o2 : ℕ, ∀ x : Fin 6 → Bool, (C.wires (List.ofFn x)).getD o0 false = ((x 0 && x 3) || (x 1 && x 4) || (x 2 && x 5)) ∧ (C.wires (List.ofFn x)).getD o1 false = ((x 0 && x 4) || (x 1 && x 5) || (x 2 && x 3)) ∧ (C.wires (List.ofFn x)).getD o2 false = ((x 0 && x 5) || (x 1 && x 3) || (x 2 && x 4))) ∧ ¬ (∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.FanInTwo C ∧ C.size ≤ 14 ∧ ∃ o0 o1 o2 : ℕ, ∀ x : Fin 6 → Bool, (C.wires (List.ofFn x)).getD o0 false = ((x 0 && x 3) || (x 1 && x 4) || (x 2 && x 5)) ∧ (C.wires (List.ofFn x)).getD o1 false = ((x 0 && x 4) || (x 1 && x 5) || (x 2 && x 3)) ∧ (C.wires (List.ofFn x)).getD o2 false = ((x 0 && x 5) || (x 1 && x 3) || (x 2 && x 4)))",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_652.lean"
+  ],
+  "base_SHA": "633410bb850f9e0b3d6a46387bd2b7c24fad2423",
+  "branch": "grok/L-meta-652",
   "PR_link": null,
-  "lease_status": "none_all_own_leases_officially_released",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "released_700_already_merged_no_active_official_task",
-  "notes": "Own official L-meta-700 lease released as other after official ACCEPTED merge of PR #1329 (sanchan). No own proof or PR. 719/582/706 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none.",
+  "state": "working_shard1_exclude_14_gate_joint_circuit",
+  "notes": "Official client assigned L-meta-652 after own 700 lease was released because PR #1329 had already been ACCEPTED and merged. Marking task and file immediately. This is official shard 1 of 2: exclude a joint FanInTwo circuit of size 14 for the three cyclic matchings of K(3,3), by exhaustive certificate; shard 0 is the witness search for size 14. Finite: 6 inputs, 3 outputs. Peer previously released 652 and currently has no task; not 719/582/706. Will not release or renew any lease that is not this own assignment.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -102,5 +104,7 @@
     }
   ],
   "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
-  "pending_prior_lease": null
+  "pending_prior_lease": null,
+  "shard": 1,
+  "shards": 2
 }
