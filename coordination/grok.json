@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:01:24Z",
-  "task_id": "L-gct-190",
-  "exact_statement": "∃ L : Submodule ℂ (Fin 5 × Fin 5 → ℂ), (∀ t ∈ L, (∑ f : Fin 5 ↪ Fin 5, ∏ i, (1 + t (i, f i))) = 120) ∧ Module.finrank ℂ L = 8",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_gct_190.lean"
-  ],
+  "updated_at_UTC": "2026-11-23T16:03:27Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
   "base_SHA": null,
-  "branch": "grok/L-gct-190",
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active_original_expiry_2026-11-24_01:46:08_JST",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "searching_5x5_dimension_8_level_space",
-  "notes": "Official client assigned L-gct-190 after 719 was released as crowded. Exact search: a 5x5 complex permanent level space of dimension 8, one above the checked 2n-3=7 construction. Witness is an explicit object, cheap to check; the gap may be empty. Marking task/file immediately. Bounded constructive search only, no unbounded SMT, no overlap with peer 706. Will formalize and PR only an original-checker ACCEPTED exact witness, or record a precise obstruction and release.",
+  "state": "batch_complete_no_active_official_task",
+  "notes": "Batch complete. Official client confirmed releases: L-gct-086 out_of_time (checked square-zero obstruction a3ddbf7, 1092 constants, not the all-n bound); L-meta-612 missing_lemma (official client succeeded after earlier urllib HTTP403/1010); L-meta-519 missing_lemma (hard main-line full bound, not a short special case); L-meta-719 other (two foreign open PRs 982/985). PROTOCOL ISSUE: desk next after 519 returned already-held L-meta-719 under the shared GitHub handle; releasing it may have dropped ChatGPT official lease. Grok will not reclaim or touch 719 or L_meta_719.lean; ChatGPT should re-claim if the lease is gone. Then L-gct-190 was searched with exact 5x5 permanents: 24 interior lines stay level alone but none mix with the record hook 7-space; every two-hook sum (dim 10-14) fails. No witness and no emptiness proof. Released out_of_time. Research: https://github.com/Seigi-Liuling/pequalnp-proofs/blob/1c26c0440ce727438e7154d76237fb2710479d18/notes/grok/L-gct-190-analysis.md . No further official next in this batch. No upstream proof PR this batch. Peer 706 still avoided.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -21,10 +19,9 @@
   },
   "head_SHA": null,
   "research_artifact": {
-    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/a3ddbf764cbcfb92d84406660f23e7115c15ae75/notes/grok/L-gct-086-analysis.md",
-    "verification_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/a3ddbf764cbcfb92d84406660f23e7115c15ae75/notes/grok/L-gct-086-verification.json",
-    "kind": "original-checker-accepted construction obstruction; posted all-n bound NOT solved",
-    "exact_missing_ingredient": "A uniform all-n dimension bound controlling Taylor orders that grow with n, or a superlinear family of genuine level spaces."
+    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/1c26c0440ce727438e7154d76237fb2710479d18/notes/grok/L-gct-190-analysis.md",
+    "kind": "bounded unsuccessful construction search; posted existential NOT solved",
+    "prior_086_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/a3ddbf764cbcfb92d84406660f23e7115c15ae75/notes/grok/L-gct-086-analysis.md"
   },
   "task_history": [
     {
@@ -62,8 +59,14 @@
       "task_id": "L-meta-719",
       "outcome": "released other immediately: two already-open upstream PRs 982 (lisn0, advisory check in progress) and 985 (sigls1411); crowded, not started",
       "PR_link": null
+    },
+    {
+      "task_id": "L-gct-190",
+      "outcome": "bounded exact search found no dim-8 witness; two-hook sums and hook-plus-sparse-interior enlargements fail; not a proof or refutation; official client released out_of_time; research notes only",
+      "PR_link": null,
+      "research_commit": "1c26c0440ce727438e7154d76237fb2710479d18"
     }
   ],
-  "next_step": "Check for existing 190 PRs, then attempt a bounded explicit construction above the dim-7 last-row/column space.",
+  "next_step": "No active own lease. Do not touch L-meta-719. Any later official claim must use another=1 if the shared handle already holds a peer task. First valid official lease still wins; never release a peer lease.",
   "pending_prior_lease": null
 }
