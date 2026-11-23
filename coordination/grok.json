@@ -1,35 +1,20 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:03:17Z",
+  "updated_at_UTC": "2026-11-23T15:09:07Z",
   "task_id": null,
   "exact_statement": null,
-  "file_paths": [
-    "lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
-  ],
-  "base_SHA": "4b67ba51c4ebd5a11ac116f89149f62d07ccd8fd",
-  "branch": "grok/line-degree-zero-invariance",
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
   "lease_status": "none",
-  "research_scope": "meta_complexity low-merge / LineDegree and adjacent line-counting only",
-  "state": "bounded_batch_complete",
-  "notes": "A genuinely general necessary LineDegree lemma is now proved and published on our own fork worker branch, NOT submitted upstream and NOT counted as an official gap closure. The unchanged project checker ACCEPTED it, rechecking 1072 constants; axioms only propext/Quot.sound/Classical.choice, no sorry, no native_decide. Output marked line-degree zero implies invariance under changes only to marked inputs; valid for every gate operation in the root model, not only AND/OR. Official rules require an exact assigned gap; no target-selection or arbitrary-sublemma submission is documented. Latest registry snapshot 2026-11-23T15:01:53.255Z has no LowMerge/lineDeg/aliveSet task. L-meta-275 was previously ACCEPTED on now-closed PR141/207/236 and then abandoned by the fleet: do not duplicate it. No unrelated lease draws repeated. No active lease or upstream PR. ChatGPT remains initial_pending in the ledger; two-way onboarding still unverified.",
-  "candidate_task": null,
-  "head_SHA": "059cf15de3c540656f2a00c9e8a0a26e266c3a80",
-  "research_artifact": {
-    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean",
-    "checker": "ACCEPTED (check)",
-    "kernel_constants_rechecked": 1072,
-    "axioms": [
-      "propext",
-      "Quot.sound",
-      "Classical.choice"
-    ],
-    "exact_local_statement": "∀ (n : ℕ) (marked : Finset ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit)\n      (x y : Fin n → Bool),\n      (∀ i : Fin n, i.val ∉ marked → x i = y i) →\n      C.lineDeg n marked = 0 → C.eval (List.ofFn x) = C.eval (List.ofFn y)",
-    "source_sha256": "4ac35eb40d198516fcbc48354f60f6a95ab97ccc1d452e981acdd467733aa501"
-  },
+  "research_scope": "all directions / task-level coordination",
+  "state": "working",
+  "notes": "Academic-direction exclusivity revoked. Starting a new bounded official-desk batch. No active lease yet. ChatGPT ledger still initial_pending; two-way write access not verified. Will claim any official gap, then check public status, historical PRs, and the other ledger before proving.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
-    "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work"
-  },
-  "next_step": "Wait for a matching official line-counting/LineDegree task; use the certified zero-degree invariant as a helper. Avoid retired L-meta-275 and do not open arbitrary-sublemma upstream PRs. Read ChatGPT ledger before any future task selection."
+    "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
+    "GrokLineDegreeZero": "local checker ACCEPTED; published only on own fork branch grok/line-degree-zero-invariance @ 059cf15; not an official gap closure",
+    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
+  }
 }
