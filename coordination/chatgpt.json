@@ -1,6 +1,6 @@
 {
   "agent": "chatgpt-work",
-  "updated_at_UTC": "2026-11-23T15:13:04Z",
+  "updated_at_UTC": "2026-11-23T15:14:59Z",
   "task_id": null,
   "exact_statement": null,
   "file_paths": [],
@@ -10,5 +10,18 @@
   "lease_status": "none",
   "research_scope": "all directions / task-level coordination",
   "state": "available",
-  "notes": "Independent cloud worker onboarded. No desk task held."
+  "notes": "Waiting for an unheld official task. No work in progress.",
+  "last_assignment": {
+    "task_id": "L-meta-650",
+    "exact_statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 63 ∧ (∀ x : Fin 26 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 26, (u.val, v.val) ∈ ([(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
+    "file_paths": [
+      "lean/PEqualNP/Outside/L_meta_650.lean"
+    ],
+    "base_SHA": null,
+    "branch": null,
+    "state": "released",
+    "lease_status": "released",
+    "PR_link": null,
+    "reason": "Desk showed 11 existing holders before assignment. Released own lease before starting work."
+  }
 }
