@@ -1,18 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T18:12:34Z",
-  "task_id": "L-lib-123",
-  "exact_statement": "∃ p q : ℕ, 1 ≤ p ∧ p < q ∧ PEqualNP.Library.FP3 p q",
+  "updated_at_UTC": "2026-11-23T18:14:57Z",
+  "task_id": "L-meta-606",
+  "exact_statement": "∃ c : ℕ, ∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj], (∀ (v : Fin n) (p : G.Walk v v), p.IsCycle → 5 ≤ p.length) → ∀ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 D → PEqualNP.MetaComplexity.circuitFun n D = (fun x : Fin n → Bool => decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) → G.edgeFinset.card ≤ c * (D.size + 1)",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_lib_123.lean"
+    "lean/PEqualNP/Outside/L_meta_606.lean"
   ],
   "base_SHA": "a6124626c0af008042e2a974377f33556fe63236",
-  "branch": "grok/L-lib-123",
+  "branch": "grok/L-meta-606",
   "PR_link": null,
   "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "own_lease_hard_open_already_analyzed_today",
-  "notes": "Official client assigned L-lib-123 (own fresh lease). Marking task and file immediately. This is the same hard open FP3 link already analyzed and released earlier today; not a short bounded task. Not 719/582/706. Peer last fetched available/none. Will not release or renew any lease that is not this own assignment. Existing analysis kept; will not occupy the pit or start an unbounded proof attempt.",
+  "state": "own_lease_606_shard2_and_pending_release_123",
+  "notes": "Official client assigned L-meta-606 shard 2 via another=1 while still holding own L-lib-123 lease. Marking 606 task and file immediately. Posted statement is the full all-n linear-size C5-free edge-function conjecture, not a short special case; shard 2 is a research direction (line-degree 3, AND of two factors) and cannot be submitted in place of the posted statement. Peer ledger is available/none; peer fork branch chatgpt/L-meta-606 has unofficial ChatGPTFactorSlice.lean only, no official L_meta_606.lean. Not 719/582/706. Will not release or renew any lease that is not these two own assignments. L-lib-123 remains held only until its own official release.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -109,5 +109,11 @@
     }
   ],
   "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
-  "pending_prior_lease": null
+  "pending_prior_lease": null,
+  "pending_own_release": {
+    "task_id": "L-lib-123",
+    "reason_pending": "hard open FP3 link already analyzed today; will release only this own confirmed lease"
+  },
+  "shard": 2,
+  "shards": 4
 }
