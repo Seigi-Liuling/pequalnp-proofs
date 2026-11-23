@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:19:21Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
+  "updated_at_UTC": "2026-11-23T16:20:26Z",
+  "task_id": "L-meta-650",
+  "exact_statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 63 ∧ (∀ x : Fin 26 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 26, (u.val, v.val) ∈ ([(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_650.lean"
+  ],
   "base_SHA": null,
-  "branch": null,
+  "branch": "grok/L-meta-650",
   "PR_link": null,
-  "lease_status": "none",
+  "lease_status": "active_original_expiry_2026-11-24_02:05:15_JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "batch_ended_no_active_lease",
-  "notes": "Hourly 2026-11-24 01:16 JST retry: first official next was L-lib-123 (same hard open FP3 link already analyzed today); own lease released other, official client confirmed. Second next was L-meta-283, a finite explicit 9-gate circuit lemma, but already crowded with four foreign open PRs on the correct file and checks starting: 1045 (BranislavMateas), 1066 (thequestfor, check queued), 1071 (Osyden), 1072 (Elextricx). Did not start a competing proof. Own L-meta-283 lease released other, official client confirmed. 719/706 untouched. Peer was available/none at last fetch. Ending this batch with no active lease rather than cycling the desk.",
+  "state": "triaging_official_plane_search",
+  "notes": "Official L-meta-650 received. Search for a Monotone2 circuit of size at most 63 for the order-3 projective plane incidence function (26 inputs, 52 edges, cover 13; target is one below E+tau-1=64). Marking exact task/file immediately. This is our own new lease, not 719/582/706. Peer currently available/none; ChatGPT previously released 650 after seeing many holders, but we do not assume that lease is still theirs. Will quickly check current open PRs and whether a short formal witness is realistic; if still crowded or not short-completable, release this own lease rather than start an unbounded 26-input search.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -92,6 +94,6 @@
       ]
     }
   ],
-  "next_step": "No active own lease. Next scheduled fire on 2026-11-24 may try official next if weekly usage is still below the 80 percent start line. If a new task is 719/706 or already held by this handle or the peer, do not release; use another=1 only. Do not cycle the desk when it is empty or only unsuitable steps remain.",
+  "next_step": "Triage 650 against crowding and remaining batch time. Do not touch 719/582/706.",
   "pending_prior_lease": null
 }
