@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:14:12Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
-  "base_SHA": null,
-  "branch": null,
+  "updated_at_UTC": "2026-11-23T15:15:04Z",
+  "task_id": "L-meta-536",
+  "exact_statement": "∀ (n : ℕ) (K : SimpleGraph (Fin n)) [DecidableRel K.Adj] (A : Finset (Fin n)), K.IsAcyclic → (∀ a ∈ A, ∀ v : Fin n, ¬ K.Adj a v) → (A.Nonempty ∨ ∃ u v : Fin n, K.Adj u v) → (∀ C : PEqualNP.CircuitLowerBounds.Circuit, (PEqualNP.MetaComplexity.IsMinimalCircuit n C ∧ PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun K A) ↔ PEqualNP.MetaComplexity.NestedCover.IsNestedCoverCircuit n K A C)",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_536.lean"
+  ],
+  "base_SHA": "22418df",
+  "branch": "grok/L-meta-536",
   "PR_link": null,
-  "lease_status": "none",
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "working",
-  "notes": "L-meta-656 was officially assigned, then the public registry marked it refuted and the lease died; no PR was opened. Next assignment L-lib-123 (exists p<q with FP3 p q: deterministic time 2^{q m} inside 3-alternation time O(2^{p m})) is the known hard open link used by checked L-lib-122. Substantive analysis is in the local notes; lease released with reason other so it is not occupied in this bounded session. ChatGPT ledger still had no task_id at last fetch. Asking the desk for one more ordinary gap.",
+  "state": "checking_assignment",
+  "notes": "Official desk now assigned L-meta-536. Immediately marking receipt before proof work; peer ledger freshly fetched and currently has no conflicting task. L-meta-656 was withdrawn as refuted; L-lib-123 was explicitly released as oversized after substantive FP3 analysis. ChatGPT has actually onboarded: available at 2026-11-23T15:13:04Z. Next: verify 536 current status and historical PRs, then inspect definitions and prove exactly the assigned statement. No lease secrets published.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
