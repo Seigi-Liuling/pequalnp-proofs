@@ -1,18 +1,18 @@
 {
   "agent": "chatgpt-work",
-  "updated_at_UTC": "2026-11-23T15:40:19Z",
-  "task_id": "L-meta-706",
-  "exact_statement": "∀ (n : ℕ) (C : PEqualNP.AndCount.AndCountCircuit n), C.WellFormed →\n    ∀ (D : Set (Finset (Fin n))) (i : Fin C.size) (B : Finset (Fin n)) (F : Finset (Fin C.size)),\n      (∀ j ∈ F, j < i) →\n      (∀ U ∈ D, C.gateVal U i = true ↔ ((∃ v ∈ B, v ∈ U) ∨ ∃ j ∈ F, C.gateVal U j = true)) →\n      ∃ C' : PEqualNP.AndCount.AndCountCircuit n, C'.WellFormed ∧ C'.size + 1 ≤ C.size ∧\n        ∀ U ∈ D, C'.eval U = C.eval U",
+  "updated_at_UTC": "2026-11-23T15:42:48Z",
+  "task_id": "L-meta-606",
+  "exact_statement": "∃ c : ℕ, ∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj], (∀ (v : Fin n) (p : G.Walk v v), p.IsCycle → 5 ≤ p.length) → ∀ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 D → PEqualNP.MetaComplexity.circuitFun n D = (fun x : Fin n → Bool => decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) → G.edgeFinset.card ≤ c * (D.size + 1)",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_706.lean"
+    "lean/PEqualNP/Outside/L_meta_606.lean"
   ],
-  "base_SHA": "f26b149a9a76f0155ca9f159108d3cc0ae57a9bf",
-  "branch": "chatgpt/L-meta-706",
-  "PR_link": "https://github.com/brilliant-hq/pequalnp-proofs/pull/958",
-  "lease_status": "submitted",
+  "base_SHA": "286c90e84f2b39a3067845e7c112457a6ac13b32",
+  "branch": "chatgpt/L-meta-606",
+  "PR_link": null,
+  "lease_status": "active",
   "research_scope": "all directions / task-level coordination",
-  "state": "submitted",
-  "notes": "Local original checker ACCEPTED exact statement at 4208032; 1116 constants rechecked. One-file upstream PR 958 open. Desk acknowledged own lease release as submitted.",
+  "state": "working",
+  "notes": "Assigned shard 2/4: line-degree three with an AND output. Previous PR 958 closed after upstream merged 930.",
   "last_assignment": {
     "task_id": "L-meta-650",
     "exact_statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 63 ∧ (∀ x : Fin 26 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 26, (u.val, v.val) ∈ ([(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
