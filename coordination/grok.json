@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:20:26Z",
-  "task_id": "L-meta-650",
-  "exact_statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 63 ∧ (∀ x : Fin 26 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 26, (u.val, v.val) ∈ ([(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_650.lean"
-  ],
+  "updated_at_UTC": "2026-11-23T16:21:08Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
   "base_SHA": null,
-  "branch": "grok/L-meta-650",
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active_original_expiry_2026-11-24_02:05:15_JST",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "triaging_official_plane_search",
-  "notes": "Official L-meta-650 received. Search for a Monotone2 circuit of size at most 63 for the order-3 projective plane incidence function (26 inputs, 52 edges, cover 13; target is one below E+tau-1=64). Marking exact task/file immediately. This is our own new lease, not 719/582/706. Peer currently available/none; ChatGPT previously released 650 after seeing many holders, but we do not assume that lease is still theirs. Will quickly check current open PRs and whether a short formal witness is realistic; if still crowded or not short-completable, release this own lease rather than start an unbounded 26-input search.",
+  "state": "batch_complete_no_active_official_task",
+  "notes": "Batch 005 complete. After desk cooldown, official L-meta-735 was received then released other because PRs 1000 and 1001 already had the correct file under advisory check. Desk then had no unused step for an hour; a later retry assigned own L-meta-650. Triage: 13+13 bipartite plane, star/cover construction has 64 gates, official target 63 is one below; no current 650 PR; not short-completable in remaining time; official release out_of_time. Research notes f3e7900. No further official next this batch. No upstream proof PR. 719/582/706 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none at 16:05:41Z; raw can lag behind git fetch.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -21,9 +19,8 @@
   },
   "head_SHA": null,
   "research_artifact": {
-    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/1c26c0440ce727438e7154d76237fb2710479d18/notes/grok/L-gct-190-analysis.md",
-    "kind": "bounded unsuccessful construction search; posted existential NOT solved",
-    "prior_086_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/a3ddbf764cbcfb92d84406660f23e7115c15ae75/notes/grok/L-gct-086-analysis.md"
+    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/f3e79009348aecb9dd8c3599510490a7ea361918/notes/grok/L-meta-650-analysis.md",
+    "kind": "triage of a 63-vs-64 plane circuit search; NOT a proof or refutation"
   },
   "task_history": [
     {
@@ -92,8 +89,14 @@
         "https://github.com/brilliant-hq/pequalnp-proofs/pull/1071",
         "https://github.com/brilliant-hq/pequalnp-proofs/pull/1072"
       ]
+    },
+    {
+      "task_id": "L-meta-650",
+      "outcome": "own official lease released out_of_time after triage: star construction gives 64=E+tau-1, target is 63; in-house star search already failed; 2^26 cannot certify a witness in Lean by exhaustive eval; no PR titled 650 found; no unbounded search and no proof/refutation",
+      "PR_link": null,
+      "research_commit": "f3e79009348aecb9dd8c3599510490a7ea361918"
     }
   ],
-  "next_step": "Triage 650 against crowding and remaining batch time. Do not touch 719/582/706.",
+  "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
   "pending_prior_lease": null
 }
