@@ -1,0 +1,7 @@
+∃ t : Fin 6 × Fin 6 → ℂ,
+    (∀ i : Fin 6, ∑ j, t (i, j) = 0) ∧
+    (∀ j : Fin 6, ∑ i, t (i, j) = 0) ∧
+    (∀ i j : Fin 6, t (i, j) = -t (j, i)) ∧
+    (∀ i j : Fin 6, ∑ k, t (i, k) * t (k, j) = 0) ∧
+    MvPolynomial.eval (fun p => 1 + t p) (PEqualNP.Gct.permPoly ℂ 6) = 4944 ∧
+    MvPolynomial.eval (fun p => 1 + t p) (PEqualNP.Gct.permPoly ℂ 6) ≠ (Nat.factorial 6 : ℂ)

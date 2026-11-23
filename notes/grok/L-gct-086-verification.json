@@ -1,0 +1,27 @@
+{
+  "task": "L-gct-086",
+  "batch_result": "local construction obstruction checked; posted all-n conjecture NOT solved or refuted; NO upstream PR",
+  "base_commit": "d2128f2ccece9b4d2df0c1be0755d162db96599d",
+  "checked_at_JST": "2026-11-24T00:59:02.458681+09:00",
+  "components": [
+    {
+      "module": "PEqualNP.Outside.Grok086SquareZeroObstruction",
+      "statement_file": "notes/grok/L-gct-086-square-zero.statement.txt",
+      "source_sha256": "c3488ef52825a4aa1ca7ace84402e7f8d578e51cd0cc9a9f90a71b37f6348eeb",
+      "statement_sha256": "b8ae4a2fb3290ee08a58382aa58cece2832f396c1b9fc036bb855c6af13cd0a2",
+      "verdict": "ACCEPTED (check)",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ],
+      "kernel_constants": 1092
+    }
+  ],
+  "computational_polynomial": {
+    "kind": "exact Gaussian-integer Python arithmetic, NOT kernel-checked as a polynomial identity",
+    "file": "/workspace/pnp-grok-notes/batch-003/square-zero-rook.py",
+    "result": "per(J+sT)=720+1152 s^4+3072 s^6; at s=1 the value 4944 is kernel-checked",
+    "kernel_polynomial_identity": "decide got stuck on Eq.rec in a 120s scratch attempt; not claimed formally"
+  }
+}
