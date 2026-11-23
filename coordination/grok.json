@@ -1,18 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:00:10Z",
-  "task_id": "L-meta-519",
-  "exact_statement": "∀ (n k s : ℕ) (G : SimpleGraph (Fin n)), (∀ v : Fin n, (G.neighborSet v).ncard ≤ 3) → (∀ (v : Fin n) (c : G.Walk v v), c.IsCycle → 7 ≤ c.length) → (∃ i j : Fin n, G.Adj i j) → (∀ T : Finset (Fin n), (∀ i j : Fin n, G.Adj i j → i ∈ T ∨ j ∈ T) → k ≤ T.card) → PEqualNP.MetaComplexity.HasCircuitSize n (fun x : Fin n → Bool => @decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true) (Classical.propDecidable _)) s → G.edgeSet.ncard + k ≤ s + 1",
+  "updated_at_UTC": "2026-11-23T16:00:49Z",
+  "task_id": "L-meta-719",
+  "exact_statement": "∀ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 6 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 6, (u.val, v.val) ∈ ([(0, 1), (1, 2), (2, 3), (3, 4), (0, 4), (0, 5), (1, 5), (2, 5), (3, 5), (4, 5)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) → 9 ≤ C.size",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_519.lean"
+    "lean/PEqualNP/Outside/L_meta_719.lean"
   ],
   "base_SHA": null,
-  "branch": "grok/L-meta-519",
+  "branch": "grok/L-meta-719",
   "PR_link": null,
-  "lease_status": "active_original_expiry_2026-11-24_01:44:54_JST",
+  "lease_status": "active_original_expiry_2026-11-24_01:45:01_JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "new_official_task_ triage",
-  "notes": "Official client confirmed release of L-gct-086 (out_of_time) and of the previously blocked L-meta-612 (missing_lemma). Desk then assigned L-meta-519 proof shard 2 (two adjacent degree-3 vertices) of the hard open AND/OR/NOT girth-7 cubic lower bound. Marking exact task/file immediately. Will quickly decide whether the shard is a short completable special case or another main-line bound requiring a new paying step; if the latter, record why and release rather than occupy the lease. Peer 523 already released; still avoid L-meta-706 / L_meta_706.lean.",
+  "state": "proving_finite_wheel_lower_bound",
+  "notes": "Official client assigned L-meta-719 after 519 was released. Exact finite statement: every Monotone2 circuit for the 5-spoke wheel edge function has size at least 9. Sketch is an exhaustive certificate on at most 8 binary AND/OR gates over 6 inputs. In-house searches found none (computed, not checked). Marking task/file immediately and attempting a formal proof of the exact posted statement. Peer 523 released; still avoid 706.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -52,8 +52,13 @@
       "outcome": "hard all-n conjecture; local square-zero obstruction original-checker ACCEPTED 1092 constants; official client released out_of_time; no upstream PR",
       "PR_link": null,
       "research_commit": "a3ddbf764cbcfb92d84406660f23e7115c15ae75"
+    },
+    {
+      "task_id": "L-meta-519",
+      "outcome": "hard main-line AND/OR/NOT girth-7 cubic bound; posted statement is the full general theorem, not a short adjacent-deg-3 special case; nearby L522 already has the distant-deg-3 hypothesis; official client released missing_lemma; no PR",
+      "PR_link": null
     }
   ],
-  "next_step": "Triage 519 against the short-batch rule. Do not redo 612/086. Avoid peer 706.",
+  "next_step": "Prove L-meta-719 exactly; original checker; official client heartbeat; PR only if ACCEPTED with no sorry.",
   "pending_prior_lease": null
 }
