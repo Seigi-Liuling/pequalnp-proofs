@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T23:15:26Z",
-  "task_id": "L-meta-987",
-  "exact_statement": "∃ (n m : ℕ) (S : Fin m → Finset (Fin n)) (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : Fin m → ℕ) (i0 : Fin gates.length) (hw : ℕ) (T : Finset (Fin n)) (t0 : Fin n), (∀ i : Fin m, 2 ≤ (S i).card) ∧ (∀ i j : Fin m, i ≠ j → (S i ∩ S j).card ≤ 1) ∧ (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧ g.inputs.length ≤ 2) ∧ (∀ q : Fin gates.length, (gates.get q).op = PEqualNP.CircuitLowerBounds.GateOp.not → q = i0) ∧ (gates.get i0).op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ (gates.get i0).inputs.head? = some hw ∧ (hw < n + i0.val) ∧ (∀ (o : Fin m) (x : Fin n → Bool), PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out o⟩ (List.ofFn x) = decide (∃ v ∈ S o, x v = true)) ∧ (∀ y : Fin n → Bool, (∀ t ∈ T, y t = false) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, hw⟩ (List.ofFn y) = false) ∧ (t0 ∈ T) ∧ (∀ t ∈ T, (Finset.univ.filter (fun a : Fin m => t ∈ S a)).card ≤ (Finset.univ.filter (fun b : Fin m => t0 ∈ S b)).card) ∧ gates.length + ∑ u ∈ T.erase t0, (Finset.univ.filter (fun c : Fin m => u ∈ S c)).card < 1 + ∑ s : Fin m, ((S s).card - 1)",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_987.lean"
-  ],
-  "base_SHA": "a6fb1ad",
-  "branch": "grok/batch-013",
+  "updated_at_UTC": "2026-11-23T23:17:31Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "working",
-  "notes": "Batch 013: official client assigned L-meta-987 (search for a one-NOT counterexample to the clause lemma on Boolean sums of sets that share pairwise at most one input). Marking task and file immediately. Not 719/582/706/275. No upstream PRs (pr_open 0); weight 20, parallel 4. Peer ledger last written 2026-11-23T16:05:41Z with state available and no current task; stale, not a live handshake. Bounded triage then work only if short-term completable; otherwise record analysis and release only this own confirmed lease. Will formalize and PR only an original-checker ACCEPTED exact proof. Official desk lease held by this Grok Bot batch only.",
+  "state": "batch_complete_no_active_official_task",
+  "notes": "Batch 013 complete. Official client assigned L-meta-987 (search for a one-NOT counterexample to the clause lemma on Boolean sums of sets that share pairwise at most one input). No upstream PRs at claim time. Complementary L-meta-986 is already merged as PR1700 and proves the opposite non-strict bound under the same 11 hypotheses (only extra parentheses on two atoms). No witness can exist; official client released statement_seems_false. No own proof or PR. 719/582/706/275 and their files were not claimed, renewed, released, or modified. Peer ledger last updated 2026-11-23T16:05:41Z, state available, no current task; stale, not a live handshake. Next claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706/275.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -21,8 +19,8 @@
   },
   "research_artifact": {
     "url": null,
-    "kind": null,
-    "local_note": null
+    "kind": "analysis only; no proof",
+    "local_note": "batch-013/L-meta-987-analysis.md"
   },
   "task_history": [
     {
@@ -143,8 +141,14 @@
       "task_id": "L-meta-1393",
       "outcome": "released_missing_lemma_two_factor_DIAG-4_bound_not_a_short_padding_of_checked_L-meta-1382; L-meta-1384 assumes a 1393-style bound; official size open hours; parallel 8",
       "PR_link": null
+    },
+    {
+      "task_id": "L-meta-987",
+      "outcome": "released_statement_seems_false_complementary_L-meta-986_already_merged_PR1700",
+      "PR_link": null,
+      "complementary": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1700"
     }
   ],
-  "next_step": "Triage nearby 988/991 lemmas and whether a short witness search is feasible in this 45-minute batch.",
+  "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
   "pending_prior_lease": null
 }
