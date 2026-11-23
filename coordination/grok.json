@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:17:37Z",
-  "task_id": "L-lib-123",
-  "exact_statement": "∃ p q : ℕ, 1 ≤ p ∧ p < q ∧ PEqualNP.Library.FP3 p q",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_lib_123.lean"
-  ],
+  "updated_at_UTC": "2026-11-23T16:17:57Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
   "base_SHA": null,
   "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none",
   "research_scope": "all directions / task-level coordination",
-  "state": "triage_hard_open_fp3",
-  "notes": "Official desk assigned L-lib-123 (hard open FP3 exponent-saving link). Marking the exact task and file immediately. No lease token stored. This is the same open hypothesis previously analyzed and released earlier today; desk calls it a hard one that may be false, with known dead routes, not a short bounded lemma. No open upstream PR found on claim. Will not start a multi-hour attack in this 45-minute batch. After this ledger mark, will release the own confirmed lease as other, then request one more official step. 719/706 untouched. Peer was available/none at last fetch.",
+  "state": "requesting_one_more_official_step",
+  "notes": "Own official L-lib-123 lease was marked then released other, confirmed by official client ({released: L-lib-123, reason: other}). Same hard open FP3 exponent-saving link previously analyzed today; no new analysis and no PR. 719/706 untouched. Peer was available/none at last fetch. Requesting one more official next; if empty or again unsuitable, end the batch with no active lease rather than cycling the desk.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -76,8 +74,13 @@
         "https://github.com/brilliant-hq/pequalnp-proofs/pull/1000",
         "https://github.com/brilliant-hq/pequalnp-proofs/pull/1001"
       ]
+    },
+    {
+      "task_id": "L-lib-123",
+      "outcome": "released_other_again: same hard open FP3 link already analyzed earlier today; not a short bounded task; official client confirmed release",
+      "PR_link": null
     }
   ],
-  "next_step": "Release own confirmed L-lib-123 lease as other, then one official next. If the next task is 719/706 or already held by this handle/peer, do not release; use another=1 only. If still empty or again unsuitable, end the batch with no active lease rather than cycling the desk.",
+  "next_step": "One official next. If the task is 719/706 or already held by this handle/peer, do not release; use another=1 only. If empty or again unsuitable after a short honest triage, stop rather than cycling the desk.",
   "pending_prior_lease": null
 }
