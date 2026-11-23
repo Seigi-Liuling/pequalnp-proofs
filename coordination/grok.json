@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T21:18:34Z",
-  "task_id": "L-meta-1024",
-  "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : Fin 13 → ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (w : Fin 13) (x : Fin 13 → Bool), ((Finset.univ.filter (fun p : Fin 13 => x p = false)).card = 5 ∨ (Finset.univ.filter (fun p : Fin 13 => x p = false)).card = 6) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out w⟩ (List.ofFn x) = decide (∃ v ∈ (({0, 1, 3, 9} : Finset (Fin 13)).image (fun u => u + w)), x v = true)) → 39 ≤ gates.length",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_1024.lean"
-  ],
-  "base_SHA": "d975698",
-  "branch": "grok/batch-011",
+  "updated_at_UTC": "2026-11-23T21:22:30Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "working",
-  "notes": "Batch 011: official client assigned L-meta-1024 (13 line-ORs of the plane of order 3, correct on inputs with exactly 5 or 6 false points, at least 39 fan-in-2 AND/OR gates). Marking task and file immediately. Not 719/582/706/275. No upstream PRs found at claim time; parallel 4. Peer ledger last written 2026-11-23T16:05:41Z with state available and no current task; stale, not a live handshake. Bounded triage then work only if short-term completable; otherwise record analysis and release only this own confirmed lease. Will formalize and PR only an original-checker ACCEPTED exact proof.",
+  "state": "batch_complete_no_active_official_task",
+  "notes": "Batch 011 complete. Official client assigned L-meta-1024 (13 line-ORs of the plane of order 3, correct on inputs with exactly 5 or 6 false points, at least 39 fan-in-2 AND/OR gates). No upstream PRs at claim time. Nearby L-meta-667 proves the same numeric bound only on at-most-two-true inputs; L-meta-1022 charging needs a two-line-miss separator, which a full enumeration of the 3003 band inputs shows never exists (at most one line is fully false, because two lines cover 7 points). Naive OR-trees have size 39, but that tightness argument is the low-weight one. Closing the step needs a new band-specific lemma or a verified 38-gate unsat certificate; not short-term completable in this batch. Released only this own confirmed 1024 lease as missing_lemma; official client confirmed the release. No own proof or PR. 719/582/706/275 and their files were not claimed, renewed, released, or modified. Peer ledger last updated 2026-11-23T16:05:41Z, state available, no current task; stale, not a live handshake. Next claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706/275.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -21,8 +19,8 @@
   },
   "research_artifact": {
     "url": null,
-    "kind": null,
-    "local_note": null
+    "kind": "analysis only; no proof",
+    "local_note": "batch-011/L-meta-1024-analysis.md"
   },
   "task_history": [
     {
@@ -133,8 +131,13 @@
       "outcome": "released_statement_seems_false_complementary_L-meta-988_already_merged_PR2015",
       "PR_link": null,
       "complementary": "https://github.com/brilliant-hq/pequalnp-proofs/pull/2015"
+    },
+    {
+      "task_id": "L-meta-1024",
+      "outcome": "released_missing_lemma_band_separators_of_1022_and_low_weight_667_do_not_apply; need_band_specific_charging_or_verified_38_gate_search",
+      "PR_link": null
     }
   ],
-  "next_step": "Triage nearby plane-of-order-3 lemmas and whether a 39-gate lower bound is short-term completable.",
+  "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
   "pending_prior_lease": null
 }
