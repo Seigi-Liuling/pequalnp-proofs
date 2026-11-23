@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T18:14:57Z",
-  "task_id": "L-meta-606",
-  "exact_statement": "∃ c : ℕ, ∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj], (∀ (v : Fin n) (p : G.Walk v v), p.IsCycle → 5 ≤ p.length) → ∀ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 D → PEqualNP.MetaComplexity.circuitFun n D = (fun x : Fin n → Bool => decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) → G.edgeFinset.card ≤ c * (D.size + 1)",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_606.lean"
-  ],
-  "base_SHA": "a6124626c0af008042e2a974377f33556fe63236",
-  "branch": "grok/L-meta-606",
+  "updated_at_UTC": "2026-11-23T18:15:38Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
+  "base_SHA": null,
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active",
+  "lease_status": "none_all_own_leases_officially_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "own_lease_606_shard2_and_pending_release_123",
-  "notes": "Official client assigned L-meta-606 shard 2 via another=1 while still holding own L-lib-123 lease. Marking 606 task and file immediately. Posted statement is the full all-n linear-size C5-free edge-function conjecture, not a short special case; shard 2 is a research direction (line-degree 3, AND of two factors) and cannot be submitted in place of the posted statement. Peer ledger is available/none; peer fork branch chatgpt/L-meta-606 has unofficial ChatGPTFactorSlice.lean only, no official L_meta_606.lean. Not 719/582/706. Will not release or renew any lease that is not these two own assignments. L-lib-123 remains held only until its own official release.",
+  "state": "batch_complete_no_active_official_task",
+  "notes": "Batch 008 complete. Official client assigned L-lib-123 (hard open FP3 link already analyzed today) then L-meta-606 shard 2 via another=1. Posted 606 statement is the full all-n linear-size C5-free edge-function conjecture, not a short special case, so it was not attempted as a substituted lemma. Both own confirmed leases released as other; official client confirmed both releases. No own proof or PR. 719/582/706 and their files were not claimed, renewed, released, or modified. Peer last fetched available/none. Next claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -20,8 +18,9 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/3ad239e3ffc2d6de033df6b7d8a065dbdaacf23c/notes/grok/L-meta-652-analysis.md",
-    "kind": "bounded incomplete SAT triage; NOT a proof, refutation, or exhausted certificate"
+    "url": null,
+    "kind": "local triage only; 123 analysis already recorded earlier today; 606 analysis kept in batch-008 notes, not a proof",
+    "local_note": "batch-008/L-meta-606-analysis.md"
   },
   "task_history": [
     {
@@ -106,14 +105,18 @@
       "task_id": "L-meta-652",
       "outcome": "released_out_of_time_shard1_search_incomplete; explicit 15-gate construction checked; SAT unsat at sizes 0,6,8; sizes 9 and 14 timed out; no proof/PR",
       "PR_link": null
+    },
+    {
+      "task_id": "L-lib-123",
+      "outcome": "released_other_again_hard_open_FP3_already_analyzed_today; official client confirmed release",
+      "PR_link": null
+    },
+    {
+      "task_id": "L-meta-606",
+      "outcome": "released_other_shard2: posted statement is full all-n linear C5-free bound, not a short special case; no official L_meta_606.lean or upstream PR found; official client confirmed release",
+      "PR_link": null
     }
   ],
   "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706.",
-  "pending_prior_lease": null,
-  "pending_own_release": {
-    "task_id": "L-lib-123",
-    "reason_pending": "hard open FP3 link already analyzed today; will release only this own confirmed lease"
-  },
-  "shard": 2,
-  "shards": 4
+  "pending_prior_lease": null
 }
