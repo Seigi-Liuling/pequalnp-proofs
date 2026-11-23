@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T15:56:05Z",
+  "updated_at_UTC": "2026-11-23T15:59:22Z",
   "task_id": "L-gct-086",
   "exact_statement": "∃ C : ℕ, ∀ (n : ℕ) (L : Submodule ℂ (Fin n × Fin n → ℂ)), (∀ t ∈ L, MvPolynomial.eval (fun p => 1 + t p) (PEqualNP.Gct.permPoly ℂ n) = (Nat.factorial n : ℂ)) → Module.finrank ℂ L ≤ C * n",
   "file_paths": [
@@ -10,21 +10,22 @@
   "base_SHA": "d2128f2ccece9b4d2df0c1be0755d162db96599d",
   "branch": "grok/L-gct-086",
   "PR_link": null,
-  "lease_status": "active_official_client_heartbeat_confirmed_expiry_2026-11-24_01:40:22_JST",
+  "lease_status": "active_about_to_release_out_of_time_via_official_client",
   "research_scope": "all directions / task-level coordination",
-  "state": "formalizing_square_zero_construction_obstruction",
-  "notes": "L-gct-086 substantive attempt: sharp two-row q−1 quadratic bound independently derived but found already checked as STwoRow.main/L101, so not duplicated. Tested a possible square-zero nilpotent construction instead: u=(1,-1,i,-i,0,0),v=(1,1,i,i,-2i,-2),T=uvᵀ−vuᵀ is skew, doubly centred,T²=0, but exact Gaussian arithmetic gives per(J+T)=4944≠720; polynomial720+1152s⁴+3072s⁶. Lean formalization of this obstruction in progress; no formal success claimed yet, not a refutation of086. This NEW086 lease first heartbeat via reviewed official client succeeded, expires01:40:22 JST. Prior612 blocked release was not retried via another client. Peer706 untouched.",
+  "state": "releasing_hard_all_n_conjecture_after_checked_obstruction",
+  "notes": "L-gct-086 is the hard all-n permanent level-space dimension conjecture. Bounded work produced a local original-checker ACCEPTED obstruction (Grok086SquareZeroObstruction, 1092 constants, standard 3 axioms): an explicit 6x6 skew doubly-centred square-zero T has perm(J+T)=4944≠720, so nilpotent enlargements need not stay on the level set. Two-row bound already checked as STwoRow.main/L101, not duplicated. Posted statement not proved or refuted; no upstream PR. Research commit a3ddbf7 on personal fork. Releasing own official lease out_of_time under the new short-batch rule, then requesting a smaller official task. Peer 523/706 untouched. Prior 612 release remains unconfirmed HTTP403/1010 until original 01:10:11 JST expiry.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
     "GrokLineDegreeZero": "local checker ACCEPTED; published only on own fork branch grok/line-degree-zero-invariance @ 059cf15; not an official gap closure",
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
-  "head_SHA": null,
+  "head_SHA": "a3ddbf764cbcfb92d84406660f23e7115c15ae75",
   "research_artifact": {
-    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/d11d29877638ded772603844fe510b1a8d9b25f2/notes/grok/L-meta-612-analysis.md",
-    "verification_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/d11d29877638ded772603844fe510b1a8d9b25f2/notes/grok/L-meta-612-verification.json",
-    "kind": "two original-checker-accepted local components; exact posted task NOT solved"
+    "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/a3ddbf764cbcfb92d84406660f23e7115c15ae75/notes/grok/L-gct-086-analysis.md",
+    "verification_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/a3ddbf764cbcfb92d84406660f23e7115c15ae75/notes/grok/L-gct-086-verification.json",
+    "kind": "original-checker-accepted construction obstruction; posted all-n bound NOT solved",
+    "exact_missing_ingredient": "A uniform all-n dimension bound controlling Taylor orders that grow with n, or a superlinear family of genuine level spaces."
   },
   "task_history": [
     {
@@ -48,7 +49,7 @@
       "PR_link": null
     }
   ],
-  "next_step": "Complete exact original-checker verification of the finite construction obstruction, then record the genuinely missing all-orders dimension argument. No duplicate two-row proof and no upstream PR unless the exact all-n target is actually proved/refuted.",
+  "next_step": "Release L-gct-086 via official client with out_of_time, then claim a smaller official task. Avoid peer L-meta-523 and L-meta-706.",
   "pending_prior_lease": {
     "task_id": "L-meta-612",
     "release_status": "HTTP403/1010, not confirmed released",
