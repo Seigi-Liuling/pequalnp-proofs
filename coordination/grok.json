@@ -1,18 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-23T16:11:14Z",
-  "task_id": "L-meta-735",
-  "exact_statement": "∀ (n n' : ℕ) (Z : Finset (Fin n)) (e : Fin n' → Fin n), StrictMono e →\n  (∀ k : Fin n, k ∉ Z ↔ ∃ j : Fin n', e j = k) → n' + Z.card = n →\n  ∀ gates : List PEqualNP.CircuitLowerBounds.Gate,\n  ∃ phi : ℕ → ℕ, ∀ x x' : List Bool, x.length = n → x'.length = n' →\n    (∀ k ∈ Z, x.getD (k : ℕ) false = false) →\n    (∀ j : Fin n', x.getD (e j : ℕ) false = x'.getD (j : ℕ) false) →\n    (∀ i : ℕ, (PEqualNP.CircuitLowerBounds.Circuit.wires\n        { gates := gates.map (fun g => { op := g.op, inputs := g.inputs.map phi }), output := 0 } x').getD (phi i) false\n      = (PEqualNP.CircuitLowerBounds.Circuit.wires { gates := gates, output := 0 } x).getD i false) ∧\n    (∀ o : ℕ, PEqualNP.CircuitLowerBounds.Circuit.eval\n        { gates := gates.map (fun g => { op := g.op, inputs := g.inputs.map phi }), output := phi o } x'\n      = PEqualNP.CircuitLowerBounds.Circuit.eval { gates := gates, output := o } x)",
-  "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_735.lean"
-  ],
+  "updated_at_UTC": "2026-11-23T16:11:57Z",
+  "task_id": null,
+  "exact_statement": null,
+  "file_paths": [],
   "base_SHA": null,
-  "branch": "grok/L-meta-735",
+  "branch": null,
   "PR_link": null,
-  "lease_status": "active_original_expiry_2026-11-24_01:55:59_JST",
+  "lease_status": "none",
   "research_scope": "all directions / task-level coordination",
-  "state": "proving_official_wire_renumbering_lemma",
-  "notes": "Official L-meta-735 received after desk cooldown. Library lemma: after setting inputs in Z to false, the same gate list with remapped wire indices computes every old wire on the remaining inputs. Weight 25, sketched by induction. Not 719/582/706; those remain untouched. Marking exact task/file immediately before proof work. No PR claimed.",
+  "state": "waiting_for_a_fresh_official_step",
+  "notes": "Own L-meta-735 lease confirmed and then released other: PRs 1000 (MadsAnker) and 1001 (nicohabets) opened at the same minute, correct file, checks in progress. Did not start a competing proof. Subsequent official next: no step is free that this handle has not already handed back in the last hour (18). No own lease. 719/582/706 untouched. Peer was available/none at last fetch. Will try official next once more after a few minutes, then stop if still empty rather than cycle the desk.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -67,8 +65,17 @@
       "outcome": "bounded exact search found no dim-8 witness; two-hook sums and hook-plus-sparse-interior enlargements fail; not a proof or refutation; official client released out_of_time; research notes only",
       "PR_link": null,
       "research_commit": "1c26c0440ce727438e7154d76237fb2710479d18"
+    },
+    {
+      "task_id": "L-meta-735",
+      "outcome": "own official lease released other immediately: two foreign open PRs 1000 and 1001 already adding L_meta_735.lean with advisory checks in progress",
+      "PR_link": null,
+      "competing_prs": [
+        "https://github.com/brilliant-hq/pequalnp-proofs/pull/1000",
+        "https://github.com/brilliant-hq/pequalnp-proofs/pull/1001"
+      ]
     }
   ],
-  "next_step": "Prove the exact posted statement with the original checker; heartbeat via official client; PR only if ACCEPTED with no sorry.",
+  "next_step": "One more official next after a short wait. If empty, end the batch with no active lease. If a new task is 719/582/706 or already held, do not release; use another=1 only.",
   "pending_prior_lease": null
 }
