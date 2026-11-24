@@ -2,6 +2,7 @@
   "random_seed": 1692,
   "random_full_truth_table_cases_passed": 303,
   "attempted_random_circuits": 400,
+  "each_selected_case_checked_both_tidy_and_Elim_style": true,
   "absorption67": {
     "start_size": 67,
     "end_size": 64,
@@ -97,7 +98,9 @@
         "old_AND_pairs": 1,
         "new_AND_pairs": 0
       }
-    ]
+    ],
+    "Elim_style_no_dead_prune_size": 65,
+    "Elim_style_no_dead_prune_AND_pairs": 0
   },
   "sample_only_safe68": {
     "start_size": 68,

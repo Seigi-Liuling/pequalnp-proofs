@@ -1,0 +1,22 @@
+let clean := fun (N : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate) =>
+  ∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), gs[j]? = some g →
+    (g.op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ ∃ i, i < N+j ∧ g.inputs = [i]) ∨
+    ((g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧
+      ∃ i k, i < N+j ∧ k < N+j ∧ g.inputs = [i,k])
+let wire := fun (N : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate)
+  (x : Fin N → Bool) (w : ℕ) =>
+    (PEqualNP.CircuitLowerBounds.Circuit.mk gs w).eval (List.ofFn x)
+let rename := fun (N p a w : ℕ) => if w < N+p then w else if w = N+p then a else w-1
+let del := fun (N p a : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate) =>
+  gs.take p ++ (gs.drop (p+1)).map (fun g =>
+    (⟨g.op,g.inputs.map (rename N p a)⟩ : PEqualNP.CircuitLowerBounds.Gate))
+∀ (N : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate) (o p a h : ℕ),
+  clean N gs → p < gs.length → a < N+p → h < N+p → o < N+gs.length →
+  (∀ x : Fin N → Bool, wire N gs x h = false → wire N gs x (N+p) = wire N gs x a) →
+  let gs2 := del N p a gs ++ [⟨PEqualNP.CircuitLowerBounds.GateOp.or,[rename N p a o,h]⟩]
+  clean N gs2 ∧ gs2.length = gs.length ∧
+    (∀ x : Fin N → Bool, wire N gs2 x (N+(gs.length-1)) =
+      (wire N gs x o || wire N gs x h)) ∧
+    ∀ b, p < b → (∀ j g, b ≤ j → gs[j]? = some g →
+      g.op = PEqualNP.CircuitLowerBounds.GateOp.or) →
+      ∀ j g, b-1 ≤ j → gs2[j]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.or

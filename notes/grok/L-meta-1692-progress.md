@@ -78,3 +78,87 @@ A more geometry-specific audit: for any two distinct lines, their OR survives in
 See `1692-charging-audit/README.md` for exact definitions, reproductions and limitations. The deletion-normalized window inequality `R_P<=12*S-66` fails on the dual64-gate line-star circuit (1092>702), which also passes all256 single-gate0/1/operand bypass tests. This is not just the earlier redundant67-gate absorption example. A case split on the unknown minimum size shows that the inequality cannot hold for ALL global minimum separators either. Choosing the better point/line orientation does not fix it for merely locally irredundant circuits: mixed65-gate examples give725,735,744>714. These65-gate circuits are not claimed globally minimum.
 
 A distinct constructive route remains: hoist an internal AND that rejects every forbidden sample by retaining its actual output, setting its OLD uses to0, simplifying the suffix and OR-ing the saved wire into the output. Finite tests give nonincreasing size and strictly fewer full AND-ancestor pairs; the desired generic compiler theorem is precisely recorded but NOT proved. It would support the open CleanTop normalization child, not by itself the64-gate bound. The prototype passes303 selected small full-truth-table cases, reduces67->64 in13 steps, and gives a68->67 example that preserves all286 samples while intentionally changing the full function. No new Lean theorem or official PR is claimed this batch.
+
+## Simpler local lift: a different strictly decreasing measure
+
+`python3 notes/grok/1692-charging-audit/safe_lift_stress.py`
+
+Given saved AND gate g and any nested later AND, choose the first direct reader j
+of g. Delete j: if it is OR(g,b), redirect j to b; if AND(g,b), redirect
+j to g. Append OR(renamed old output,g). The new full function is exactly
+F_old OR G, not in general F_old. If G is false on every negative sample,
+all official samples are preserved. Size is unchanged; saved g precedes j,
+so its wire survives unchanged. This works even for an AND reader.
+
+Use mu(C) = max({j+1 : gate j is AND} union {0}). Since the erased reader is
+on a path to a later AND, j lies no later than the last AND. Deletion shifts
+any surviving last AND left, while the appended OR cannot increase mu.
+Thus mu strictly decreases. This paper argument still needs a generic Lean
+proof, extraction of a first reader from the project's ancestor relation,
+and the bridge from <=2 fan-in to exact binary CleanTop syntax.
+
+303 selected small random circuits pass exhaustive full-truth-table checks
+for F_new=F_old OR G, read-back validity, exact same size and strict mu decrease.
+In 65 cases AND-ancestor-pair count does NOT strictly decrease. A four-gate
+explicit diamond witnesses old/new pair count1/1 but mu4/3; therefore do NOT
+use andPairs as the termination measure for this ONE-reader move. The older
+ALL-uses-zero prototype is a different construction.
+
+On official-sample examples: the 67-gate absorbed example normalizes in14
+local steps to67 gates (not64), with no nested ANDs. The68-gate sample-only
+example takes1 step, stays68, and keeps one unsafe nested AND pair, which
+CleanTop permits. These finite tests do not prove normalization or the64 bound.
+
+The local move's semantic proof is adapted from the existing official
+Helpers.EdgeFnLift/EdgeFnModel primitives, dropping the full-function premise
+G<=F and instead stating the exact widened function F OR G. A new focused
+research module Grok1692SafeLift is being checked separately; see progress
+notes for its actual verdict, not a claim that1692 is solved.
+
+### Formal result of batch021 (not a proof of1692)
+
+`lean/PEqualNP/Outside/Grok1692SafeLift.lean` now proves, for valid clean
+read-back gate lists and the explicit conditional-agreement hypothesis:
+1. deletion plus appended OR produces a clean circuit of EXACTLY the same size;
+2. on EVERY input its output is F_old OR saved_wire;
+3. if all old gates from position b onward are OR, and the erased reader p<b,
+   then all new gates from b-1 onward are OR. This certifies the pure-OR tail
+   grows by at least one, the needed last-AND-position descent step.
+The conditional agreement is obtained on paper by the reader-specific cases
+OR(h,q)->q or AND(h,q)->h when h=false; their generic syntactic specialization,
+first-reader extraction, iteration and exact TopForm/CleanTop bridge remain.
+Negative-sample safety is NOT a premise that the full function is unchanged.
+
+The unchanged original checker ACCEPTED the strengthened theorem with ONLY
+propext, Quot.sound, Classical.choice; the exact result is in
+`safe-lift-verdict.txt`, statement in `safe-lift-statement.txt`. Reproduce:
+
+```
+node tools/check-lean.mjs lean/PEqualNP/Outside/Grok1692SafeLift.lean notes/grok/1692-charging-audit/safe-lift-statement.txt check
+```
+
+This is one targeted normalization component, published to the personal fork
+only. The official64-gate theorem is still unproved; no upstream PR is claimed.
+A focused next batch can complete the generic binary-CleanTop normalization.
+Even that would not by itself prove the remaining flat/sample-counting bound.
+
+### Final dependency/novelty audit: DO NOT redo existing2061
+
+Before planning another normalization batch, source audit located already merged
+L-meta-2061: https://github.com/brilliant-hq/pequalnp-proofs/pull/4314
+Merged2026-11-24 17:13:47 JST, commit666ce43d23f1460ca0f03686cd30fcebced79bf3.
+Its exact theorem already gives a sample-preserving size/AND-pair lexicographic
+improvement whenever a negative-safe AND is an ancestor of another AND, in the
+actual fan-in<=2 model. Its inCone_reader lemma supplies the ancestor-to-reader
+bridge. Thus a plan to reprove that project's normalization step would duplicate
+accepted work. The current smaller semantic/tail lemma is verified independent
+research, NOT a newly closed official gap and NOT deserving a duplicate PR.
+
+The genuinely unresolved requirement in our approach is the global counting
+bound AFTER normalization, including unsafe AND repair and mixed OR sharing.
+The fixed-orientation restriction-sum proposal has been refuted above, and we
+have no replacement inequality justified by the normalization theorem. Recommend
+releasing our own1692 lease with missing_lemma rather than occupying it on a
+heartbeat-only or repeated-normalization program. No other task is requested
+in this batch. Future1692 work should first identify the exact unproved counting
+child using2061, not manufacture more normalization helpers.

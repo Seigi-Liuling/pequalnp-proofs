@@ -1,0 +1,116 @@
+{
+  "status": "finite tests only; no generic Lean theorem",
+  "random_selected_cases": 303,
+  "random_cases_where_AND_pair_count_did_NOT_strictly_decrease": 65,
+  "last_AND_position_strictly_decreased_in_every_selected_case": true,
+  "diamond_AND_pairs_old_new": [
+    1,
+    1
+  ],
+  "diamond_last_AND_old_new": [
+    4,
+    3
+  ],
+  "absorption67": {
+    "size": 67,
+    "steps": [
+      {
+        "saved_AND": 3,
+        "deleted_reader": 52,
+        "old_last_AND": 67,
+        "new_last_AND": 66
+      },
+      {
+        "saved_AND": 7,
+        "deleted_reader": 52,
+        "old_last_AND": 66,
+        "new_last_AND": 65
+      },
+      {
+        "saved_AND": 11,
+        "deleted_reader": 52,
+        "old_last_AND": 65,
+        "new_last_AND": 64
+      },
+      {
+        "saved_AND": 15,
+        "deleted_reader": 52,
+        "old_last_AND": 64,
+        "new_last_AND": 63
+      },
+      {
+        "saved_AND": 19,
+        "deleted_reader": 52,
+        "old_last_AND": 63,
+        "new_last_AND": 62
+      },
+      {
+        "saved_AND": 23,
+        "deleted_reader": 52,
+        "old_last_AND": 62,
+        "new_last_AND": 61
+      },
+      {
+        "saved_AND": 27,
+        "deleted_reader": 52,
+        "old_last_AND": 61,
+        "new_last_AND": 60
+      },
+      {
+        "saved_AND": 31,
+        "deleted_reader": 52,
+        "old_last_AND": 60,
+        "new_last_AND": 59
+      },
+      {
+        "saved_AND": 35,
+        "deleted_reader": 52,
+        "old_last_AND": 59,
+        "new_last_AND": 58
+      },
+      {
+        "saved_AND": 39,
+        "deleted_reader": 52,
+        "old_last_AND": 58,
+        "new_last_AND": 57
+      },
+      {
+        "saved_AND": 43,
+        "deleted_reader": 52,
+        "old_last_AND": 57,
+        "new_last_AND": 56
+      },
+      {
+        "saved_AND": 47,
+        "deleted_reader": 52,
+        "old_last_AND": 56,
+        "new_last_AND": 55
+      },
+      {
+        "saved_AND": 51,
+        "deleted_reader": 53,
+        "old_last_AND": 55,
+        "new_last_AND": 54
+      },
+      {
+        "saved_AND": 51,
+        "deleted_reader": 53,
+        "old_last_AND": 54,
+        "new_last_AND": 52
+      }
+    ],
+    "end_AND_pairs": 0
+  },
+  "sample_only68": {
+    "size": 68,
+    "steps": [
+      {
+        "saved_AND": 65,
+        "deleted_reader": 66,
+        "old_last_AND": 67,
+        "new_last_AND": 66
+      }
+    ],
+    "end_unsafe_AND_pairs": 1
+  }
+}
