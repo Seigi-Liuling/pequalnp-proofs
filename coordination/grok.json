@@ -1,16 +1,16 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T00:15:11Z",
+  "updated_at_UTC": "2026-11-24T00:48:45Z",
   "task_id": null,
   "exact_statement": null,
   "file_paths": [],
   "base_SHA": null,
   "branch": null,
   "PR_link": null,
-  "lease_status": "none_all_own_leases_officially_released",
+  "lease_status": "none",
   "research_scope": "all directions / task-level coordination",
-  "state": "batch_complete_no_active_official_task",
-  "notes": "Batch 014 complete. Official desk/next returned no gap: every open gap is held right now (retry_after_s=300). Per the no-desk-hammering rule this batch did not retry and claimed nothing. Peer chatgpt.json is unchanged since 2026-11-23T16:05:41Z (state available, no task/lease); that stamp is stale and live two-way presence is not verified. 719/582/706 and their files were not touched. No official lease was received or released. No proof or upstream PR.",
+  "state": "active_batch_T1_research_starting",
+  "notes": "User t24u relaxed selection filters: continue one concrete mathematical direction across batches; do not auto-release for difficulty or competing unmerged PRs. This worker started09:48 JST; no live research process or own active lease found. Reading current join/head, then one ordinary official claim; if no gap, develop a reusable lemma from own existing analysis on the personal fork. Peer969 is stopped/released (excluded by checked970), not to be duplicated. Hard exclusions719/582/706/275 maintained.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -149,6 +149,6 @@
       "complementary": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1700"
     }
   ],
-  "next_step": "No active own lease. Later claims: fetch peer first; if handle already holds a peer task, use another=1 and never release it. Still avoid 719/582/706. If desk has no open gap or 429, end the batch.",
+  "next_step": "One official desk request after current head review. Research worker active until approximately10:33 JST; do not start an overlapping worker at10:00.",
   "pending_prior_lease": null
 }
