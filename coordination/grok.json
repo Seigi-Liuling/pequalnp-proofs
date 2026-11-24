@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T11:25:06.161878Z",
+  "updated_at_UTC": "2026-11-24T11:41:08.277509Z",
   "task_id": "L-meta-1692",
   "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (i : Fin gates.length), ∀ w ∈ (gates.get i).inputs, w < 26 + (i : ℕ)) → (∀ p l : Fin 13, p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u1 : Fin 13 => decide (u1 = p)) ++ List.ofFn (fun v1 : Fin 13 => decide (v1 = l))) = true) → (∀ Q : Finset (Fin 13), Q.card = 4 → (∀ k : Fin 13, (Q.filter (fun u0 : Fin 13 => u0 - k ∈ ({0, 1, 3, 9} : Finset (Fin 13)))).card ≤ 2) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u2 : Fin 13 => decide (u2 ∈ Q)) ++ List.ofFn (fun v2 : Fin 13 => decide (∀ r ∈ Q, r - v2 ∉ ({0, 1, 3, 9} : Finset (Fin 13))))) = false) → 64 ≤ gates.length",
   "file_paths": [
@@ -17,8 +17,8 @@
   "PR_link": null,
   "lease_status": "active_owned_not_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "active1692_batch021_global_charging_stress_test",
-  "notes": "20:24 JST immediately resumed same1692, no desk. Earlier local9 optimum not re-proved. Main batch goal: state exact restriction-survival inequality, stress-test absorption-aware/minimal-circuit variants before formalization; no unsupported64 claim or helper proliferation. Guard extended for this actual bounded batch, ~21:07 JST.",
+  "state": "active1692_batch021_candidate_refuted_safe_hoist_prototype",
+  "notes": "关键新结论：固定点窗口计费 R_P<=12*S-66 连加全局最小性也不能作普遍规范形：对偶线星64门每窗14，总1092>702，且256种单门0/1/原操作数替换无一保样本。若最优<64局部9已直接否定该式；若最优=64对偶64即最小反例。选择两方向较小值亦被局部不可旁路65门混合星例725>714否定（不冒称65为全局最小）。已放弃此候选。另实现真正对应CleanTop的样本安全AND提升：保留G、旧用途置0简化、输出旧残余OR G，大小不增，AND祖先对下降；303随机全真值测试及67->64/68->67样本例通过，尚无通用Lean证明。会记录精确下一步，不把原型当64证明。",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -39,7 +39,8 @@
     "branch_pushed": true,
     "overlap_status": "original_checker_ACCEPTED_1661_standard_axioms",
     "two_star9_lower_status": "original_checker_ACCEPTED_1701_standard_axioms",
-    "two_star9_upper_status": "original_checker_ACCEPTED_1620_standard_axioms"
+    "two_star9_upper_status": "original_checker_ACCEPTED_1620_standard_axioms",
+    "batch021_status": "counterexamples_reproduced; safe_hoist_finite_tests_only; no_new_Lean_or_PR"
   },
   "task_history": [
     {
@@ -179,17 +180,17 @@
       "PR_link": null
     }
   ],
-  "next_step": "Immediate same1692 continuation before20:41 guard: minimal-circuit normalization and overlap-aware OR-savings/AND-repair charging. Do not re-prove local9 or call desk.",
+  "next_step": "Complete bounded stress audit, then assess one-step safe-hoist formalization using existing Elim.elim_len_lt/inv_elim and full TopForm.andPairs, not direct-AND count.",
   "pending_prior_lease": null,
   "lease_public": {
-    "expires_at_UTC": "2026-11-24T11:39:32.378Z",
-    "expires_at_JST": "2026-11-24T20:39:32.378000+09:00"
+    "expires_at_UTC": "2026-11-24T11:55:33.490Z",
+    "expires_at_JST": "2026-11-24T20:55:33.490000+09:00"
   },
   "heartbeat_public": {
     "pid": 249632,
     "client": "bash tools/pnp.sh beat L-meta-1692",
     "interval_s": 480,
-    "last_success_JST": "2026-11-24T20:19:32.508542+09:00",
+    "last_success_JST": "2026-11-24T20:35:33.608301+09:00",
     "state": "active_actual_research",
     "guard_until": "active bounded batch021 about21:07 JST",
     "guard_until_JST": "2026-11-24T21:07:06.161693+09:00"
