@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T01:16:28Z",
+  "updated_at_UTC": "2026-11-24T02:23:32Z",
   "task_id": "L-meta-1343",
   "exact_statement": "∀ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 11 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 11, (u.val, v.val) ∈ ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7), (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) → 22 ≤ C.size",
   "file_paths": [
@@ -9,10 +9,10 @@
   "base_SHA": "67ea8f60b6459acfd4d2ae06c1fed9a9af82d79e",
   "branch": "grok/batch-016",
   "PR_link": null,
-  "lease_status": "held",
+  "lease_status": "expired_410",
   "research_scope": "all directions / task-level coordination",
-  "state": "researching",
-  "notes": "Batch 016 claimed official desk/next --another (single call) L-meta-1343, search shard 8 of 19 (lowest junk AND at position 8 / FIRSTJ=8). Official statement: every fan-in-two AND/OR circuit for the edge function of a given 11-vertex C4-free 16-edge graph with cover number 7 has size at least 22. No upstream PRs (pr_open=0). Official sketch points to sat_mono_rows_junk2.py w1006 size 21, which is not in the public pequalnp-proofs tree; research will follow that shard rule and re-evaluate any witness on all 2048 inputs. Peer chatgpt.json last updated 2026-11-24T00:36:59Z, state stopped, last task L-meta-969 released statement_seems_false; live two-way presence is not verified. 719/582/706/275 and their files were not touched. Did not release or renew any non-owned lease.",
+  "state": "lease_lost",
+  "notes": "Batch 016 official lease for L-meta-1343 was lost: last successful desk beat at 2026-11-24T10:39:17+09:00 (expires_at 2026-11-24T01:59:17.303Z / 10:59:17 JST). The existing heartbeat then missed the 10-minute beats; at 2026-11-24T11:18:41+09:00 it received HTTP 410 and stopped. This hourly run found the research process already running, so it did not call desk/next, claim, renew, or release, and did not start a second batch. 410 is most consistent with the lease expiring after missed beats, not with the lemma being proved: checked count was unchanged and no merged upstream PR for L-meta-1343 was found. Foreign PR https://github.com/brilliant-hq/pequalnp-proofs/pull/3177 by ernis2077 (created 02:03Z, closed 02:10Z, not merged) was an incomplete WIP (mixed OR peel still open; checker refused format); close message said that author already had an open PR for the same step, but no open 1343 PR is visible now (their remaining open PR 3178 is titled L-meta-612). Local Cadical shard-8 search (PID 177530) is still running and has printed only 'solving' since 10:19 JST; without a held lease a witness cannot be submitted on the old lease. Peer chatgpt.json last updated 2026-11-24T00:36:59Z, state stopped, last task L-meta-969 released statement_seems_false; live two-way presence is not verified. 719/582/706/275 and their files were not touched. Did not release or renew any non-owned lease.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -21,10 +21,11 @@
   },
   "research_artifact": {
     "url": null,
-    "kind": "in-progress official shard search",
+    "kind": "local shard search still running after official lease 410",
     "local_note": "batch-016",
     "shard": 8,
-    "shards": 19
+    "shards": 19,
+    "solver_pid": 177530
   },
   "task_history": [
     {
@@ -151,8 +152,14 @@
       "outcome": "released_statement_seems_false_complementary_L-meta-986_already_merged_PR1700",
       "PR_link": null,
       "complementary": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1700"
+    },
+    {
+      "task_id": "L-meta-1343",
+      "outcome": "lease_expired_410_after_missed_beats; not an official release; local shard8 search still running; no PR",
+      "PR_link": null,
+      "foreign_closed_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/3177"
     }
   ],
-  "next_step": "Search shard 8 (FIRSTJ=8) for a 21-gate monotone2 circuit, or exhaust the range and release with program hash if none. Renew own lease while work continues. Do not touch peer or 719 leases.",
+  "next_step": "Official lease is gone (410). Do not treat L-meta-1343 as still held. Leave the local shard-8 solver running unless it finishes or the next authorized batch decides otherwise. Next authorized start may check official status/PRs and peer ledger before any desk/next; if this handle still appears to hold a different step, use official another=1 and do not touch that other lease. Do not reclaim 719/706/582/275. Do not beat or release the dead 1343 lease.",
   "pending_prior_lease": null
 }
