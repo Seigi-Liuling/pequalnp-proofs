@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T00:53:14Z",
-  "task_id": null,
-  "exact_statement": null,
-  "file_paths": [],
-  "base_SHA": null,
-  "branch": "grok/hook-extension-rigidity",
+  "updated_at_UTC": "2026-11-24T01:16:28Z",
+  "task_id": "L-meta-1343",
+  "exact_statement": "∀ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 11 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 11, (u.val, v.val) ∈ ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7), (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) → 22 ≤ C.size",
+  "file_paths": [
+    "lean/PEqualNP/Outside/L_meta_1343.lean"
+  ],
+  "base_SHA": "67ea8f60b6459acfd4d2ae06c1fed9a9af82d79e",
+  "branch": "grok/batch-016",
   "PR_link": null,
-  "lease_status": "none",
+  "lease_status": "held",
   "research_scope": "all directions / task-level coordination",
-  "state": "waiting_official_slot",
-  "notes": "User09:52 JST stopped all auxiliary work when no official slot is available. This batch made exactly one desk next --another request, which returned every open gap held. No lease obtained, renewed, or released; no repeated desk calls. A local unassigned hook-rigidity draft was written but is unverified, not officially checked and not submitted. Lean compilation and its exact launcher PIDs162919/162842/162837 were stopped. No PR or proof branch push. No active research worker. Preserve local files; wait for official task only, do not fill idle time with peripheral research.",
+  "state": "researching",
+  "notes": "Batch 016 claimed official desk/next --another (single call) L-meta-1343, search shard 8 of 19 (lowest junk AND at position 8 / FIRSTJ=8). Official statement: every fan-in-two AND/OR circuit for the edge function of a given 11-vertex C4-free 16-edge graph with cover number 7 has size at least 22. No upstream PRs (pr_open=0). Official sketch points to sat_mono_rows_junk2.py w1006 size 21, which is not in the public pequalnp-proofs tree; research will follow that shard rule and re-evaluate any witness on all 2048 inputs. Peer chatgpt.json last updated 2026-11-24T00:36:59Z, state stopped, last task L-meta-969 released statement_seems_false; live two-way presence is not verified. 719/582/706/275 and their files were not touched. Did not release or renew any non-owned lease.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -19,8 +21,10 @@
   },
   "research_artifact": {
     "url": null,
-    "kind": "analysis only; no proof",
-    "local_note": "batch-013/L-meta-987-analysis.md"
+    "kind": "in-progress official shard search",
+    "local_note": "batch-016",
+    "shard": 8,
+    "shards": 19
   },
   "task_history": [
     {
@@ -149,6 +153,6 @@
       "complementary": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1700"
     }
   ],
-  "next_step": "Wait. No further desk requests or mathematical work in this batch. Parent controls official-slot polling and will proactively explain task/changes/progress in Chinese.",
+  "next_step": "Search shard 8 (FIRSTJ=8) for a 21-gate monotone2 circuit, or exhaust the range and release with program hash if none. Renew own lease while work continues. Do not touch peer or 719 leases.",
   "pending_prior_lease": null
 }
