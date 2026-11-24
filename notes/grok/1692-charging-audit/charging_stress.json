@@ -1,0 +1,77 @@
+{
+  "points": {
+    "gates": 64,
+    "sample_correct": true,
+    "single_gate_bypasses_preserving286samples": [],
+    "R_point": 702,
+    "R_line": 1092,
+    "point_window_distribution": {
+      "9": 78
+    },
+    "line_window_distribution": {
+      "14": 78
+    }
+  },
+  "lines": {
+    "gates": 64,
+    "sample_correct": true,
+    "single_gate_bypasses_preserving286samples": [],
+    "R_point": 1092,
+    "R_line": 702,
+    "point_window_distribution": {
+      "14": 78
+    },
+    "line_window_distribution": {
+      "9": 78
+    }
+  },
+  "mixed_move_1": {
+    "gates": 65,
+    "sample_correct": true,
+    "single_gate_bypasses_preserving286samples": [],
+    "R_point": 1095,
+    "R_line": 714,
+    "minimum_of_orientations": 714,
+    "candidate_RHS": 714
+  },
+  "mixed_move_2": {
+    "gates": 65,
+    "sample_correct": true,
+    "single_gate_bypasses_preserving286samples": [],
+    "R_point": 1086,
+    "R_line": 725,
+    "minimum_of_orientations": 725,
+    "candidate_RHS": 714
+  },
+  "mixed_move_3": {
+    "gates": 65,
+    "sample_correct": true,
+    "single_gate_bypasses_preserving286samples": [],
+    "R_point": 1077,
+    "R_line": 735,
+    "minimum_of_orientations": 735,
+    "candidate_RHS": 714
+  },
+  "mixed_move_4": {
+    "gates": 65,
+    "sample_correct": true,
+    "single_gate_bypasses_preserving286samples": [],
+    "R_point": 1068,
+    "R_line": 744,
+    "minimum_of_orientations": 744,
+    "candidate_RHS": 714
+  },
+  "sample_safe_threshold4_junk": {
+    "gates": 131,
+    "sample_correct": true,
+    "R_point": 2585,
+    "candidate_RHS": 1506,
+    "window_distribution": {
+      "33": 18,
+      "34": 37,
+      "32": 20,
+      "31": 3
+    },
+    "root_bypass_to_F_preserves_samples": true
+  }
+}

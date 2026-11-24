@@ -1,0 +1,14 @@
+∀ (n : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit) (g j : ℕ),
+  PEqualNP.TopForm.IsAO2 n C →
+  g < C.gates.length → j < C.gates.length →
+  (PEqualNP.MetaComplexity.NestedCover.gateAt C g).op = PEqualNP.CircuitLowerBounds.GateOp.and →
+  (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.and →
+  PEqualNP.EdgeOwnership.InCone n C g j →
+  ∃ D : PEqualNP.CircuitLowerBounds.Circuit,
+    PEqualNP.TopForm.IsAO2 n D ∧
+    D.size ≤ C.size ∧
+    PEqualNP.TopForm.andPairs n D < PEqualNP.TopForm.andPairs n C ∧
+    (∀ x : Fin n → Bool,
+      D.eval (List.ofFn x) =
+        (C.eval (List.ofFn x) ||
+          (C.wires (List.ofFn x)).getD (n + g) false))

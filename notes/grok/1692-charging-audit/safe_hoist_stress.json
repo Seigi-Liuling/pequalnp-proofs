@@ -1,0 +1,119 @@
+{
+  "random_seed": 1692,
+  "random_full_truth_table_cases_passed": 303,
+  "attempted_random_circuits": 400,
+  "absorption67": {
+    "start_size": 67,
+    "end_size": 64,
+    "steps": [
+      {
+        "chosen_AND": 3,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 13,
+        "new_AND_pairs": 12
+      },
+      {
+        "chosen_AND": 7,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 12,
+        "new_AND_pairs": 11
+      },
+      {
+        "chosen_AND": 11,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 11,
+        "new_AND_pairs": 10
+      },
+      {
+        "chosen_AND": 15,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 10,
+        "new_AND_pairs": 9
+      },
+      {
+        "chosen_AND": 19,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 9,
+        "new_AND_pairs": 8
+      },
+      {
+        "chosen_AND": 23,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 8,
+        "new_AND_pairs": 7
+      },
+      {
+        "chosen_AND": 27,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 7,
+        "new_AND_pairs": 6
+      },
+      {
+        "chosen_AND": 31,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 6,
+        "new_AND_pairs": 5
+      },
+      {
+        "chosen_AND": 35,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 5,
+        "new_AND_pairs": 4
+      },
+      {
+        "chosen_AND": 39,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 4,
+        "new_AND_pairs": 3
+      },
+      {
+        "chosen_AND": 43,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 3,
+        "new_AND_pairs": 2
+      },
+      {
+        "chosen_AND": 47,
+        "old_size": 67,
+        "new_size": 67,
+        "old_AND_pairs": 2,
+        "new_AND_pairs": 1
+      },
+      {
+        "chosen_AND": 51,
+        "old_size": 67,
+        "new_size": 64,
+        "old_AND_pairs": 1,
+        "new_AND_pairs": 0
+      }
+    ]
+  },
+  "sample_only_safe68": {
+    "start_size": 68,
+    "end_size": 67,
+    "steps": [
+      {
+        "chosen_AND": 65,
+        "old_size": 68,
+        "new_size": 67,
+        "old_AND_pairs": 3,
+        "new_AND_pairs": 1
+      }
+    ],
+    "full_function_changes_at_line_triple": true,
+    "all286_samples_preserved": true,
+    "unsafe_nested_AND_pair_remaining": 1
+  },
+  "status": "finite executable tests only; generic compiler correctness and AND-pair injection NOT Lean-proved"
+}
