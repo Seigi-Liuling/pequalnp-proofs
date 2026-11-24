@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T10:21:52Z",
+  "updated_at_UTC": "2026-11-24T10:24:21Z",
   "task_id": "L-meta-1692",
   "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (i : Fin gates.length), ∀ w ∈ (gates.get i).inputs, w < 26 + (i : ℕ)) → (∀ p l : Fin 13, p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u1 : Fin 13 => decide (u1 = p)) ++ List.ofFn (fun v1 : Fin 13 => decide (v1 = l))) = true) → (∀ Q : Finset (Fin 13), Q.card = 4 → (∀ k : Fin 13, (Q.filter (fun u0 : Fin 13 => u0 - k ∈ ({0, 1, 3, 9} : Finset (Fin 13)))).card ≤ 2) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u2 : Fin 13 => decide (u2 ∈ Q)) ++ List.ofFn (fun v2 : Fin 13 => decide (∀ r ∈ Q, r - v2 ∉ ({0, 1, 3, 9} : Finset (Fin 13))))) = false) → 64 ≤ gates.length",
   "file_paths": [
@@ -9,10 +9,10 @@
   "base_SHA": "4da2f0456c50716aa775ef77aa729d96fb388e07",
   "branch": "grok/L-meta-1692",
   "PR_link": null,
-  "lease_status": "active_owned_batch019",
+  "lease_status": "active_last_verified19:23:27JST_expires19:43:27JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "working_official1692_initial_analysis",
-  "notes": "19:21 JST owner requested actual recovery. Identity-checked expired2615 heartbeat240991 (cmdline batch018/heartbeat.py, cwd batch018, proc start_ticks2255191), wrote own STOP and sent exactSIGTERM; no unrelated parent killed, no expired beat. No other own solver/Lean active. Official client next --another assigned new own1692: every fanin2 AND/OR list separating52 plane-order3 incident pairs from quadrangle negatives needs64 gates. Official task explicitly open for substantive reductions. No plain SAT run: context says control SAT fails at this scale. Reading official heavy CUTS notes to isolate a structural accounting lemma for an AND below an AND; no new proof yet. Peer969 stopped/released, exclusions preserved. Initial expires19:41:33.792 JST; official-client heartbeat to be verified now. Will return within initial5min for immediate parent resume if no middle notification available.",
+  "state": "official1692_actual_geometry_analysis_initial_handoff",
+  "notes": "Actual initial research completed, not heartbeat-only: computed234 admissible quadrangles, each negative support weight7; every one of273 nonedge two-hot pairs is covered (PP18 witnesses each, LL9, PL24). By monotonicity, sample correctness forces the full weight<=2 edge truth table (52 true pairs,273 false pairs, singletons false). This is independent finite computation plus mathematical deduction, not Lean or64 lower bound. Reproducible enumeration and explicit witness table saved in batch019. Genuine gap: nested AND gates can filter high-weight false positives, so two-hot correctness does not justify treating all internal ANDs as safe or charging edges independently. Next formalize cover/monotonicity then analyze first-AND certificates and OR-sharing costs. Existing merged PR3855/3913/3958 are R_meta_1692_1/_2/_3 reductions only, not proof of1692; no duplicate fourth reduction. Open PRs4312/4249/4246 do not trigger release. Official client beat succeeded19:22:04, detached official-client heartbeat249632/PPID54 succeeded19:23:27, expiry19:43:27.449 JST;8min wall-clock polling, abort on expiry or any error. Parent should IMMEDIATELY resume real proof work after this initial5min handoff, not leave daemon alone. Old2615 PID240991 stopped and absent. Peer unchanged stopped969. No Lean validation/PR claimed.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -163,10 +163,18 @@
       "PR_link": null
     }
   ],
-  "next_step": "Read concrete CUTS argument and checked two-level bound, derive a useful exact reduction separating nested-gate savings from flat64 lower bound; formalize only a non-tautological reduction or exact main theorem.",
+  "next_step": "IMMEDIATE parent resume on same1692 lease/branch. Review batch019/ANALYSIS.md and enumerate_geometry.py. Do not re-claim or switch; verify next due beat around19:31:27. Resume formal finite-cover+monotonicity lemma as a component toward exact64-gate statement, then nested-AND/OR cost analysis. Skeleton sorry is not contribution.",
   "pending_prior_lease": null,
   "lease_public": {
-    "expires_at_UTC": "2026-11-24T10:41:33.792Z",
-    "expires_at_JST": "2026-11-24T19:41:33.792+09:00"
+    "expires_at_UTC": "2026-11-24T10:43:27.449Z",
+    "expires_at_JST": "2026-11-24T19:43:27.449+09:00"
+  },
+  "heartbeat_public": {
+    "pid": 249632,
+    "client": "bash tools/pnp.sh beat L-meta-1692",
+    "interval_s": 480,
+    "last_success_JST": "2026-11-24T19:23:27.622684+09:00",
+    "state": "last_beat_verified_success",
+    "guard_until": "about20:08 JST; next worker must actively resume, not assume box will remain running"
   }
 }
