@@ -1,0 +1,21 @@
+∀ (C : PEqualNP.CircuitLowerBounds.Circuit),
+    (∀ g ∈ C.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨
+      g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) →
+    ∀ x y z : List Bool, x.length = z.length → y.length = z.length →
+    (∀ i, z.getD i false = true → x.getD i false = true ∨ y.getD i false = true) →
+    C.eval z = true → C.eval x = false → C.eval y = false →
+    ∃ pre g post, C.gates = pre ++ g :: post ∧
+      (∀ i, ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires z).getD i false = true →
+        ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires x).getD i false = true ∨
+        ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires y).getD i false = true) ∧
+      g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∧ ∃ a b, g.inputs = [a,b] ∧
+      (((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires z).getD a false = true ∧
+       ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires z).getD b false = true) ∧
+      ((((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires x).getD a false = true ∧
+        ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires y).getD a false = false ∧
+        ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires x).getD b false = false ∧
+        ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires y).getD b false = true) ∨
+       (((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires y).getD a false = true ∧
+        ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires x).getD a false = false ∧
+        ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires y).getD b false = false ∧
+        ((PEqualNP.CircuitLowerBounds.Circuit.mk pre 0).wires x).getD b false = true))

@@ -1,0 +1,7 @@
+∀ (C : PEqualNP.CircuitLowerBounds.Circuit),
+    (∀ g ∈ C.gates, g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) →
+    (∀ Q : Finset (Fin 13), (Q.card = 4 ∧ ∀ l : Fin 13, (Q.filter (fun p => p-l ∈ ({0,1,3,9} : Finset (Fin 13)))).card ≤ 2) → C.eval
+      (List.ofFn (fun p : Fin 13 => decide (p ∈ Q)) ++
+       List.ofFn (fun l : Fin 13 => decide (∀ p ∈ Q, p-l ∉ ({0,1,3,9} : Finset (Fin 13))))) = false) →
+    ∀ a b : Fin 26, ¬ ((a.val < 13 ∧ 13 ≤ b.val ∧ ((Fin.ofNat 13 a.val) - (Fin.ofNat 13 (b.val-13))) ∈ ({0,1,3,9} : Finset (Fin 13))) ∨ (b.val < 13 ∧ 13 ≤ a.val ∧ ((Fin.ofNat 13 b.val) - (Fin.ofNat 13 (a.val-13))) ∈ ({0,1,3,9} : Finset (Fin 13)))) →
+      C.eval (List.ofFn (fun i : Fin 26 => decide (i = a ∨ i = b))) = false
