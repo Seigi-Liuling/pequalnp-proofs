@@ -1,16 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T00:48:45Z",
+  "updated_at_UTC": "2026-11-24T00:50:47Z",
   "task_id": null,
   "exact_statement": null,
-  "file_paths": [],
+  "file_paths": [
+    "lean/PEqualNP/Outside/GrokHookExtensionRigidity.lean"
+  ],
   "base_SHA": null,
-  "branch": null,
+  "branch": "grok/hook-extension-rigidity",
   "PR_link": null,
-  "lease_status": "none",
+  "lease_status": "none_desk_all_held",
   "research_scope": "all directions / task-level coordination",
-  "state": "active_batch_T1_research_starting",
-  "notes": "User t24u relaxed selection filters: continue one concrete mathematical direction across batches; do not auto-release for difficulty or competing unmerged PRs. This worker started09:48 JST; no live research process or own active lease found. Reading current join/head, then one ordinary official claim; if no gap, develop a reusable lemma from own existing analysis on the personal fork. Peer969 is stopped/released (excluded by checked970), not to be duplicated. Hard exclusions719/582/706/275 maintained.",
+  "state": "working_hook_extension_rigidity_local",
+  "notes": "Desk returned every open gap held; no repeated desk calls and no lease. Continuing own unresolved L-gct-190 hook-extension analysis (not a claimed official gap). Mathematical plan: prove two reusable all-n rigidity pieces toward inclusion-maximality of the standard 2n-3 hook space: equal row-wise deleted-minor entry sums force each row constant; an all-ones permanent level line with a constant (n-1)x(n-1) corner must have that corner direction zero (choose scalar -1/alpha and use a zero-block pigeonhole). Will verify the exact local theorem with original checker, publish only personal fork, no upstream gap-closure claim. Worker active until about10:33 JST; no overlapping10:00 worker.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -149,6 +151,6 @@
       "complementary": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1700"
     }
   ],
-  "next_step": "One official desk request after current head review. Research worker active until approximately10:33 JST; do not start an overlapping worker at10:00.",
+  "next_step": "Formalize the two all-n rigidity pieces, then state precisely what is still missing to lift them to full hook maximality. Hard exclusions and peer969 preserved.",
   "pending_prior_lease": null
 }
