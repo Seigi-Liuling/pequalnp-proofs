@@ -1,18 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T08:27:01Z",
-  "task_id": "L-meta-2246",
-  "exact_statement": "¬ (have x1 : Finset (Fin (13 : ℕ)) := {(0 : Fin (13 : ℕ)), (1 : Fin (13 : ℕ)), (3 : Fin (13 : ℕ)), (9 : Fin (13 : ℕ))}; have x2 : Bool → List Bool → Prop := fun (x2 : Bool) (x3 : List Bool) => if x2 = Bool.true then ∃ (x4 : Fin (13 : ℕ)) (x5 : Fin (13 : ℕ)), x4 - x5 ∈ x1 ∧ x3 = (List.ofFn fun (x6 : Fin (13 : ℕ)) => Decidable.decide (x6 = x4)) ++ List.ofFn fun (x6 : Fin (13 : ℕ)) => Decidable.decide (x6 = x5) else ∃ (x4 : Finset (Fin (13 : ℕ))), x4.card = (4 : ℕ) ∧ (∀ (x5 : Fin (13 : ℕ)), {x6 ∈ x4 | x6 - x5 ∈ x1}.card ≤ (2 : ℕ)) ∧ x3 = (List.ofFn fun (x5 : Fin (13 : ℕ)) => Decidable.decide (x5 ∈ x4)) ++ List.ofFn fun (x5 : Fin (13 : ℕ)) => Decidable.decide (∀ x6 ∈ x4, x6 - x5 ∉ x1); have x3 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x3 : PEqualNP.CircuitLowerBounds.Circuit) => PEqualNP.MetaComplexity.Monotone2 x3 ∧ PEqualNP.MetaComplexity.NestedCover.ReadsBack (26 : ℕ) x3 ∧ ∀ (x4 : Bool) (x5 : List Bool), x2 x4 x5 → x3.eval x5 = x4; have x4 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x4 : PEqualNP.CircuitLowerBounds.Circuit) => ∃ (x5 : PEqualNP.CircuitLowerBounds.Circuit), x3 x5 ∧ x5.size < x4.size; have x5 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x5 : PEqualNP.CircuitLowerBounds.Circuit) =>   ∀ x6 < x5.gates.length,     have x8 : PEqualNP.CircuitLowerBounds.Gate := PEqualNP.MetaComplexity.NestedCover.gateAt x5 x6;     have x9 : Bool := !x8.op.eval [];     ∀ x10 ∈ x8.inputs, ∃ (x12 : List Bool), x2 x9 x12 ∧ (x5.wires x12).getD x10 Bool.false = !x9 ∧ (x5.wires x12).getD ((26 : ℕ) + x6) Bool.false = x9; ∀ (x6 : PEqualNP.CircuitLowerBounds.Circuit), x3 x6 → x4 x6 ∨ x5 x6)",
+  "updated_at_UTC": "2026-11-24T09:21:18Z",
+  "task_id": "L-meta-2615",
+  "exact_statement": "∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   x1.size ≤ (64 : ℕ) →     PEqualNP.TopForm.IsAO2 (26 : ℕ) x1 →       (∀ (x4 : ℕ) (x5 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[x4]? = Option.some x5 → x5.inputs.Nodup) →         have x5 : Fin (13 : ℕ) → Fin (13 : ℕ) → Prop := fun (x5 x6 : Fin (13 : ℕ)) => x5 - x6 = (0 : Fin (13 : ℕ)) ∨ x5 - x6 = (1 : Fin (13 : ℕ)) ∨ x5 - x6 = (3 : Fin (13 : ℕ)) ∨ x5 - x6 = (9 : Fin (13 : ℕ));         have x6 : (Fin (26 : ℕ) → Bool) → ℕ → Bool := fun (x6 : Fin (26 : ℕ) → Bool) (x7 : ℕ) => (x1.wires (List.ofFn x6)).getD x7 Bool.false;         (∀ (x7 : Fin (26 : ℕ) → Bool), x6 x7 x1.output = Bool.true ↔ ∃ (x8 : Fin (13 : ℕ)) (x9 : Fin (13 : ℕ)), x5 x8 x9 ∧ x7 (Fin.castAdd (13 : ℕ) x8) = Bool.true ∧ x7 (Fin.natAdd (13 : ℕ) x9) = Bool.true) →           (∀ (x8 : ℕ), (PEqualNP.MetaComplexity.NestedCover.gateAt x1 x8).op = PEqualNP.CircuitLowerBounds.GateOp.and → ∀ (x10 : Fin (26 : ℕ) → Bool), x6 x10 ((26 : ℕ) + x8) = Bool.true → x6 x10 x1.output = Bool.true) →             ∀ (x9 x10 : Fin (13 : ℕ)),               x5 x9 x10 →                 have x12 : Fin ((13 : ℕ) + (13 : ℕ)) := Fin.castAdd (13 : ℕ) x9;                 have x13 : Fin ((13 : ℕ) + (13 : ℕ)) := Fin.natAdd (13 : ℕ) x10;                 have x14 : ℕ → ℕ → ℕ → Prop := fun (x14 x15 x16 : ℕ) => x1.gates[x14]? = Option.some { op := PEqualNP.CircuitLowerBounds.GateOp.and, inputs := [x15, x16] : PEqualNP.CircuitLowerBounds.Gate } ∧ x6 (fun (x17 : Fin (26 : ℕ)) => Decidable.decide (x17 = x12 ∨ x17 = x13)) ((26 : ℕ) + x14) = Bool.true;                 have x15 : Fin (26 : ℕ) → ℕ → ℕ → Prop := fun (x15 : Fin (26 : ℕ)) (x16 x17 : ℕ) => (x6 (fun (x18 : Fin (26 : ℕ)) => Decidable.decide (x18 = x15)) x16 || x6 (fun (x18 : Fin (26 : ℕ)) => Decidable.decide (x18 = x15)) x17) = Bool.true;                 ∀ (x16 x17 x18 x19 x20 x21 : ℕ), x14 x16 x17 x18 → x14 x19 x20 x21 → x15 x12 x17 x18 → ¬x15 x13 x17 x18 → x15 x13 x20 x21 → x15 x12 x20 x21",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_2246.lean"
+    "lean/PEqualNP/Outside/L_meta_2615.lean"
   ],
-  "base_SHA": "c65257814f6636887b1fd29d6d05ba3b9cab8f50",
+  "base_SHA": "6565390",
   "branch": null,
   "PR_link": null,
-  "lease_status": "claimed_until17:45:23JST_first_beat403_no_successful_renewal",
+  "lease_status": "claimed_official_curl_beats_200_heartbeat_running",
   "research_scope": "all directions / task-level coordination",
-  "state": "official2246_claimed_heartbeat403_initial_handoff",
-  "notes": "Initial handoff17:27 JST. New own official2246 claim succeeded HTTP200 at17:25:23, original expiry17:45:23.660 JST. Independent heartbeat PID233554 started with PPID54, but its FIRST beat at17:26:24 JST returned HTTP403; it immediately wrote STOP and exited, with no successful renewal. No retry via another client/route and no heartbeat remains. Research is paused for parent handoff rather than silently working through a broken lease mechanism. Old1343 identity-checked PID177530 stopped and confirmed absent; no result existed, logs preserved. New task2246 is negation of gate-input irredundancy for smallest monotone circuits on plane-order3 examples: seek a minimal correct circuit with an input lacking an opposite-sample witness. Concrete analysis: the positive2245 may follow by replacing that gate with the input, preserving the appropriate positive/negative samples and decreasing size. First gap is a correct finite wire-reindex/delete proof and checking possible empty-input/output-wire exceptions; not a counterexample or completed proof. Upstream2246 PR search empty;2245 has OPEN PRs4385,4366,4368,4363 (none merged in list); these are not accepted evidence. No Lean file created/edited for2246, no proof, no solver, no PR. Desk calls in batch exactly1 next/another and1 beat403, no release. Parent must know original expiry and failed heartbeat now, not assume lease stays alive.",
+  "state": "official2615_claimed_research_starting",
+  "notes": "18:17 JST official tools/pnp.sh next claimed L-meta-2615 (HTTP200), original expiry 18:37:21.628 JST, file lean/PEqualNP/Outside/L_meta_2615.lean. Official curl beat succeeded HTTP200 at 18:18:02 JST (expires 18:38:02.931 JST) and again via heartbeat PID 240991/PPID54 at 18:18:46 JST (expires 18:38:45.898Z). 15-minute official-curl heartbeat is running; no urllib client. Immediately before that, official curl beat of the prior 2246 lease returned HTTP410 at 18:16:10 JST: no such live lease, expired or released; 2246 stopped, no leaseless solving, no release call. Old 1343 solver already stopped earlier, still no SAT/UNSAT. 2615 is hypothesis 2 of the checked reduction R_meta_2069_1 (merged PR4411 ACCEPTED): endpoint-support consistency of active AND gates on an incident two-hot input. Sibling L-meta-2613 is the coverage half (each firing AND hits at least one endpoint). Together they imply one-sidedness and finish the parent L-meta-2069 singleton-support/double-reread claim. No upstream PR for 2615 or 2613. Peer chatgpt.json still stopped/released on L-meta-969. Did not touch 719 or 706. No proof yet, skeleton only, no solver. Concrete next: prove that if one active AND hits P but not L, then every active AND that hits L also hits P, using AO2 monotonicity and clean AND-implies-output. Evidence /workspace/pnp-grok-notes/batch-018/.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -20,10 +20,12 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "kind": "new official task initial analysis; old1343 stopped unfinished",
-    "local_note": "batch-017",
+    "kind": "new official task initial analysis after 2246 410",
+    "local_note": "batch-018",
     "solver_status": "none",
-    "solver_pid": null
+    "solver_pid": null,
+    "heartbeat_pid": 240991,
+    "related_reduction_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/4411"
   },
   "task_history": [
     {
@@ -156,19 +158,27 @@
       "outcome": "lease_expired_410_after_missed_beats; not an official release; local shard8 search still running; no PR",
       "PR_link": null,
       "foreign_closed_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/3177"
+    },
+    {
+      "task_id": "L-meta-2246",
+      "outcome": "official_curl_beat_HTTP410_no_live_lease_expired_or_released; first urllib beat had been HTTP403; no proof, no PR, no leaseless solving, no release call",
+      "PR_link": null
     }
   ],
-  "next_step": "Immediate parent handoff with original expiry17:45:23 JST and HTTP403 heartbeat block. Do not claim renewal succeeded or leave unattended research. No alternate-route retry of blocked beat. If an authorized functioning lease mechanism is available later, resume exact2246 analysis only while valid; otherwise stop at expiry. No additional task claims.",
+  "next_step": "Prove L-meta-2615 support-consistency: if an active AND on an incident pair hits P but not L, every active AND that hits L also hits P. Use R_meta_2069_1, sibling 2613, AO2 monotonicity and clean ANDs. Keep official heartbeat. Do not desk/next or claim another while this lease is valid. Do not touch 719/706 or 2246.",
   "pending_prior_lease": null,
   "lease_public": {
-    "expires_at_UTC": "2026-11-24T08:45:23.660Z",
-    "expires_at_JST": "2026-11-24T17:45:23.660000+09:00"
+    "expires_at_UTC": "2026-11-24T09:38:45.898Z",
+    "expires_at_JST": "2026-11-24T18:38:45.898000+09:00",
+    "last_success_JST": "2026-11-24T18:18:46.096013+09:00"
   },
   "heartbeat_public": {
-    "pid": 233554,
-    "state": "stopped_http403",
-    "last_attempt_JST": "2026-11-24T17:26:24+09:00",
-    "successful_renewals": 0,
-    "log": "/workspace/pnp-grok-notes/batch-017/heartbeat-public.jsonl"
+    "pid": 240991,
+    "ppid": 54,
+    "state": "running_official_curl",
+    "interval_s": 900,
+    "last_success_JST": "2026-11-24T18:18:46.096013+09:00",
+    "successful_renewals": 2,
+    "log": "/workspace/pnp-grok-notes/batch-018/heartbeat-public.jsonl"
   }
 }
