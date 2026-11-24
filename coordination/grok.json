@@ -1,18 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T02:25:38Z",
-  "task_id": "L-meta-1343",
-  "exact_statement": "∀ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 11 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 11, (u.val, v.val) ∈ ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7), (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) → 22 ≤ C.size",
+  "updated_at_UTC": "2026-11-24T08:26:03Z",
+  "task_id": "L-meta-2246",
+  "exact_statement": "¬ (have x1 : Finset (Fin (13 : ℕ)) := {(0 : Fin (13 : ℕ)), (1 : Fin (13 : ℕ)), (3 : Fin (13 : ℕ)), (9 : Fin (13 : ℕ))}; have x2 : Bool → List Bool → Prop := fun (x2 : Bool) (x3 : List Bool) => if x2 = Bool.true then ∃ (x4 : Fin (13 : ℕ)) (x5 : Fin (13 : ℕ)), x4 - x5 ∈ x1 ∧ x3 = (List.ofFn fun (x6 : Fin (13 : ℕ)) => Decidable.decide (x6 = x4)) ++ List.ofFn fun (x6 : Fin (13 : ℕ)) => Decidable.decide (x6 = x5) else ∃ (x4 : Finset (Fin (13 : ℕ))), x4.card = (4 : ℕ) ∧ (∀ (x5 : Fin (13 : ℕ)), {x6 ∈ x4 | x6 - x5 ∈ x1}.card ≤ (2 : ℕ)) ∧ x3 = (List.ofFn fun (x5 : Fin (13 : ℕ)) => Decidable.decide (x5 ∈ x4)) ++ List.ofFn fun (x5 : Fin (13 : ℕ)) => Decidable.decide (∀ x6 ∈ x4, x6 - x5 ∉ x1); have x3 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x3 : PEqualNP.CircuitLowerBounds.Circuit) => PEqualNP.MetaComplexity.Monotone2 x3 ∧ PEqualNP.MetaComplexity.NestedCover.ReadsBack (26 : ℕ) x3 ∧ ∀ (x4 : Bool) (x5 : List Bool), x2 x4 x5 → x3.eval x5 = x4; have x4 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x4 : PEqualNP.CircuitLowerBounds.Circuit) => ∃ (x5 : PEqualNP.CircuitLowerBounds.Circuit), x3 x5 ∧ x5.size < x4.size; have x5 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x5 : PEqualNP.CircuitLowerBounds.Circuit) =>   ∀ x6 < x5.gates.length,     have x8 : PEqualNP.CircuitLowerBounds.Gate := PEqualNP.MetaComplexity.NestedCover.gateAt x5 x6;     have x9 : Bool := !x8.op.eval [];     ∀ x10 ∈ x8.inputs, ∃ (x12 : List Bool), x2 x9 x12 ∧ (x5.wires x12).getD x10 Bool.false = !x9 ∧ (x5.wires x12).getD ((26 : ℕ) + x6) Bool.false = x9; ∀ (x6 : PEqualNP.CircuitLowerBounds.Circuit), x3 x6 → x4 x6 ∨ x5 x6)",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_1343.lean"
+    "lean/PEqualNP/Outside/L_meta_2246.lean"
   ],
   "base_SHA": "67ea8f60b6459acfd4d2ae06c1fed9a9af82d79e",
   "branch": "grok/batch-016",
   "PR_link": null,
-  "lease_status": "expired_410_no_active_lease",
+  "lease_status": "active_owned_batch017",
   "research_scope": "all directions / task-level coordination",
-  "state": "lease_lost_solver_running_no_documented_targeted_reclaim",
-  "notes": "Recovery-only check2026-11-24 11:25 JST: fetched latest coordination8e7f570; peer remains stopped/released969 (last update09:36 JST). Existing own shard8 Cadical process177530 is still R, PPID54, ~99.9% CPU,36m41s CPU, no SAT/UNSAT result and no stderr. Left it running per explicit recovery instruction; did not launch another search or batch. Read current https://pequalnp.com/join.txt and upstream main/tools/pnp.sh: documented claiming is desk/next, choosing the task, with only hard/another selectors; there is no documented task-ID-specific claim or expired-lease-recovery operation. Therefore cannot safely target only1343 without risking assignment of another step: made ZERO desk/next/beat/release calls during recovery, did not guess APIs, cannot establish current slot availability. Old lease remains dead (last expiry10:59:17 JST;410 at11:18:41 JST). No lease heartbeat can be resumed without a valid new lease. No PR; local1343 Lean file still contains sorry and is not submitted. Solver may finish locally, but no official holding/submission/exhaustion claim is made.",
+  "state": "official_task_claimed_initial_analysis",
+  "notes": "Owner17:24 JST authorized next task. Old1343 solver PID177530 was identity-checked (script/cmdline/proc start_ticks1605721; current reported start15:50:33 JST), incomplete logs archived in batch017, then stopped via exact PID; no SAT/UNSAT result. Its own stop-heartbeat flag set; no live own restarter/heartbeat found. One documented desk next?handle=Seigi-Liuling&another=1 returned NEW own task2246; peer969 ledger is stopped/released. No conflicts with719/582/706/275. Task is literal negation of2245: find an irreducible monotone read-back circuit on plane-order3 sample tests where some gate-input lacks its specified opposite-sample witness. Initial mathematical concern: minimality may force exactly that witness via replacing a gate by the chosen input; need inspect precise wire-reindexing and test semantics before claiming counterexample. No proof or counterexample yet. Will establish private auditable10min lease heartbeat; first-stage handoff to parent immediately rather than silently work45min.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -20,14 +20,10 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "url": null,
-    "kind": "existing local shard8 solver left running without a valid lease",
-    "local_note": "batch-016",
-    "shard": 8,
-    "shards": 19,
-    "solver_pid": 177530,
-    "solver_status": "running_no_result",
-    "recovery_checked_UTC": "2026-11-24T02:25:38Z"
+    "kind": "new official task initial analysis; old1343 stopped unfinished",
+    "local_note": "batch-017",
+    "solver_status": "none",
+    "solver_pid": null
   },
   "task_history": [
     {
@@ -162,6 +158,10 @@
       "foreign_closed_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/3177"
     }
   ],
-  "next_step": "End recovery. Leave only existing Cadical PID177530 running to a result as authorized. No new claim or other task; a documented targeted-reclaim route or further owner decision is needed to recover1343. Parent may observe result files; do not treat process existence as a valid lease.",
-  "pending_prior_lease": null
+  "next_step": "Audit gate-to-input deletion argument and latest official2245/2246 state. Prove exact negation only if a genuine counterexample exists; do not alter statement. Parent will resume after initial progress handoff.",
+  "pending_prior_lease": null,
+  "lease_public": {
+    "expires_at_UTC": "2026-11-24T08:45:23.660Z",
+    "expires_at_JST": "2026-11-24T17:45:23.660000+09:00"
+  }
 }
