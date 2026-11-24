@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T12:20:29Z",
+  "updated_at_UTC": "2026-11-24T13:18:35Z",
   "task_id": "L-meta-3206",
   "exact_statement": "∀ x1 ∈ [(0 : ℕ), (1 : ℕ), (3 : ℕ), (4 : ℕ), (6 : ℕ), (8 : ℕ), (9 : ℕ), (10 : ℕ)], ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x3 → x3.size ≤ (13 : ℕ) → ∃ (x6 : Fin (9 : ℕ) → Bool), have x7 : List Bool := List.ofFn x6 ++ [x6 (0 : Fin (9 : ℕ)) && x6 (2 : Fin (9 : ℕ))]; x3.eval (x7 ++ [!x7.getD x1 Bool.false]) ≠ (x6 (0 : Fin (9 : ℕ)) && x6 (1 : Fin (9 : ℕ)) || x6 (1 : Fin (9 : ℕ)) && x6 (2 : Fin (9 : ℕ)) || x6 (2 : Fin (9 : ℕ)) && x6 (3 : Fin (9 : ℕ)) || x6 (3 : Fin (9 : ℕ)) && x6 (4 : Fin (9 : ℕ)) || x6 (4 : Fin (9 : ℕ)) && x6 (0 : Fin (9 : ℕ)) || x6 (0 : Fin (9 : ℕ)) && x6 (5 : Fin (9 : ℕ)) || x6 (1 : Fin (9 : ℕ)) && x6 (6 : Fin (9 : ℕ)) || x6 (2 : Fin (9 : ℕ)) && x6 (7 : Fin (9 : ℕ)) || x6 (3 : Fin (9 : ℕ)) && x6 (8 : Fin (9 : ℕ)) || x6 (5 : Fin (9 : ℕ)) && x6 (7 : Fin (9 : ℕ)) || x6 (6 : Fin (9 : ℕ)) && x6 (8 : Fin (9 : ℕ)) || x6 (8 : Fin (9 : ℕ)) && x6 (5 : Fin (9 : ℕ)))",
   "file_paths": [
@@ -9,10 +9,10 @@
   "base_SHA": "2c41146b9ed14bcbc93463eb24a0ae0d03d628ce",
   "branch": "grok/L-meta-3206",
   "PR_link": null,
-  "lease_status": "active_owned",
+  "lease_status": "expired",
   "research_scope": "all directions / task-level coordination",
-  "state": "working3206_claimed_batch022",
-  "notes": "21:17 JST 官方 desk/next 新领 L-meta-3206（非 another、非 hard）。无同题历史/开放 PR，L_meta_3206.lean 不在 upstream main。对端台账仍为 stopped/released L-meta-969。继续避开 719 / L_meta_719.lean、已提交的 706、退役 275、以及 582。姊妹步 L-meta-3204 有他人开放 PR 6081（fededevi），不碰该文件与其租约。本题是已检查切分 L-meta-1934 的第 2/2 步：在已提供第一门 AND(x0,x2) 后，对 8 个指定 NOT 接线位置，证明扇入 2 电路剩余不超过 13 门无法计算 Petersen 去掉一个顶点后的边函数。有具体切入点，开始本批研究。官方骨架含 sorry，不提交。无 1692 租约操作。",
+  "state": "stopped_lease_expired_batch022",
+  "notes": "22:17 JST 核实：L-meta-3206 官方租约已失效，不是有效正式研究。最后成功续租 21:28:20 JST，到期 21:48:20 JST；心跳于 21:52:48 记录 expired_during_pause_stop_no_beat 后结束。精确PID 314531 已不存在，无 lean/lake/求解进程，无孤立重启器。仅有 intake ANALYSIS.md 与含 sorry 的官方骨架，无证明、无上游PR。到期后未再 beat/release（租约自行释放）。不继续无租约求解占坑。此后出现他人开放 PR 6237、6403，不碰那些文件与租约。对端仍 stopped/released L-meta-969。避开 719/706/275/582。下一批再正规 desk/next。",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -24,13 +24,14 @@
     "local_note": "batch-022",
     "solver_status": "none",
     "solver_pid": null,
-    "official3206_status": "unproved_no_PR",
+    "official3206_status": "unproved_lease_expired_no_PR",
     "parent": "L-meta-1934",
     "sibling": "L-meta-3204",
     "sibling_open_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/6081",
     "official_pr_open": 0,
     "base": "2c41146b9ed14bcbc93463eb24a0ae0d03d628ce",
-    "branch": "grok/L-meta-3206"
+    "branch": "grok/L-meta-3206",
+    "lease_expired_at_UTC": "2026-11-24T12:48:20.366Z"
   },
   "task_history": [
     {
@@ -182,15 +183,27 @@
       "research_commit": "08162faeaeab076c0869d52ee7ed0633a0f5d993",
       "research_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/commit/08162faeaeab076c0869d52ee7ed0633a0f5d993",
       "released_at_JST": "2026-11-24T20:58:23+09:00"
+    },
+    {
+      "task_id": "L-meta-3206",
+      "outcome": "lease_expired_after_missed_beats_not_an_official_release; last successful official beat 21:28:20 JST expired 21:48:20 JST; heartbeat recorded expired_during_pause_stop_no_beat at 21:52:48 JST and ended; PID 314531 confirmed not running; no solver process; intake ANALYSIS only, official sorry skeleton never submitted; no beat or release call after expiry; no proof, no PR",
+      "PR_link": null,
+      "expired_at_UTC": "2026-11-24T12:48:20.366Z",
+      "last_success_JST": "2026-11-24T21:28:20+09:00",
+      "foreign_open_prs_after_or_during": [
+        "https://github.com/brilliant-hq/pequalnp-proofs/pull/6237",
+        "https://github.com/brilliant-hq/pequalnp-proofs/pull/6403"
+      ]
     }
   ],
-  "next_step": "Do not renew or desk this released lease. No automatic same-method batch. Before any new1692 work identify an actually unproved counting child beyond merged2061; otherwise change task only under a subsequent official assignment.",
+  "next_step": "Lease expired; do not beat or release the dead 3206 lease. Next official work only after a subsequent desk/next assignment. Do not resume leaseless 3206 solving.",
   "pending_prior_lease": null,
   "lease_public": null,
   "heartbeat_public": {
-    "state": "stopped_confirmed",
-    "former_pid": 249632,
-    "stop_at_JST": "2026-11-24T20:58:23.260977+09:00",
+    "state": "stopped_expired",
+    "former_pid": 314531,
+    "stop_at_JST": "2026-11-24T21:52:48+09:00",
+    "event": "expired_during_pause_stop_no_beat",
     "guard_reached": false
   }
 }
