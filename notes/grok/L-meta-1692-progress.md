@@ -45,3 +45,16 @@ The final, stronger conjunction was ACCEPTED by the unchanged original checker:1
     node tools/check-lean.mjs lean/PEqualNP/Outside/Grok1692OverlapSupport.lean notes/grok/L-meta-1692-checkstatements/overlap.txt check
 
 This is the missing equality-case premise of the nine-input/two-star argument. It does NOT yet prove9 for that window or64 for the official task. The intended next step is to exclude both disjoint-support root operations using the connected, non-biclique two-hot graph. Most importantly, this one-unit support penalty cannot be added across overlapping windows without a new global accounting lemma. Such addition would double-count gates, exactly the unresolved main obstacle.
+
+## Batch020: the two-star nine-gate lower bound is now formal
+
+`Grok1692TwoStarLower.lean` proves that any fan-in-at-most-two AND/OR circuit on9 inputs, false at zero and correct on all repeated/ordinary two-hot pairs of two four-edge stars with one common leaf, uses at least9 gates. The unchanged original checker ACCEPTED1701 constants with only the standard3 axioms. Source SHA256:3d196d2dffa95cf2fed8861c597c63e9e0f73a6b3ebd583bf77c3827033d20ab.
+
+This replaces the earlier8-gate SAT TIMEOUT with an actual proof of impossibility. It permits arbitrary circuit depth, arbitrary behavior on weight>=3 inputs, unsafe internal gates, and even default-false forward reads. It does NOT assume the circuit computes the full graph function. The proof derives essentiality from positive edges and rejected singletons, applies the newly proved tight-budget root partition, and rules out OR by connectivity and AND by the non-biclique pattern. The graph argument uses explicit paths, not a large exhaustive partition certificate.
+
+    node tools/check-lean.mjs lean/PEqualNP/Outside/Grok1692TwoStarLower.lean notes/grok/L-meta-1692-checkstatements/twostar9.txt check
+    python3 notes/grok/L-meta-1692-two-star-audit.py
+
+The audit independently checks the exact embedding: local indices0,1 are P0,P1 and2..8 are L0,L12,L4,L10,L1,L5,L11. This matches point-minus-line in {0,1,3,9}. It also independently checks a matching explicit9-gate circuit on all512 inputs. The upper construction is the obvious OR of the two AND/star expressions; it is separate from the lower-bound proof.
+
+**Still missing:** no theorem lets us sum these local9 costs across the13 overlapping stars of the full plane. The official64 bound remains unproved, no official task-closing PR has been opened. A genuine next target is an overlap-aware amortization invariant, not more isolated windows or another reduction that assumes the desired global bound.

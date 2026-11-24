@@ -1,0 +1,12 @@
+∀ C : PEqualNP.CircuitLowerBounds.Circuit,
+    (∀ g ∈ C.gates,
+      (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨
+       g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) →
+    C.eval (List.ofFn (fun _ : Fin 9 => false)) = false →
+    (∀ u v : Fin 9,
+      C.eval (List.ofFn (fun k : Fin 9 => decide (k ∈ ({u,v} : Finset (Fin 9))))) =
+      decide ((u = 0 ∧ v ∈ ({2,3,4,5} : Finset (Fin 9))) ∨
+        (v = 0 ∧ u ∈ ({2,3,4,5} : Finset (Fin 9))) ∨
+        (u = 1 ∧ v ∈ ({2,6,7,8} : Finset (Fin 9))) ∨
+        (v = 1 ∧ u ∈ ({2,6,7,8} : Finset (Fin 9))))) →
+    9 ≤ C.gates.length

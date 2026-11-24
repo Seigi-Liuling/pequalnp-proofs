@@ -1,0 +1,14 @@
+{
+  "theorem": "PEqualNP.Outside.Grok1692TwoStarLower",
+  "result": "ACCEPTED",
+  "checker": "unchanged tools/check-lean.mjs, mode check",
+  "rechecked_constants": 1701,
+  "axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "source_sha256": "3d196d2dffa95cf2fed8861c597c63e9e0f73a6b3ebd583bf77c3827033d20ab",
+  "rests_on": "Grok1692OverlapSupport, checked source de751ab8f919e12873d9adb3f1ecccd3d76ba1ee8ac0e47524fbfc671df8ba86",
+  "official1692_complete": false
+}
