@@ -1,21 +1,22 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T11:00:12Z",
+  "updated_at_UTC": "2026-11-24T11:07:36.501300Z",
   "task_id": "L-meta-1692",
   "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (i : Fin gates.length), ∀ w ∈ (gates.get i).inputs, w < 26 + (i : ℕ)) → (∀ p l : Fin 13, p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u1 : Fin 13 => decide (u1 = p)) ++ List.ofFn (fun v1 : Fin 13 => decide (v1 = l))) = true) → (∀ Q : Finset (Fin 13), Q.card = 4 → (∀ k : Fin 13, (Q.filter (fun u0 : Fin 13 => u0 - k ∈ ({0, 1, 3, 9} : Finset (Fin 13)))).card ≤ 2) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u2 : Fin 13 => decide (u2 ∈ Q)) ++ List.ofFn (fun v2 : Fin 13 => decide (∀ r ∈ Q, r - v2 ∉ ({0, 1, 3, 9} : Finset (Fin 13))))) = false) → 64 ≤ gates.length",
   "file_paths": [
     "lean/PEqualNP/Outside/L_meta_1692.lean",
     "lean/PEqualNP/Outside/Grok1692TwoHotBridge.lean",
     "lean/PEqualNP/Outside/Grok1692FirstMixedGate.lean",
-    "lean/PEqualNP/Outside/Grok1692EdgeFirstAND.lean"
+    "lean/PEqualNP/Outside/Grok1692EdgeFirstAND.lean",
+    "lean/PEqualNP/Outside/Grok1692OverlapSupport.lean"
   ],
   "base_SHA": "4da2f0456c50716aa775ef77aa729d96fb388e07",
   "branch": "grok/L-meta-1692",
   "PR_link": null,
-  "lease_status": "active_owned_last19:55:31JST_expires20:15:30JST",
+  "lease_status": "active_owned",
   "research_scope": "all directions / task-level coordination",
   "state": "working1692_batch020_tight_support_overlap_bound",
-  "notes": "Immediately resumed same1692 at19:58 JST, not a new claim. Lease checked active; heartbeat249632 successful19:55:31 expiry20:15:30; active wall-clock guard extended to20:41:46 for this actual bounded batch. No desk call. Earlier3 verified components not re-proved. Main new mathematical route: strengthen joint syntactic-support counting by ONE when two frontier wires share an input. If n essential inputs are computed by n-1 fanin2 gates, the final2 operand supports must then be disjoint; with zero singleton values, an OR root disconnects accepted two-hot graph and AND root gives a complete biclique. This should formally rule out8-gate replacement of the9-input two-star window without assuming global safety, a first local no-sharing-saving case toward1692. Will test and prove the strict support invariant rather than pile unrelated helpers; still no64 bound. Worker active until about20:38;20:00 routine must not claim or launch a duplicate.",
+  "notes": "Same1692, no desk call. New strict shared-input support budget theorem ACCEPTED by unchanged checker:1638 constants, only standard3 axioms. If two distinct frontier wires share an input, their joint support has at most prefix gate count+1 variables (not+2). Tight final-gate disjointness lemma Lean compiled; now proving any tight all-essential circuit must use that final gate, then semantic essentiality bridge. These are structural partial progress toward no-free-sharing accounting, NOT64 and not yet a formal9-window theorem. Earlier3 verified results pushed to personal fork commit36cb1c7, no upstream PR. Peer fetched:stopped969. Active work until20:38.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -33,7 +34,8 @@
     "end_to_end_pair_status": "original_checker_ACCEPTED_1660_standard_axioms",
     "exact52_status": "original_checker_ACCEPTED_1665_standard_axioms",
     "local_commit": "36cb1c77b079bcc5374b3a787fbdf4e52e3a48d8",
-    "branch_pushed": false
+    "branch_pushed": true,
+    "overlap_status": "original_checker_ACCEPTED_1638_standard_axioms"
   },
   "task_history": [
     {
@@ -176,16 +178,16 @@
   "next_step": "Prove strict joint-support bound for overlapping frontier supports, derive the tight root partition/read-once case, and specialize to the two-star window. If strict invariant fails, save a genuine counterexample and reassess rather than assert it.",
   "pending_prior_lease": null,
   "lease_public": {
-    "expires_at_UTC": "2026-11-24T11:15:30.281Z",
-    "expires_at_JST": "2026-11-24T20:15:30.281000+09:00"
+    "expires_at_UTC": "2026-11-24T11:23:31.394Z",
+    "expires_at_JST": "2026-11-24T20:23:31.394000+09:00"
   },
   "heartbeat_public": {
     "pid": 249632,
     "client": "bash tools/pnp.sh beat L-meta-1692",
     "interval_s": 480,
-    "last_success_JST": "2026-11-24T19:55:31.161972+09:00",
+    "last_success_JST": "2026-11-24T20:03:31.527536+09:00",
     "state": "verified_success_only_remaining_process",
-    "guard_until": "about20:08 JST; next worker must actively resume, not assume box will remain running",
+    "guard_until": "20:41:46 JST, active bounded batch",
     "guard_until_JST": "2026-11-24T20:41:46.635288+09:00"
   }
 }
