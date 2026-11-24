@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T10:57:54Z",
+  "updated_at_UTC": "2026-11-24T11:00:12Z",
   "task_id": "L-meta-1692",
   "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (i : Fin gates.length), ∀ w ∈ (gates.get i).inputs, w < 26 + (i : ℕ)) → (∀ p l : Fin 13, p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u1 : Fin 13 => decide (u1 = p)) ++ List.ofFn (fun v1 : Fin 13 => decide (v1 = l))) = true) → (∀ Q : Finset (Fin 13), Q.card = 4 → (∀ k : Fin 13, (Q.filter (fun u0 : Fin 13 => u0 - k ∈ ({0, 1, 3, 9} : Finset (Fin 13)))).card ≤ 2) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u2 : Fin 13 => decide (u2 ∈ Q)) ++ List.ofFn (fun v2 : Fin 13 => decide (∀ r ∈ Q, r - v2 ∉ ({0, 1, 3, 9} : Finset (Fin 13))))) = false) → 64 ≤ gates.length",
   "file_paths": [
@@ -14,8 +14,8 @@
   "PR_link": null,
   "lease_status": "active_owned_last19:55:31JST_expires20:15:30JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "ready_for_immediate_same_task1692_resume_live_lease",
-  "notes": "Bounded actual proof batch finished around19:58 JST, with real Lean work. Original unchanged checker ACCEPTED3 local components: TwoHotBridge1636 constants, global causal FirstMixedGate1630, and FINAL exact official52-incident EdgeFirstAND1665. All standard3 axioms, no holes. Final52 theorem formally proves the Fin.castAdd/natAdd vs appended List.ofFn identity and gives the first binary AND and complementary singleton operand witnesses for every official positive sample, using the official quadrangle negatives. This is NOT the64-gate conclusion. Global OR-sharing/unsafe-AND repair accounting remains missing; no official PR and original1692 skeleton still incomplete/uncommitted. Verified helpers, exact standalone claims and reproducibility notes saved in LOCAL commit36cb1c77b079bcc5374b3a787fbdf4e52e3a48d8 on grok/L-meta-1692 (NOT pushed; no unrelated partial PR). Paper next step:9-input two-star window requires9 gates by essential-input tightness/read-once root graph classification; not yet Lean. Bounded8-gate SAT attempt40s timed out, notUNSAT; pinned9-gate control SAT and independent64-sample re-evaluation passed. All solver/Lean/checker jobs ended. Only owned official-client heartbeat249632 remains; actual successes19:23,19:31,19:39,19:47,19:55; last expiry20:15:30.281 JST. Heartbeat guard20:08:27 JST, do NOT leave it as a substitute for research. Parent must immediately resume same task; no desk and no task switch. Exclusions/peer file unchanged.",
+  "state": "working1692_batch020_tight_support_overlap_bound",
+  "notes": "Immediately resumed same1692 at19:58 JST, not a new claim. Lease checked active; heartbeat249632 successful19:55:31 expiry20:15:30; active wall-clock guard extended to20:41:46 for this actual bounded batch. No desk call. Earlier3 verified components not re-proved. Main new mathematical route: strengthen joint syntactic-support counting by ONE when two frontier wires share an input. If n essential inputs are computed by n-1 fanin2 gates, the final2 operand supports must then be disjoint; with zero singleton values, an OR root disconnects accepted two-hot graph and AND root gives a complete biclique. This should formally rule out8-gate replacement of the9-input two-star window without assuming global safety, a first local no-sharing-saving case toward1692. Will test and prove the strict support invariant rather than pile unrelated helpers; still no64 bound. Worker active until about20:38;20:00 routine must not claim or launch a duplicate.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -173,7 +173,7 @@
       "PR_link": null
     }
   ],
-  "next_step": "IMMEDIATE same-task1692 continuation, not waiting for next hour. Read committed notes/grok/L-meta-1692-progress.md and batch019/SHARING-ANALYSIS.md. Focus on formalizing the9-input two-star equality/read-once lemma using existing Support.cnt_step/cnt_suppsFrom/dep_lower, then controlled larger OR-sharing windows. If continuing beyond20:08:27 JST, actively extend the heartbeat guard while lease still valid; otherwise stop heartbeat/research rather than silently holding idle. No claim64/PvsNP solved.",
+  "next_step": "Prove strict joint-support bound for overlapping frontier supports, derive the tight root partition/read-once case, and specialize to the two-star window. If strict invariant fails, save a genuine counterexample and reassess rather than assert it.",
   "pending_prior_lease": null,
   "lease_public": {
     "expires_at_UTC": "2026-11-24T11:15:30.281Z",
@@ -186,6 +186,6 @@
     "last_success_JST": "2026-11-24T19:55:31.161972+09:00",
     "state": "verified_success_only_remaining_process",
     "guard_until": "about20:08 JST; next worker must actively resume, not assume box will remain running",
-    "guard_until_JST": "2026-11-24T20:08:27.394878+09:00"
+    "guard_until_JST": "2026-11-24T20:41:46.635288+09:00"
   }
 }
