@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T11:23:37.925030Z",
+  "updated_at_UTC": "2026-11-24T11:25:06.161878Z",
   "task_id": "L-meta-1692",
   "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (i : Fin gates.length), ∀ w ∈ (gates.get i).inputs, w < 26 + (i : ℕ)) → (∀ p l : Fin 13, p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u1 : Fin 13 => decide (u1 = p)) ++ List.ofFn (fun v1 : Fin 13 => decide (v1 = l))) = true) → (∀ Q : Finset (Fin 13), Q.card = 4 → (∀ k : Fin 13, (Q.filter (fun u0 : Fin 13 => u0 - k ∈ ({0, 1, 3, 9} : Finset (Fin 13)))).card ≤ 2) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u2 : Fin 13 => decide (u2 ∈ Q)) ++ List.ofFn (fun v2 : Fin 13 => decide (∀ r ∈ Q, r - v2 ∉ ({0, 1, 3, 9} : Finset (Fin 13))))) = false) → 64 ≤ gates.length",
   "file_paths": [
@@ -17,8 +17,8 @@
   "PR_link": null,
   "lease_status": "active_owned_not_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "batch020_complete_awaiting_immediate_same1692_resume_live_lease",
-  "notes": "本批真实完成：严格共享支撑/essential紧界末门定理 ACCEPTED1661；双星9门下界 ACCEPTED1701；匹配9门构造对全部输入正确 ACCEPTED1620，均原版checker/标准3公理。此前8门SAT超时已被严格9门最优证明替代。个人fork commit9eb1ffc，未开官方PR；1692主64门仍未证明。另有限审查发现朴素全局窗口计费反例：合法67门吸收冗余电路的普通剪枝窗口总门数849>候选738，不是1692反例。下一步需最小电路规范化及共享OR/AND修复的防重复摊销，不能把局部9直接相加。全部Lean/checker已结束，仅原有官方8分钟心跳249632继续到守卫20:41:46；父端必须在守卫前真正resume并合理延长，不应让其仅续租空转。无desk或换题。",
+  "state": "active1692_batch021_global_charging_stress_test",
+  "notes": "20:24 JST immediately resumed same1692, no desk. Earlier local9 optimum not re-proved. Main batch goal: state exact restriction-survival inequality, stress-test absorption-aware/minimal-circuit variants before formalization; no unsupported64 claim or helper proliferation. Guard extended for this actual bounded batch, ~21:07 JST.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -190,8 +190,8 @@
     "client": "bash tools/pnp.sh beat L-meta-1692",
     "interval_s": 480,
     "last_success_JST": "2026-11-24T20:19:32.508542+09:00",
-    "state": "only_remaining_process_real_research_batch_complete_needs_immediate_resume",
-    "guard_until": "20:41:46 JST, finite wall-clock guard",
-    "guard_until_JST": "2026-11-24T20:41:46.635288+09:00"
+    "state": "active_actual_research",
+    "guard_until": "active bounded batch021 about21:07 JST",
+    "guard_until_JST": "2026-11-24T21:07:06.161693+09:00"
   }
 }
