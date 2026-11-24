@@ -1,0 +1,13 @@
+{
+  "theorem": "PEqualNP.Outside.Grok1692TwoStarUpper",
+  "checker": "unchanged tools/check-lean.mjs, mode check",
+  "result": "ACCEPTED",
+  "rechecked_constants": 1620,
+  "axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "source_sha256": "011df032170807dfc0830cdb3ff3b0dd64c47b2688df130fec3a8efb43031277",
+  "official1692_complete": false
+}

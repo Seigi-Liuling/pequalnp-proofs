@@ -58,3 +58,17 @@ This replaces the earlier8-gate SAT TIMEOUT with an actual proof of impossibilit
 The audit independently checks the exact embedding: local indices0,1 are P0,P1 and2..8 are L0,L12,L4,L10,L1,L5,L11. This matches point-minus-line in {0,1,3,9}. It also independently checks a matching explicit9-gate circuit on all512 inputs. The upper construction is the obvious OR of the two AND/star expressions; it is separate from the lower-bound proof.
 
 **Still missing:** no theorem lets us sum these local9 costs across the13 overlapping stars of the full plane. The official64 bound remains unproved, no official task-closing PR has been opened. A genuine next target is an overlap-aware amortization invariant, not more isolated windows or another reduction that assumes the desired global bound.
+
+### Matching upper bound also kernel-verified
+
+`Grok1692TwoStarUpper.lean` constructs9 AND/OR gates and proves the exact two-star Boolean function on ALL inputs, not just512 sampled evaluations. Original checker ACCEPTED1620 constants, standard3 axioms; source SHA256:011df032170807dfc0830cdb3ff3b0dd64c47b2688df130fec3a8efb43031277. Together with the independently checked lower theorem this settles the local optimum at9, while the official64 bound remains open.
+
+    node tools/check-lean.mjs lean/PEqualNP/Outside/Grok1692TwoStarUpper.lean notes/grok/L-meta-1692-checkstatements/twostar9upper.txt check
+
+### Concrete global accounting obstruction (finite audit, NOT a new Lean theorem)
+
+There are78 two-point/star windows. The canonical64-gate circuit simplifies to9 live gates in each window, hence702 total local gate occurrences. A tempting sufficient global inequality would be `sum(local_live_gates) <= 12*S - 66`; together with the new local9 lower bound this would yield S>=64. **This inequality is FALSE for ordinary constant/idempotency/dead-code pruning.** Add3 gates to the canonical circuit: `h=L0 OR L1`, then output `F AND (F OR h)`. By Boolean absorption it is still the same valid incidence function, now67 gates, but the ordinary pruning sum becomes849, exceeding12*67-66=738. This is a counterexample to the accounting shortcut, NOT to the official64 lower bound. An absorption-aware normalization removes this particular obstruction; no valid general normalization/amortization theorem has been proved.
+
+    python3 notes/grok/L-meta-1692-restriction-obstruction.py
+
+A more geometry-specific audit: for any two distinct lines, their OR survives in21 pair windows:12 contain the lines' intersection point and9 select one private point from each line. Thus a blanket per-gate multiplicity bound of12 is also false. Those9 cross-private windows are potential leak/repair contexts if the shared OR feeds the two point stars; the finite count alone does NOT prove9 repair gates are necessary. The genuinely needed next theorem must charge shared-OR savings against repairs in a size-minimal/appropriately normalized circuit, allowing nested AND filters. Repeating more isolated9-window bounds cannot close this gap.

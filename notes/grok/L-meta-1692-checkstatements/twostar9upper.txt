@@ -1,0 +1,9 @@
+∃ C : PEqualNP.CircuitLowerBounds.Circuit,
+      C.gates.length = 9 ∧
+      (∀ g ∈ C.gates,
+        (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨
+         g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      (∀ x : Fin 9 → Bool,
+        C.eval (List.ofFn x) =
+          ((x 0 && (((x 2 || x 3) || x 4) || x 5)) ||
+           (x 1 && (((x 2 || x 6) || x 7) || x 8))))
