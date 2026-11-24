@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T13:21:00Z",
+  "updated_at_UTC": "2026-11-24T13:24:34.991469Z",
   "task_id": "L-meta-3386",
   "exact_statement": "∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.FanInTwo x1 →     x1.size ≤ (13 : ℕ) →       ∃ (x4 : Fin (9 : ℕ) → Bool),         have x5 : List Bool := List.ofFn x4 ++ [!x4 (0 : Fin (9 : ℕ))];         x1.eval (x5 ++ [PEqualNP.CircuitLowerBounds.GateOp.not.eval []]) ≠ (x4 (0 : Fin (9 : ℕ)) && x4 (1 : Fin (9 : ℕ)) || x4 (1 : Fin (9 : ℕ)) && x4 (2 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)) && x4 (3 : Fin (9 : ℕ)) || x4 (3 : Fin (9 : ℕ)) && x4 (4 : Fin (9 : ℕ)) || x4 (4 : Fin (9 : ℕ)) && x4 (0 : Fin (9 : ℕ)) || x4 (0 : Fin (9 : ℕ)) && x4 (5 : Fin (9 : ℕ)) || x4 (1 : Fin (9 : ℕ)) && x4 (6 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)) && x4 (7 : Fin (9 : ℕ)) || x4 (3 : Fin (9 : ℕ)) && x4 (8 : Fin (9 : ℕ)) || x4 (5 : Fin (9 : ℕ)) && x4 (7 : Fin (9 : ℕ)) || x4 (6 : Fin (9 : ℕ)) && x4 (8 : Fin (9 : ℕ)) || x4 (8 : Fin (9 : ℕ)) && x4 (5 : Fin (9 : ℕ)))",
   "file_paths": [
@@ -11,8 +11,8 @@
   "PR_link": null,
   "lease_status": "active_owned",
   "research_scope": "all directions / task-level coordination",
-  "state": "working3386_claimed_batch023",
-  "notes": "22:18 JST official desk/next claimed L-meta-3386 (not another, not hard). Previous 3206 lease expired 21:48 JST and was already recorded; this run did not beat or release that dead lease and did not continue 3206 without a lease. No merged PR for 3386; foreign open PRs 6481 and 6476 exist, will not touch those submissions, will not auto-release only because of competition. Peer ledger still stopped/released L-meta-969. Avoid 719 / L_meta_719.lean, submitted 706, retired 275, and 582, and do not touch sibling 3388/3390 files or leases. This is step 1/3 of a checked cut of L-meta-2913: after providing first-gate NOT(x0) and a nullary NOT value, every fan-in-2 circuit of size <= 13 fails to compute the Petersen-minus-vertex edge function. Concrete entry point; starting this batch. Official skeleton has sorry; do not submit it.",
+  "state": "active3386_exact_statement_parent_specialization_building",
+  "notes": "已实际研究3386编码：11根初始线为x0..x8、非x0、NOT[]=true；未来接线默认false、NOT第二输入忽略。核查发现更强父命题2913已于21:56:18 JST合并PR5540，可令pins=[]严格推出3386。按仅Mathlib/Defs的导入规则将已合并父证明内联到本题命名空间，精确原陈述、无sorry、521737字节，正在实际Lean编译及随后原checker，不声称新数学下界突破。3386两现有PR仍OPEN，无自动放弃。",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -20,23 +20,11 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "kind": "official3386 reduction-step analysis",
-    "local_note": "batch-023",
-    "solver_status": "none",
-    "solver_pid": null,
-    "official3386_status": "unproved_no_PR",
-    "parent": "L-meta-2913",
-    "siblings": [
-      "L-meta-3388",
-      "L-meta-3390"
-    ],
-    "foreign_open_prs": [
-      "https://github.com/brilliant-hq/pequalnp-proofs/pull/6481",
-      "https://github.com/brilliant-hq/pequalnp-proofs/pull/6476"
-    ],
-    "official_pr_open": 2,
-    "base": "048b39bb2c5b2c21da06d44218d16366086a68d9",
-    "branch": "grok/L-meta-3386"
+    "kind": "exact_assigned3386_specialization_of_merged2913",
+    "official3386_status": "build_running_not_yet_verified",
+    "parent_PR": "https://github.com/brilliant-hq/pequalnp-proofs/pull/5540",
+    "source_sha256": "da68bd2e86d4ddc7b21e515e6fcbb645abb12d7d24b39b828ca9bc12b7a5e8a3",
+    "PR_link": null
   },
   "task_history": [
     {
@@ -201,7 +189,7 @@
       ]
     }
   ],
-  "next_step": "Research the official 3386 statement under the live lease; beat with official client; do not desk/next or touch sibling/foreign leases.",
+  "next_step": "Wait for actual build, run unchanged checker against official statement; if ACCEPTED and lease/task still live, submit exact single-file specialization transparently citing merged parent. No desk or sibling edits.",
   "pending_prior_lease": null,
   "lease_public": {
     "task": "L-meta-3386",
