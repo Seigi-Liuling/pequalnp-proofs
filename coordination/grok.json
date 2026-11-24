@@ -1,18 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T10:19:40Z",
-  "task_id": "L-meta-2615",
-  "exact_statement": "∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   x1.size ≤ (64 : ℕ) →     PEqualNP.TopForm.IsAO2 (26 : ℕ) x1 →       (∀ (x4 : ℕ) (x5 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[x4]? = Option.some x5 → x5.inputs.Nodup) →         have x5 : Fin (13 : ℕ) → Fin (13 : ℕ) → Prop := fun (x5 x6 : Fin (13 : ℕ)) => x5 - x6 = (0 : Fin (13 : ℕ)) ∨ x5 - x6 = (1 : Fin (13 : ℕ)) ∨ x5 - x6 = (3 : Fin (13 : ℕ)) ∨ x5 - x6 = (9 : Fin (13 : ℕ));         have x6 : (Fin (26 : ℕ) → Bool) → ℕ → Bool := fun (x6 : Fin (26 : ℕ) → Bool) (x7 : ℕ) => (x1.wires (List.ofFn x6)).getD x7 Bool.false;         (∀ (x7 : Fin (26 : ℕ) → Bool), x6 x7 x1.output = Bool.true ↔ ∃ (x8 : Fin (13 : ℕ)) (x9 : Fin (13 : ℕ)), x5 x8 x9 ∧ x7 (Fin.castAdd (13 : ℕ) x8) = Bool.true ∧ x7 (Fin.natAdd (13 : ℕ) x9) = Bool.true) →           (∀ (x8 : ℕ), (PEqualNP.MetaComplexity.NestedCover.gateAt x1 x8).op = PEqualNP.CircuitLowerBounds.GateOp.and → ∀ (x10 : Fin (26 : ℕ) → Bool), x6 x10 ((26 : ℕ) + x8) = Bool.true → x6 x10 x1.output = Bool.true) →             ∀ (x9 x10 : Fin (13 : ℕ)),               x5 x9 x10 →                 have x12 : Fin ((13 : ℕ) + (13 : ℕ)) := Fin.castAdd (13 : ℕ) x9;                 have x13 : Fin ((13 : ℕ) + (13 : ℕ)) := Fin.natAdd (13 : ℕ) x10;                 have x14 : ℕ → ℕ → ℕ → Prop := fun (x14 x15 x16 : ℕ) => x1.gates[x14]? = Option.some { op := PEqualNP.CircuitLowerBounds.GateOp.and, inputs := [x15, x16] : PEqualNP.CircuitLowerBounds.Gate } ∧ x6 (fun (x17 : Fin (26 : ℕ)) => Decidable.decide (x17 = x12 ∨ x17 = x13)) ((26 : ℕ) + x14) = Bool.true;                 have x15 : Fin (26 : ℕ) → ℕ → ℕ → Prop := fun (x15 : Fin (26 : ℕ)) (x16 x17 : ℕ) => (x6 (fun (x18 : Fin (26 : ℕ)) => Decidable.decide (x18 = x15)) x16 || x6 (fun (x18 : Fin (26 : ℕ)) => Decidable.decide (x18 = x15)) x17) = Bool.true;                 ∀ (x16 x17 x18 x19 x20 x21 : ℕ), x14 x16 x17 x18 → x14 x19 x20 x21 → x15 x12 x17 x18 → ¬x15 x13 x17 x18 → x15 x13 x20 x21 → x15 x12 x20 x21",
+  "updated_at_UTC": "2026-11-24T10:21:52Z",
+  "task_id": "L-meta-1692",
+  "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (i : Fin gates.length), ∀ w ∈ (gates.get i).inputs, w < 26 + (i : ℕ)) → (∀ p l : Fin 13, p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u1 : Fin 13 => decide (u1 = p)) ++ List.ofFn (fun v1 : Fin 13 => decide (v1 = l))) = true) → (∀ Q : Finset (Fin 13), Q.card = 4 → (∀ k : Fin 13, (Q.filter (fun u0 : Fin 13 => u0 - k ∈ ({0, 1, 3, 9} : Finset (Fin 13)))).card ≤ 2) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u2 : Fin 13 => decide (u2 ∈ Q)) ++ List.ofFn (fun v2 : Fin 13 => decide (∀ r ∈ Q, r - v2 ∉ ({0, 1, 3, 9} : Finset (Fin 13))))) = false) → 64 ≤ gates.length",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_2615.lean"
+    "lean/PEqualNP/Outside/L_meta_1692.lean"
   ],
-  "base_SHA": "6565390",
-  "branch": null,
+  "base_SHA": "4da2f0456c50716aa775ef77aa729d96fb388e07",
+  "branch": "grok/L-meta-1692",
   "PR_link": null,
-  "lease_status": "expired_timed_out_after_18:38:45Z_no_410_observed_this_run",
+  "lease_status": "active_owned_batch019",
   "research_scope": "all directions / task-level coordination",
-  "state": "official2615_lease_expired_awaiting_T1_cleanup_and_desk_reassign",
-  "notes": "19:18 JST hourly check: official L-meta-2615 lease is no longer valid. Last successful official curl beat was 18:18:46 JST, documented expiry 2026-11-24T09:38:45.898Z (18:38:45 JST). This run made zero desk/next, beat, claim, renew, or release calls, so HTTP 410 was not observed this hour. Heartbeat PID 240991 is still the original official-curl process (cmdline: python3 -u batch-018/heartbeat.py; PPID now 54 sand-exit-watch, originally 240984; public log started 18:18:45; ps lstart 19:08:51 after box resume; state S sleeping on hrtime in the 900s wait loop; no STOP file; no beat logged after 18:18:46). No solver, no proof, no PR; skeleton remains sorry only. Isolated expired-lease heartbeat is not a valid official lease or formal research batch. Handing cleanup to T-1: verify exact PID/cmdline, save existing analysis, stop this end's heartbeat (do not kill unrelated processes), update ledger, and restore formal desk assignment. Peer chatgpt.json unchanged (stopped/released L-meta-969). Did not start a second research batch. Usage 44.7%, still 2026-11-24, below the 80% wrap-up line. 18:17 JST official tools/pnp.sh next claimed L-meta-2615 (HTTP200), original expiry 18:37:21.628 JST, file lean/PEqualNP/Outside/L_meta_2615.lean. Official curl beat succeeded HTTP200 at 18:18:02 JST (expires 18:38:02.931 JST) and again via heartbeat PID 240991/PPID54 at 18:18:46 JST (expires 18:38:45.898Z). 15-minute official-curl heartbeat is running; no urllib client. Immediately before that, official curl beat of the prior 2246 lease returned HTTP410 at 18:16:10 JST: no such live lease, expired or released; 2246 stopped, no leaseless solving, no release call. Old 1343 solver already stopped earlier, still no SAT/UNSAT. 2615 is hypothesis 2 of the checked reduction R_meta_2069_1 (merged PR4411 ACCEPTED): endpoint-support consistency of active AND gates on an incident two-hot input. Sibling L-meta-2613 is the coverage half (each firing AND hits at least one endpoint). Together they imply one-sidedness and finish the parent L-meta-2069 singleton-support/double-reread claim. No upstream PR for 2615 or 2613. Peer chatgpt.json still stopped/released on L-meta-969. Did not touch 719 or 706. No proof yet, skeleton only, no solver. Concrete next: prove that if one active AND hits P but not L, then every active AND that hits L also hits P, using AO2 monotonicity and clean AND-implies-output. Evidence /workspace/pnp-grok-notes/batch-018/.",
+  "state": "working_official1692_initial_analysis",
+  "notes": "19:21 JST owner requested actual recovery. Identity-checked expired2615 heartbeat240991 (cmdline batch018/heartbeat.py, cwd batch018, proc start_ticks2255191), wrote own STOP and sent exactSIGTERM; no unrelated parent killed, no expired beat. No other own solver/Lean active. Official client next --another assigned new own1692: every fanin2 AND/OR list separating52 plane-order3 incident pairs from quadrangle negatives needs64 gates. Official task explicitly open for substantive reductions. No plain SAT run: context says control SAT fails at this scale. Reading official heavy CUTS notes to isolate a structural accounting lemma for an AND below an AND; no new proof yet. Peer969 stopped/released, exclusions preserved. Initial expires19:41:33.792 JST; official-client heartbeat to be verified now. Will return within initial5min for immediate parent resume if no middle notification available.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -20,13 +20,10 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "kind": "official2615 lease timed out; analysis only, no proof",
-    "local_note": "batch-018",
+    "kind": "official1692 structural analysis",
+    "local_note": "batch-019",
     "solver_status": "none",
-    "solver_pid": null,
-    "heartbeat_pid": 240991,
-    "related_reduction_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/4411",
-    "heartbeat_note": "still sleeping; last public beat_success 18:18:46 JST; lease expired 18:38:45 JST"
+    "solver_pid": null
   },
   "task_history": [
     {
@@ -166,20 +163,10 @@
       "PR_link": null
     }
   ],
-  "next_step": "Prove L-meta-2615 support-consistency: if an active AND on an incident pair hits P but not L, every active AND that hits L also hits P. Use R_meta_2069_1, sibling 2613, AO2 monotonicity and clean ANDs. Keep official heartbeat. Do not desk/next or claim another while this lease is valid. Do not touch 719/706 or 2246.",
+  "next_step": "Read concrete CUTS argument and checked two-level bound, derive a useful exact reduction separating nested-gate savings from flat64 lower bound; formalize only a non-tautological reduction or exact main theorem.",
   "pending_prior_lease": null,
   "lease_public": {
-    "expires_at_UTC": "2026-11-24T09:38:45.898Z",
-    "expires_at_JST": "2026-11-24T18:38:45.898000+09:00",
-    "last_success_JST": "2026-11-24T18:18:46.096013+09:00"
-  },
-  "heartbeat_public": {
-    "pid": 240991,
-    "ppid": 54,
-    "state": "running_official_curl",
-    "interval_s": 900,
-    "last_success_JST": "2026-11-24T18:18:46.096013+09:00",
-    "successful_renewals": 2,
-    "log": "/workspace/pnp-grok-notes/batch-018/heartbeat-public.jsonl"
+    "expires_at_UTC": "2026-11-24T10:41:33.792Z",
+    "expires_at_JST": "2026-11-24T19:41:33.792+09:00"
   }
 }
