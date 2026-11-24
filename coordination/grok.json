@@ -1,25 +1,18 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T11:58:37.123349Z",
-  "task_id": "L-meta-1692",
-  "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (i : Fin gates.length), ∀ w ∈ (gates.get i).inputs, w < 26 + (i : ℕ)) → (∀ p l : Fin 13, p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u1 : Fin 13 => decide (u1 = p)) ++ List.ofFn (fun v1 : Fin 13 => decide (v1 = l))) = true) → (∀ Q : Finset (Fin 13), Q.card = 4 → (∀ k : Fin 13, (Q.filter (fun u0 : Fin 13 => u0 - k ∈ ({0, 1, 3, 9} : Finset (Fin 13)))).card ≤ 2) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u2 : Fin 13 => decide (u2 ∈ Q)) ++ List.ofFn (fun v2 : Fin 13 => decide (∀ r ∈ Q, r - v2 ∉ ({0, 1, 3, 9} : Finset (Fin 13))))) = false) → 64 ≤ gates.length",
+  "updated_at_UTC": "2026-11-24T12:20:29Z",
+  "task_id": "L-meta-3206",
+  "exact_statement": "∀ x1 ∈ [(0 : ℕ), (1 : ℕ), (3 : ℕ), (4 : ℕ), (6 : ℕ), (8 : ℕ), (9 : ℕ), (10 : ℕ)], ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x3 → x3.size ≤ (13 : ℕ) → ∃ (x6 : Fin (9 : ℕ) → Bool), have x7 : List Bool := List.ofFn x6 ++ [x6 (0 : Fin (9 : ℕ)) && x6 (2 : Fin (9 : ℕ))]; x3.eval (x7 ++ [!x7.getD x1 Bool.false]) ≠ (x6 (0 : Fin (9 : ℕ)) && x6 (1 : Fin (9 : ℕ)) || x6 (1 : Fin (9 : ℕ)) && x6 (2 : Fin (9 : ℕ)) || x6 (2 : Fin (9 : ℕ)) && x6 (3 : Fin (9 : ℕ)) || x6 (3 : Fin (9 : ℕ)) && x6 (4 : Fin (9 : ℕ)) || x6 (4 : Fin (9 : ℕ)) && x6 (0 : Fin (9 : ℕ)) || x6 (0 : Fin (9 : ℕ)) && x6 (5 : Fin (9 : ℕ)) || x6 (1 : Fin (9 : ℕ)) && x6 (6 : Fin (9 : ℕ)) || x6 (2 : Fin (9 : ℕ)) && x6 (7 : Fin (9 : ℕ)) || x6 (3 : Fin (9 : ℕ)) && x6 (8 : Fin (9 : ℕ)) || x6 (5 : Fin (9 : ℕ)) && x6 (7 : Fin (9 : ℕ)) || x6 (6 : Fin (9 : ℕ)) && x6 (8 : Fin (9 : ℕ)) || x6 (8 : Fin (9 : ℕ)) && x6 (5 : Fin (9 : ℕ)))",
   "file_paths": [
-    "lean/PEqualNP/Outside/L_meta_1692.lean",
-    "lean/PEqualNP/Outside/Grok1692TwoHotBridge.lean",
-    "lean/PEqualNP/Outside/Grok1692FirstMixedGate.lean",
-    "lean/PEqualNP/Outside/Grok1692EdgeFirstAND.lean",
-    "lean/PEqualNP/Outside/Grok1692OverlapSupport.lean",
-    "lean/PEqualNP/Outside/Grok1692TwoStarLower.lean",
-    "lean/PEqualNP/Outside/Grok1692TwoStarUpper.lean",
-    "lean/PEqualNP/Outside/Grok1692SafeLift.lean"
+    "lean/PEqualNP/Outside/L_meta_3206.lean"
   ],
-  "base_SHA": "4da2f0456c50716aa775ef77aa729d96fb388e07",
-  "branch": "grok/L-meta-1692",
+  "base_SHA": "2c41146b9ed14bcbc93463eb24a0ae0d03d628ce",
+  "branch": "grok/L-meta-3206",
   "PR_link": null,
-  "lease_status": "released_missing_lemma_official_confirmed",
+  "lease_status": "active_owned",
   "research_scope": "all directions / task-level coordination",
-  "state": "finished1692_batch021_released_missing_lemma",
-  "notes": "本轮已结束。新局部SafeLift语义+纯OR尾部增长由原checker ACCEPTED2265（仅标准3公理，无sorry），个人fork08162fa，非1692闭合无上游PR。固定方向计费反例成立；终止量改用最后AND位置，不能用单步AND祖先对。最终去重审计发现上游更强的样本安全AND规范化L-meta-2061早于本轮已合并PR4314，故不重复做规范化或刷PR。尚缺规范化后的全局OR共享/不安全AND修复64门计费，暂无有效候选。官方已确认本端1692按missing_lemma释放，STOP后PID249632不再存在，无求解/验证后台。未desk换题。",
+  "state": "working3206_claimed_batch022",
+  "notes": "21:17 JST 官方 desk/next 新领 L-meta-3206（非 another、非 hard）。无同题历史/开放 PR，L_meta_3206.lean 不在 upstream main。对端台账仍为 stopped/released L-meta-969。继续避开 719 / L_meta_719.lean、已提交的 706、退役 275、以及 582。姊妹步 L-meta-3204 有他人开放 PR 6081（fededevi），不碰该文件与其租约。本题是已检查切分 L-meta-1934 的第 2/2 步：在已提供第一门 AND(x0,x2) 后，对 8 个指定 NOT 接线位置，证明扇入 2 电路剩余不超过 13 门无法计算 Petersen 去掉一个顶点后的边函数。有具体切入点，开始本批研究。官方骨架含 sorry，不提交。无 1692 租约操作。",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -27,23 +20,17 @@
     "url": "https://github.com/Seigi-Liuling/pequalnp-proofs/blob/059cf15de3c540656f2a00c9e8a0a26e266c3a80/lean/PEqualNP/Outside/GrokLineDegreeZero.lean"
   },
   "research_artifact": {
-    "kind": "official1692 structural analysis",
-    "local_note": "batch-019",
+    "kind": "official3206 reduction-step analysis",
+    "local_note": "batch-022",
     "solver_status": "none",
     "solver_pid": null,
-    "bridge_status": "original_checker_ACCEPTED_1636_standard_axioms",
-    "first_AND_status": "original_checker_ACCEPTED_1630_standard_axioms",
-    "official1692_status": "unproved_no_PR",
-    "end_to_end_pair_status": "original_checker_ACCEPTED_1660_standard_axioms",
-    "exact52_status": "original_checker_ACCEPTED_1665_standard_axioms",
-    "local_commit": "08162faeaeab076c0869d52ee7ed0633a0f5d993",
-    "branch_pushed": true,
-    "overlap_status": "original_checker_ACCEPTED_1661_standard_axioms",
-    "two_star9_lower_status": "original_checker_ACCEPTED_1701_standard_axioms",
-    "two_star9_upper_status": "original_checker_ACCEPTED_1620_standard_axioms",
-    "batch021_status": "safeLift_original_checker_ACCEPTED2265_standard3_axioms; no_official_gap_closed; existing2061_overlap_disclosed",
-    "safe_lift_status": "original_checker_ACCEPTED_2265_standard_axioms",
-    "research_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/commit/08162faeaeab076c0869d52ee7ed0633a0f5d993"
+    "official3206_status": "unproved_no_PR",
+    "parent": "L-meta-1934",
+    "sibling": "L-meta-3204",
+    "sibling_open_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/6081",
+    "official_pr_open": 0,
+    "base": "2c41146b9ed14bcbc93463eb24a0ae0d03d628ce",
+    "branch": "grok/L-meta-3206"
   },
   "task_history": [
     {
@@ -187,6 +174,14 @@
       "outcome": "official release missing_lemma confirmed; verified partial research only; no official PR",
       "PR_link": null,
       "research_commit": "08162faeaeab076c0869d52ee7ed0633a0f5d993"
+    },
+    {
+      "task_id": "L-meta-1692",
+      "outcome": "released_missing_lemma_official_confirmed; local SafeLift and prior helpers original-checker ACCEPTED, no upstream PR; main 64-gate bound unproved; merged L-meta-2061 already stronger on safe-AND normalization",
+      "PR_link": null,
+      "research_commit": "08162faeaeab076c0869d52ee7ed0633a0f5d993",
+      "research_url": "https://github.com/Seigi-Liuling/pequalnp-proofs/commit/08162faeaeab076c0869d52ee7ed0633a0f5d993",
+      "released_at_JST": "2026-11-24T20:58:23+09:00"
     }
   ],
   "next_step": "Do not renew or desk this released lease. No automatic same-method batch. Before any new1692 work identify an actually unproved counting child beyond merged2061; otherwise change task only under a subsequent official assignment.",
