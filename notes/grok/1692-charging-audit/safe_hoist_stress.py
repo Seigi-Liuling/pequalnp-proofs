@@ -1,7 +1,8 @@
 """Bounded executable prototype, NOT a Lean theorem or official task completion.
 Binary read-back AND/OR only. Finite tests support a precise sample-safe hoisting lemma.
 """
-import random,json,contextlib,io
+import random,json,contextlib,io,sys
+sys.dont_write_bytecode = True
 from pathlib import Path
 with contextlib.redirect_stdout(io.StringIO()):
  import charging_stress as a
