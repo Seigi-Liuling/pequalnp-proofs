@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T11:18:12.107282Z",
+  "updated_at_UTC": "2026-11-24T11:23:37.925030Z",
   "task_id": "L-meta-1692",
   "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (i : Fin gates.length), ∀ w ∈ (gates.get i).inputs, w < 26 + (i : ℕ)) → (∀ p l : Fin 13, p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u1 : Fin 13 => decide (u1 = p)) ++ List.ofFn (fun v1 : Fin 13 => decide (v1 = l))) = true) → (∀ Q : Finset (Fin 13), Q.card = 4 → (∀ k : Fin 13, (Q.filter (fun u0 : Fin 13 => u0 - k ∈ ({0, 1, 3, 9} : Finset (Fin 13)))).card ≤ 2) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u2 : Fin 13 => decide (u2 ∈ Q)) ++ List.ofFn (fun v2 : Fin 13 => decide (∀ r ∈ Q, r - v2 ∉ ({0, 1, 3, 9} : Finset (Fin 13))))) = false) → 64 ≤ gates.length",
   "file_paths": [
@@ -15,10 +15,10 @@
   "base_SHA": "4da2f0456c50716aa775ef77aa729d96fb388e07",
   "branch": "grok/L-meta-1692",
   "PR_link": null,
-  "lease_status": "active_owned",
+  "lease_status": "active_owned_not_released",
   "research_scope": "all directions / task-level coordination",
-  "state": "working1692_local_two_star9_PROVED_global64_open",
-  "notes": "关键实质进展：已严格证明9输入双星窗口至少9门，原版checker ACCEPTED1701 constants（标准3公理）。此前8门SAT超时不再是唯一证据。允许任意深度、内部不安全门及高权重输入任意行为，只要求零/单/双热点矩阵；未偷换全函数正确性。严格共享支撑预算及全essential紧界末门分割亦ACCEPTED1661。已推个人fork branch grok/L-meta-1692 commit c974cb6，不是官方64门证明，无上游PR。正在完成匹配9门构造的Lean验证并分析全局摊销缺口。无新认领，仍同1692。",
+  "state": "batch020_complete_awaiting_immediate_same1692_resume_live_lease",
+  "notes": "本批真实完成：严格共享支撑/essential紧界末门定理 ACCEPTED1661；双星9门下界 ACCEPTED1701；匹配9门构造对全部输入正确 ACCEPTED1620，均原版checker/标准3公理。此前8门SAT超时已被严格9门最优证明替代。个人fork commit9eb1ffc，未开官方PR；1692主64门仍未证明。另有限审查发现朴素全局窗口计费反例：合法67门吸收冗余电路的普通剪枝窗口总门数849>候选738，不是1692反例。下一步需最小电路规范化及共享OR/AND修复的防重复摊销，不能把局部9直接相加。全部Lean/checker已结束，仅原有官方8分钟心跳249632继续到守卫20:41:46；父端必须在守卫前真正resume并合理延长，不应让其仅续租空转。无desk或换题。",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -35,10 +35,11 @@
     "official1692_status": "unproved_no_PR",
     "end_to_end_pair_status": "original_checker_ACCEPTED_1660_standard_axioms",
     "exact52_status": "original_checker_ACCEPTED_1665_standard_axioms",
-    "local_commit": "c974cb6",
+    "local_commit": "9eb1ffc58cafdd5c310d90eafe0ad77df0ca2479",
     "branch_pushed": true,
     "overlap_status": "original_checker_ACCEPTED_1661_standard_axioms",
-    "two_star9_lower_status": "original_checker_ACCEPTED_1701_standard_axioms"
+    "two_star9_lower_status": "original_checker_ACCEPTED_1701_standard_axioms",
+    "two_star9_upper_status": "original_checker_ACCEPTED_1620_standard_axioms"
   },
   "task_history": [
     {
@@ -178,19 +179,19 @@
       "PR_link": null
     }
   ],
-  "next_step": "Finish matching9-gate upper circuit verification, then formulate a non-double-counting global OR-savings/AND-repair amortization invariant. Local9 cannot be summed blindly.",
+  "next_step": "Immediate same1692 continuation before20:41 guard: minimal-circuit normalization and overlap-aware OR-savings/AND-repair charging. Do not re-prove local9 or call desk.",
   "pending_prior_lease": null,
   "lease_public": {
-    "expires_at_UTC": "2026-11-24T11:31:31.820Z",
-    "expires_at_JST": "2026-11-24T20:31:31.820000+09:00"
+    "expires_at_UTC": "2026-11-24T11:39:32.378Z",
+    "expires_at_JST": "2026-11-24T20:39:32.378000+09:00"
   },
   "heartbeat_public": {
     "pid": 249632,
     "client": "bash tools/pnp.sh beat L-meta-1692",
     "interval_s": 480,
-    "last_success_JST": "2026-11-24T20:11:31.936245+09:00",
-    "state": "active_success_verified",
-    "guard_until": "20:41:46 JST",
+    "last_success_JST": "2026-11-24T20:19:32.508542+09:00",
+    "state": "only_remaining_process_real_research_batch_complete_needs_immediate_resume",
+    "guard_until": "20:41:46 JST, finite wall-clock guard",
     "guard_until_JST": "2026-11-24T20:41:46.635288+09:00"
   }
 }
