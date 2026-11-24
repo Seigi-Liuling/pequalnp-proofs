@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T10:37:04Z",
+  "updated_at_UTC": "2026-11-24T10:53:58Z",
   "task_id": "L-meta-1692",
   "exact_statement": "∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ (i : Fin gates.length), ∀ w ∈ (gates.get i).inputs, w < 26 + (i : ℕ)) → (∀ p l : Fin 13, p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u1 : Fin 13 => decide (u1 = p)) ++ List.ofFn (fun v1 : Fin 13 => decide (v1 = l))) = true) → (∀ Q : Finset (Fin 13), Q.card = 4 → (∀ k : Fin 13, (Q.filter (fun u0 : Fin 13 => u0 - k ∈ ({0, 1, 3, 9} : Finset (Fin 13)))).card ≤ 2) → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out⟩ (List.ofFn (fun u2 : Fin 13 => decide (u2 ∈ Q)) ++ List.ofFn (fun v2 : Fin 13 => decide (∀ r ∈ Q, r - v2 ∉ ({0, 1, 3, 9} : Finset (Fin 13))))) = false) → 64 ≤ gates.length",
   "file_paths": [
@@ -11,8 +11,8 @@
   "PR_link": null,
   "lease_status": "active_last_verified19:23:27JST_expires19:43:27JST",
   "research_scope": "all directions / task-level coordination",
-  "state": "working1692_bridge_formally_accepted_first_AND_checking",
-  "notes": "Live1692 research continuing, not heartbeat-only. Original unchanged checker ACCEPTED local Grok1692TwoHotBridge:1636 rechecked constants; only propext/Quot.sound/Classical.choice; sourceSHA256 f83e565d4dbaa08536138548ec9bf2a9cc458f215df300b248a6b7147d6ca12d. Exact auxiliary statement says any AND/OR circuit rejecting all234 official negative samples rejects every nonedge two-hot input (also repeated-index singletons); no fan-in/read-back assumption needed for this bridge. This is NOT1692 or64-gate proof. Also wrote global first-mixed-gate theorem using fold-prefix induction: any accepting pair trace with both singleton traces false has a first binary AND with complementary singleton-support operands, with all earlier wires still decomposable into singletons. Now running original checker on that exact auxiliary theorem, not yet claiming acceptance. For finite geometry found a compact26-negative cover from Singer orbits of quadrangles{0,1,4,6} and{0,1,5,11}, covering299 nonedge-or-diagonal pairs;26 is minimal for such covers because78 line-line pairs and3 covered per negative.26-cover is Python-verified only. Genuine remaining64-bound gap is global OR-sharing/nested-AND accounting: first gate certificates are not injectively assigned edges, and intermediate unsafe pairs may be filtered later. No source/toolchain/checker edits, no PR; official1692 skeleton still incomplete. Last verified official renewal19:31:28 JST, expiry19:51:28 JST, heartbeat2496328min wall-clock checks. Continuing this bounded batch, no other task.",
+  "state": "working1692_three_verified_components_exact52_specialization_checking",
+  "notes": "Still actual same-task research. Original checker accepted bridge1636, full causal first-AND prefix theorem1630, and their end-to-end accepted-two-hot composition1660 (all only3 standard axioms, no holes). Current source upgrades composition to ALL52 exact official incident sample inputs; Fin.castAdd/natAdd vs appended List.ofFn identity formally compiled; running original checker on this latest exact specialization before recording acceptance.64-gate target remains UNPROVED, no PR. Sharing analysis: each first AND can serve4 edges, so no injection/gate count follows; unsafe internal pairs may be filtered and formula expansion double-counts DAG OR sharing. Explicit concurrent line triple L0/L4/L10 is zero on all286 tests but nonzero elsewhere, proving samples cannot be treated as full-function correctness. Verified all234 negative7-sets are maximal independent; paper argument implies pure CNF needs234 distinct clauses (each uniquely complement of one negative), at least467 gates including combination, but not arbitrary mixed circuits. Bounded8-gate local two-star synthesis timed out40s with noSAT/UNSAT claim; known9-gate pinned control SAT and independently re-evaluated all64 projected samples. A focused next paper-to-Lean target:9-input two-star window cannot have8 gates, since all9 inputs are essential and equality fanin2 count forces read-once, while its connected two-hot graph is not complete bipartite. Not yet formalized. Found existing Support.cnt_step/cnt_suppsFrom/dep_lower to strengthen equality case rather than invent support semantics. Continuing until about20:00 JST, all search processes ended; only official heartbeat and final verifier active.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -25,8 +25,10 @@
     "solver_status": "none",
     "solver_pid": null,
     "bridge_status": "original_checker_ACCEPTED_1636_standard_axioms",
-    "first_AND_status": "original_checker_running",
-    "official1692_status": "not_proved_no_PR"
+    "first_AND_status": "original_checker_ACCEPTED_1630_standard_axioms",
+    "official1692_status": "unproved_no_PR",
+    "end_to_end_pair_status": "original_checker_ACCEPTED_1660_standard_axioms",
+    "exact52_status": "compiled_original_checker_running"
   },
   "task_history": [
     {
@@ -166,17 +168,17 @@
       "PR_link": null
     }
   ],
-  "next_step": "Finish kernel verification of global first-AND certificate, then investigate a correct global sharing potential rather than counting per-edge certificate trees multiple times. Preserve all results and report incomplete64 bound honestly.",
+  "next_step": "Finish final52-edge verifier, save exact local proof sources and reproducible gaps, then immediate parent same-task continuation on a focused two-star read-once equality lemma; no fourth repeated reduction and no claim64 solved.",
   "pending_prior_lease": null,
   "lease_public": {
-    "expires_at_UTC": "2026-11-24T10:51:28.035Z",
-    "expires_at_JST": "2026-11-24T19:51:28.035000+09:00"
+    "expires_at_UTC": "2026-11-24T11:07:29.829Z",
+    "expires_at_JST": "2026-11-24T20:07:29.829000+09:00"
   },
   "heartbeat_public": {
     "pid": 249632,
     "client": "bash tools/pnp.sh beat L-meta-1692",
     "interval_s": 480,
-    "last_success_JST": "2026-11-24T19:31:28.148937+09:00",
+    "last_success_JST": "2026-11-24T19:47:29.980960+09:00",
     "state": "last_beat_verified_success",
     "guard_until": "about20:08 JST; next worker must actively resume, not assume box will remain running"
   }
