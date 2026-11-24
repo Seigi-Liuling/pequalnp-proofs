@@ -1,0 +1,13 @@
+{
+  "theorem": "PEqualNP.Outside.Grok1692OverlapSupport",
+  "checker": "unchanged tools/check-lean.mjs, mode check",
+  "result": "ACCEPTED",
+  "rechecked_constants": 1661,
+  "axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "source_sha256": "de751ab8f919e12873d9adb3f1ecccd3d76ba1ee8ac0e47524fbfc671df8ba86",
+  "official1692_complete": false
+}

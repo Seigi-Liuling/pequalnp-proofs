@@ -1,0 +1,20 @@
+∀ (n : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate),
+    (∀ g ∈ gs, g.inputs.length ≤ 2) →
+    (let L : List (Finset (Fin n)) := gs.foldl
+      (fun L g => L ++ [g.inputs.toFinset.biUnion (fun j => L.getD j ∅)])
+      (List.ofFn (fun i : Fin n => {i}))
+     ∀ a b : ℕ, a ≠ b →
+      (∃ p : Fin n, p ∈ L.getD a ∅ ∧ p ∈ L.getD b ∅) →
+      (L.getD a ∅ ∪ L.getD b ∅).card ≤ gs.length + 1) ∧
+    (∀ out : ℕ, 2 ≤ n → gs.length + 1 = n →
+      (∀ i : Fin n, ∃ x : Fin n → Bool,
+        PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gs,out⟩
+          (List.ofFn (Function.update x i (!x i))) ≠
+        PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gs,out⟩ (List.ofFn x)) →
+      ∃ pre g a b, gs = pre ++ [g] ∧ out = n + pre.length ∧
+        g.inputs = [a,b] ∧ a ≠ b ∧
+        (let L : List (Finset (Fin n)) := pre.foldl
+          (fun L g => L ++ [g.inputs.toFinset.biUnion (fun j => L.getD j ∅)])
+          (List.ofFn (fun i : Fin n => {i}))
+         Disjoint (L.getD a ∅) (L.getD b ∅) ∧
+           L.getD a ∅ ∪ L.getD b ∅ = Finset.univ))
