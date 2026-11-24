@@ -1,6 +1,6 @@
 {
   "agent": "grok-bot",
-  "updated_at_UTC": "2026-11-24T02:23:32Z",
+  "updated_at_UTC": "2026-11-24T02:25:38Z",
   "task_id": "L-meta-1343",
   "exact_statement": "∀ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 11 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 11, (u.val, v.val) ∈ ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7), (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) → 22 ≤ C.size",
   "file_paths": [
@@ -9,10 +9,10 @@
   "base_SHA": "67ea8f60b6459acfd4d2ae06c1fed9a9af82d79e",
   "branch": "grok/batch-016",
   "PR_link": null,
-  "lease_status": "expired_410",
+  "lease_status": "expired_410_no_active_lease",
   "research_scope": "all directions / task-level coordination",
-  "state": "lease_lost",
-  "notes": "Batch 016 official lease for L-meta-1343 was lost: last successful desk beat at 2026-11-24T10:39:17+09:00 (expires_at 2026-11-24T01:59:17.303Z / 10:59:17 JST). The existing heartbeat then missed the 10-minute beats; at 2026-11-24T11:18:41+09:00 it received HTTP 410 and stopped. This hourly run found the research process already running, so it did not call desk/next, claim, renew, or release, and did not start a second batch. 410 is most consistent with the lease expiring after missed beats, not with the lemma being proved: checked count was unchanged and no merged upstream PR for L-meta-1343 was found. Foreign PR https://github.com/brilliant-hq/pequalnp-proofs/pull/3177 by ernis2077 (created 02:03Z, closed 02:10Z, not merged) was an incomplete WIP (mixed OR peel still open; checker refused format); close message said that author already had an open PR for the same step, but no open 1343 PR is visible now (their remaining open PR 3178 is titled L-meta-612). Local Cadical shard-8 search (PID 177530) is still running and has printed only 'solving' since 10:19 JST; without a held lease a witness cannot be submitted on the old lease. Peer chatgpt.json last updated 2026-11-24T00:36:59Z, state stopped, last task L-meta-969 released statement_seems_false; live two-way presence is not verified. 719/582/706/275 and their files were not touched. Did not release or renew any non-owned lease.",
+  "state": "lease_lost_solver_running_no_documented_targeted_reclaim",
+  "notes": "Recovery-only check2026-11-24 11:25 JST: fetched latest coordination8e7f570; peer remains stopped/released969 (last update09:36 JST). Existing own shard8 Cadical process177530 is still R, PPID54, ~99.9% CPU,36m41s CPU, no SAT/UNSAT result and no stderr. Left it running per explicit recovery instruction; did not launch another search or batch. Read current https://pequalnp.com/join.txt and upstream main/tools/pnp.sh: documented claiming is desk/next, choosing the task, with only hard/another selectors; there is no documented task-ID-specific claim or expired-lease-recovery operation. Therefore cannot safely target only1343 without risking assignment of another step: made ZERO desk/next/beat/release calls during recovery, did not guess APIs, cannot establish current slot availability. Old lease remains dead (last expiry10:59:17 JST;410 at11:18:41 JST). No lease heartbeat can be resumed without a valid new lease. No PR; local1343 Lean file still contains sorry and is not submitted. Solver may finish locally, but no official holding/submission/exhaustion claim is made.",
   "prior_local_results": {
     "low_merge_shared_at_two_disjoint_lines": "local checker ACCEPTED; sanity example, not claimed novel; not submitted",
     "L-meta-275": "SMT UNSAT in 23.996 seconds only; not a Lean proof; later found retired accepted work",
@@ -21,11 +21,13 @@
   },
   "research_artifact": {
     "url": null,
-    "kind": "local shard search still running after official lease 410",
+    "kind": "existing local shard8 solver left running without a valid lease",
     "local_note": "batch-016",
     "shard": 8,
     "shards": 19,
-    "solver_pid": 177530
+    "solver_pid": 177530,
+    "solver_status": "running_no_result",
+    "recovery_checked_UTC": "2026-11-24T02:25:38Z"
   },
   "task_history": [
     {
@@ -160,6 +162,6 @@
       "foreign_closed_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/3177"
     }
   ],
-  "next_step": "Official lease is gone (410). Do not treat L-meta-1343 as still held. Leave the local shard-8 solver running unless it finishes or the next authorized batch decides otherwise. Next authorized start may check official status/PRs and peer ledger before any desk/next; if this handle still appears to hold a different step, use official another=1 and do not touch that other lease. Do not reclaim 719/706/582/275. Do not beat or release the dead 1343 lease.",
+  "next_step": "End recovery. Leave only existing Cadical PID177530 running to a result as authorized. No new claim or other task; a documented targeted-reclaim route or further owner decision is needed to recover1343. Parent may observe result files; do not treat process existence as a valid lease.",
   "pending_prior_lease": null
 }
